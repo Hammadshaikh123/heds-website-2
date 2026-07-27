@@ -1,4 +1,4 @@
-  :root{
+:root{
     --navy:#0A1B33;
     --navy-2:#0E2547;
     --blue:#2F6FED;
@@ -485,21 +485,22 @@
   }
 
   /* Footer v2 */
-  .footer-logo-row{text-align:center;margin-bottom:36px;}
-  .logo-img-footer{height:64px;width:auto;margin:0 auto;}
-  .footer-grid--4{display:grid;grid-template-columns:1.3fr 1.4fr 1fr 1.3fr;gap:0;text-align:center;}
+  .footer-logo-row{text-align:left;margin-bottom:36px;}
+  .logo-img-footer{height:64px;width:auto;margin:0;}
+  .footer-grid--4{display:grid;grid-template-columns:1.3fr 1.4fr 1fr 1.3fr;gap:0;text-align:left;}
   @media(max-width:900px){.footer-grid--4{grid-template-columns:1fr 1fr;gap:32px;}}
   @media(max-width:560px){.footer-grid--4{grid-template-columns:1fr;}}
   .footer-col{padding:0 28px;}
+  .footer-col:first-child{padding-left:0;}
   .footer-divider{border-left:1px solid rgba(255,255,255,0.14);}
   @media(max-width:900px){.footer-divider{border-left:none;}}
-  .footer-col h5{text-align:center;}
-  .footer-col ul{display:inline-block;text-align:left;}
+  .footer-col h5{text-align:left;}
+  .footer-col ul{display:block;text-align:left;}
   .footer-contact-list{display:flex;flex-direction:column;gap:14px;text-align:left;}
   .footer-contact-list li{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:#C7D2E6;}
   .footer-contact-list .fic{flex-shrink:0;font-size:15px;margin-top:1px;}
   .bold-address{font-weight:800;color:#fff;}
-  .footer-social-row{display:flex;gap:12px;justify-content:center;margin-top:6px;}
+  .footer-social-row{display:flex;gap:12px;justify-content:flex-start;margin-top:6px;}
   .social-icon{
     width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,0.08);
     display:flex;align-items:center;justify-content:center;color:#fff;font-size:16px;
@@ -508,7 +509,7 @@
   .social-icon:hover{background:var(--blue);transform:translateY(-3px);}
   .social-icon--disabled{opacity:0.4;cursor:not-allowed;}
   .social-icon--disabled:hover{transform:none;background:rgba(255,255,255,0.08);}
-  .footer-social-note{font-size:12.5px;color:#9FB0CC;margin-top:14px;text-align:center;}
+  .footer-social-note{font-size:12.5px;color:#9FB0CC;margin-top:14px;text-align:left;}
   .fb-feed-placeholder{
     border:1.5px dashed rgba(255,255,255,0.25);border-radius:12px;padding:18px;text-align:center;
   }
