@@ -63,7 +63,7 @@
     display:flex;align-items:center;justify-content:space-between;
     padding:14px 32px;max-width:1360px;margin:0 auto;gap:24px;
   }
-  .logo{display:flex;align-items:center;gap:12px;}
+  .logo{display:flex;align-items:center;gap:12px;flex-shrink:0;}
   .logo-box{
     width:44px;height:44px;background:var(--white);
     border-radius:0; /* square, no round per brief */
@@ -81,7 +81,7 @@
     background:#fff;padding:8px 14px;border-radius:0;line-height:0;
     display:inline-flex;align-items:center;
   }
-  .logo-img-header{height:44px;width:auto;display:block;}
+  .logo-img-header{height:44px;width:auto;display:block;flex-shrink:0;object-fit:contain;}
   .logo-img-footer{height:56px;width:auto;display:block;}
   @media(max-width:1180px){.logo-img-header{height:36px;}}
   nav.links{display:flex;align-items:center;gap:30px;flex:1;justify-content:center;}
