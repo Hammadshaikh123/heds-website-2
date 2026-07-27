@@ -95,12 +95,18 @@
   }
   .btn-ghost-light:hover{background:rgba(255,255,255,0.1);}
   .nav-right .btn-accent{white-space:nowrap;padding:12px 20px;font-size:14px;}
-  .mobile-toggle{display:none;background:none;border:none;color:#fff;font-size:26px;cursor:pointer;}
+  .mobile-toggle{display:none;background:none;border:none;color:#fff;font-size:26px;cursor:pointer;flex-shrink:0;padding:2px 0 2px 8px;line-height:1;}
 
   @media(max-width:1180px){
     nav.links{display:none;}
     .mobile-toggle{display:block;}
     .nav-right .btn-ghost-light{display:none;}
+    .nav{padding:14px 18px;gap:14px;}
+    .nav-right{gap:8px;}
+    .nav-right .btn-accent{padding:10px 16px;font-size:13px;}
+  }
+  @media(max-width:400px){
+    .nav-right .btn-accent{padding:9px 12px;font-size:12px;}
   }
 
   /* HERO */
