@@ -491,7 +491,6 @@
   @media(max-width:900px){.footer-grid--4{grid-template-columns:1fr 1fr;gap:32px;}}
   @media(max-width:560px){.footer-grid--4{grid-template-columns:1fr;}}
   .footer-col{padding:0 28px;}
-  .footer-col:first-child{padding-left:0;}
   .footer-divider{border-left:1px solid rgba(255,255,255,0.14);}
   @media(max-width:900px){.footer-divider{border-left:none;}}
   .footer-col h5{text-align:left;}
