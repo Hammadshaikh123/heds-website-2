@@ -66,7 +66,7 @@
   .logo{display:flex;align-items:center;gap:12px;flex-shrink:0;}
   .logo-box{
     width:44px;height:44px;background:var(--white);
-    border-radius:0; /* square, no round per brief */
+    border-radius:0;
     display:flex;align-items:center;justify-content:center;
     font-family:'Poppins',sans-serif;font-weight:800;font-size:20px;color:var(--navy);
     flex-shrink:0;
@@ -76,7 +76,6 @@
   .logo--text{gap:0;}
   .logo-word--lg{font-size:21px;font-weight:700;letter-spacing:-0.01em;}
   .logo-word--lg span{font-size:11.5px;font-weight:500;color:#9FB0CC;letter-spacing:0.08em;text-transform:uppercase;margin-top:3px;}
-  /* Real logo image — square white plate, no rounded corners, sits on the navy header/footer */
   .logo--img{
     background:#fff;padding:8px 14px;border-radius:0;line-height:0;
     display:inline-flex;align-items:center;
@@ -95,11 +94,54 @@
   }
   .btn-ghost-light:hover{background:rgba(255,255,255,0.1);}
   .nav-right .btn-accent{white-space:nowrap;padding:12px 20px;font-size:14px;}
-  .mobile-toggle{display:none;background:none;border:none;color:#fff;font-size:26px;cursor:pointer;flex-shrink:0;padding:2px 0 2px 8px;line-height:1;}
+  
+  /* ★★★ UPDATED: Hamburger Button — Proper Styling ★★★ */
+  .mobile-toggle{
+    display:none;
+    background:none;
+    border:none;
+    color:#fff;
+    cursor:pointer;
+    flex-shrink:0;
+    padding:8px;
+    border-radius:8px;
+    transition:background .2s ease;
+    position:relative;
+    width:42px;
+    height:42px;
+    align-items:center;
+    justify-content:center;
+  }
+  .mobile-toggle:hover{background:rgba(255,255,255,0.1);}
+  .mobile-toggle .hamburger-icon{
+    display:flex;
+    flex-direction:column;
+    gap:5px;
+    width:22px;
+  }
+  .mobile-toggle .hamburger-icon span{
+    display:block;
+    width:100%;
+    height:2.5px;
+    background:#fff;
+    border-radius:2px;
+    transition:all .3s cubic-bezier(.22,1,.36,1);
+    transform-origin:center;
+  }
+  .mobile-toggle.active .hamburger-icon span:nth-child(1){
+    transform:translateY(7.5px) rotate(45deg);
+  }
+  .mobile-toggle.active .hamburger-icon span:nth-child(2){
+    opacity:0;
+    transform:scaleX(0);
+  }
+  .mobile-toggle.active .hamburger-icon span:nth-child(3){
+    transform:translateY(-7.5px) rotate(-45deg);
+  }
 
   @media(max-width:1180px){
     nav.links{display:none;}
-    .mobile-toggle{display:block;}
+    .mobile-toggle{display:flex;}
     .nav-right .btn-ghost-light{display:none;}
     .nav{padding:14px 18px;gap:14px;}
     .nav-right{gap:8px;}
@@ -107,6 +149,140 @@
   }
   @media(max-width:400px){
     .nav-right .btn-accent{padding:9px 12px;font-size:12px;}
+  }
+
+  /* ★★★ NEW: Mobile Menu Container ★★★ */
+  .mobile-menu{
+    display:none;
+    background:var(--navy);
+    border-top:1px solid rgba(255,255,255,0.08);
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .45s cubic-bezier(.22,1,.36,1);
+  }
+  .mobile-menu.open{
+    display:block;
+    max-height:800px;
+  }
+  .mobile-menu-inner{
+    padding:12px 18px 20px;
+  }
+  .mobile-menu-link{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    color:#fff;
+    font-size:14.5px;
+    font-weight:500;
+    padding:12px 14px;
+    border-radius:10px;
+    transition:background .2s ease;
+    cursor:pointer;
+  }
+  .mobile-menu-link:hover{
+    background:rgba(255,255,255,0.08);
+  }
+  .mobile-menu-link.active-link{
+    color:#F5B301;
+    background:rgba(245,179,1,0.08);
+  }
+  .mobile-menu-link .link-arrow{
+    font-size:12px;
+    opacity:0.6;
+    transition:transform .3s ease, opacity .3s ease;
+  }
+  .mobile-menu-link.expanded .link-arrow{
+    transform:rotate(180deg);
+    opacity:1;
+  }
+
+  /* ★★★ NEW: Mobile Submenu (Study Destinations) ★★★ */
+  .mobile-submenu{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .35s cubic-bezier(.22,1,.36,1);
+  }
+  .mobile-submenu.open{
+    max-height:500px;
+  }
+  .mobile-submenu-inner{
+    padding:6px 0 6px 14px;
+    display:grid;
+    grid-template-columns:1fr;
+    gap:2px;
+  }
+  .mobile-submenu-inner a{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    color:rgba(255,255,255,0.8);
+    font-size:13.5px;
+    font-weight:500;
+    padding:10px 14px;
+    border-radius:8px;
+    transition:all .2s ease;
+  }
+  .mobile-submenu-inner a:hover{
+    background:rgba(255,255,255,0.08);
+    color:#fff;
+  }
+  .mobile-submenu-inner a img{
+    width:20px;
+    height:14px;
+    object-fit:cover;
+    border-radius:2px;
+    flex-shrink:0;
+  }
+  .mobile-submenu-inner .country-sub-info{
+    font-size:11px;
+    color:rgba(255,255,255,0.4);
+    display:block;
+    margin-top:1px;
+  }
+
+  /* ★★★ NEW: Mobile Menu Divider & CTA ★★★ */
+  .mobile-menu-divider{
+    height:1px;
+    background:rgba(255,255,255,0.1);
+    margin:10px 0;
+  }
+  .mobile-menu-cta{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    background:var(--blue);
+    color:#fff;
+    font-size:13.5px;
+    font-weight:600;
+    padding:12px 16px;
+    border-radius:10px;
+    margin-top:12px;
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .mobile-menu-cta:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(47,111,237,0.35);
+  }
+  .mobile-menu-contact{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    margin-top:14px;
+    padding-top:14px;
+    border-top:1px solid rgba(255,255,255,0.08);
+  }
+  .mobile-menu-contact a{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    color:rgba(255,255,255,0.5);
+    font-size:12.5px;
+    padding:4px 0;
+    transition:color .2s ease;
+  }
+  .mobile-menu-contact a:hover{
+    color:#fff;
   }
 
   /* HERO */
@@ -169,7 +345,8 @@
   /* COUNTRIES */
   .countries-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:40px;}
   @media(max-width:960px){.countries-grid{grid-template-columns:repeat(2,1fr);}}
-  @media(max-width:560px){.countries-grid{grid-template-columns:1fr;}}
+  @media(max-width:560px){.countries-grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:400px){.countries-grid{grid-template-columns:1fr;}}
   .country-card{
     background:#fff;border:1px solid var(--line);border-radius:var(--radius);
     padding:22px;transition:transform .15s ease, box-shadow .15s ease;
@@ -390,12 +567,9 @@
   @media(max-width:560px){.wa-float span.label{display:none;}}
 
   /* ============ MODERN POLISH: entrance animations + hover effects ============ */
-
-  /* Scroll-reveal entrance animation (driven by main.js) */
   [data-animate]{opacity:0;transform:translateY(28px);transition:opacity .65s cubic-bezier(.22,1,.36,1), transform .65s cubic-bezier(.22,1,.36,1);}
   [data-animate].in-view{opacity:1;transform:translateY(0);}
 
-  /* Hero entrance, staggered on page load */
   @keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
   .hero .eyebrow{animation:fadeUp .7s cubic-bezier(.22,1,.36,1) both;}
   .hero h1{animation:fadeUp .75s cubic-bezier(.22,1,.36,1) .08s both;}
@@ -405,7 +579,6 @@
   .flags-row .flag-chip{transition:transform .2s ease, box-shadow .2s ease;}
   .flags-row .flag-chip:hover{transform:translateY(-3px);box-shadow:0 10px 22px rgba(10,27,51,0.14);}
 
-  /* Buttons: lift + shadow + subtle scale on hover, press feedback on click */
   .btn{transition:transform .2s cubic-bezier(.22,1,.36,1), box-shadow .2s ease, background-color .2s ease, color .2s ease;}
   .btn:hover{transform:translateY(-3px) scale(1.02);}
   .btn:active{transform:translateY(-1px) scale(0.99);}
@@ -413,11 +586,9 @@
   .btn-accent:hover{box-shadow:0 16px 32px rgba(47,111,237,0.4);}
   .btn-outline:hover{box-shadow:0 12px 26px rgba(10,27,51,0.12);}
 
-  /* Logo hover */
   .logo{transition:transform .2s ease;}
   .logo:hover{transform:scale(1.035);}
 
-  /* Nav link underline sweep */
   nav.links a{position:relative;}
   nav.links a::after{
     content:"";position:absolute;left:0;bottom:-2px;width:0;height:2px;
@@ -426,7 +597,6 @@
   nav.links a:hover::after{width:100%;}
   nav.links a.active::after{width:100%;}
 
-  /* Card hover lift, shared across all card types */
   .why-card,.service-card,.blog-card,.story-card,.gr-card,.team-card,.fact-card,.assess-card{
     transition:transform .3s cubic-bezier(.22,1,.36,1), box-shadow .3s ease, border-color .3s ease;
   }
@@ -437,20 +607,16 @@
   .country-card:hover{border-color:#C9D9F5;}
   .country-card:hover a{text-decoration:underline;}
 
-  /* Icon boxes: subtle pop on parent hover */
   .icon-box{transition:transform .3s cubic-bezier(.22,1,.36,1);}
   .why-card:hover .icon-box{transform:scale(1.1) rotate(-4deg);}
 
-  /* Blog card top bar grows on hover */
   .blog-card .tag-bar{transition:height .25s ease;}
   .blog-card:hover .tag-bar{height:9px;}
 
-  /* Step numbers pop in on hover */
   .step{transition:transform .25s ease;}
   .step:hover{transform:translateY(-4px);}
   .step:hover .num{-webkit-text-stroke-color:var(--navy);}
 
-  /* Gentle continuous float on the hero media frame for a modern, alive feel */
   @keyframes gentleFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
   .hero-banner{animation:gentleFloat 6s ease-in-out 1s infinite;}
 
@@ -466,7 +632,7 @@
   @media(max-width:1180px){.logo-img-header{height:38px;}}
   .btn-sm{padding:11px 20px;font-size:13.5px;}
 
-  /* Nav dropdown */
+  /* Nav dropdown - DESKTOP */
   .nav-dropdown{position:relative;}
   .nav-dropdown > a .caret{font-size:10px;margin-left:4px;opacity:0.8;}
   .nav-dropdown-menu{
@@ -484,10 +650,14 @@
   .nav-dropdown-menu a::after{display:none;}
   .nav-dropdown-menu a:hover{background:var(--ice);}
   .nav-dropdown-menu a img{width:18px;height:13px;object-fit:cover;border-radius:2px;}
+  
+  /* ★★★ UPDATED: Mobile dropdown — HIDDEN on mobile, uses separate mobile menu ★★★ */
   @media(max-width:1180px){
-    .nav-dropdown-menu{position:static;transform:none;opacity:1;pointer-events:auto;box-shadow:none;display:none;grid-template-columns:1fr;margin-top:6px;}
-    .nav-dropdown:hover .nav-dropdown-menu{display:none;}
-    .nav-dropdown.open .nav-dropdown-menu{display:grid;}
+    .nav-dropdown-menu{
+      display:none !important;
+      opacity:0 !important;
+      pointer-events:none !important;
+    }
   }
 
   /* Footer v2 */
@@ -578,7 +748,7 @@
   .themed-form select option{color:#0F1B2D;}
   .themed-form-note{font-size:11.5px;color:#8FA0C2;margin-top:14px;text-align:center;}
 
-  /* Hero v2: single-column text + narrow banner video with flag bubbles overlaid */
+  /* Hero v2 */
   .hero-v2{padding:56px 0 0;}
   .hero-text-block{max-width:720px;margin:0 auto;text-align:center;}
   .hero-text-block .eyebrow{justify-content:center;}
@@ -604,7 +774,7 @@
   .flag-bubble img{width:18px;height:13px;object-fit:cover;border-radius:2px;}
   @media(max-width:640px){.flag-bubble span{display:none;}.hero-banner-flags{bottom:10px;gap:6px;}.flag-bubble{padding:6px 10px;}}
 
-  /* Carousel component (success stories, blog, testimonials) */
+  /* Carousel component */
   .carousel{position:relative;display:flex;align-items:center;gap:10px;}
   .carousel-track{
     display:flex;gap:20px;overflow-x:auto;scroll-behavior:smooth;scroll-snap-type:x mandatory;
@@ -637,7 +807,7 @@
   .testimonial-name{font-size:14px;font-weight:700;margin-top:12px;}
   .testimonial-course{font-size:12px;color:var(--gray);}
 
-  /* About page: mission card, CEO section */
+  /* About page */
   .mission-card{
     background:var(--navy);color:#fff;border-radius:16px;padding:30px;position:relative;overflow:hidden;
   }
@@ -653,7 +823,7 @@
   .ceo-sign strong{display:block;font-size:16px;color:var(--navy);}
   .ceo-sign span{font-size:13px;color:var(--gray);}
 
-  /* Services page: longer-form cards */
+  /* Services page */
   .services-grid--long{grid-template-columns:repeat(2,1fr);}
   @media(max-width:800px){.services-grid--long{grid-template-columns:1fr;}}
   .services-grid--long .service-card p{font-size:14.5px;line-height:1.7;}
@@ -684,7 +854,7 @@
     position:absolute;top:24px;right:32px;color:#fff;font-size:36px;cursor:pointer;line-height:1;
   }
 
-  /* Country page header v2: dark navy pattern matching client reference */
+  /* Country page header v2 */
   .page-header--dark{
     background:var(--navy);padding:52px 0 44px;
   }
