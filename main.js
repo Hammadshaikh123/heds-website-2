@@ -1,28 +1,50 @@
+// ===== MOBILE MENU (NEW) =====
 document.addEventListener('DOMContentLoaded', function () {
-  var toggle = document.querySelector('.mobile-toggle');
-  if (!toggle) return;
-  toggle.addEventListener('click', function () {
-    var links = document.querySelector('nav.links');
-    if (!links) return;
-    var isOpen = links.style.display === 'flex';
-    if (isOpen) {
-      links.style.display = 'none';
-    } else {
-      links.style.display = 'flex';
-      links.style.flexDirection = 'column';
-      links.style.position = 'absolute';
-      links.style.top = '72px';
-      links.style.left = '0';
-      links.style.right = '0';
-      links.style.background = '#0A1B33';
-      links.style.padding = '20px 28px';
-      links.style.gap = '18px';
-      links.style.zIndex = '99';
+  var mobileToggle = document.querySelector('.mobile-toggle');
+  var mobileMenu = document.getElementById('mobileMenu');
+  var destToggle = document.getElementById('destToggle');
+  var destSubmenu = document.getElementById('destSubmenu');
+
+  if (mobileToggle && mobileMenu) {
+    mobileToggle.addEventListener('click', function (e) {
+      e.stopPropagation();
+      mobileToggle.classList.toggle('active');
+      mobileMenu.classList.toggle('open');
+      document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+    });
+
+    // Study Destinations submenu toggle
+    if (destToggle && destSubmenu) {
+      destToggle.addEventListener('click', function (e) {
+        e.stopPropagation();
+        destToggle.classList.toggle('expanded');
+        destSubmenu.classList.toggle('open');
+      });
+    }
+
+    // Close menu when any submenu link or nav link is clicked
+    mobileMenu.querySelectorAll('.mobile-submenu-inner a, .mobile-menu-link:not(#destToggle)').forEach(function (link) {
+      link.addEventListener('click', function () {
+        mobileToggle.classList.remove('active');
+        mobileMenu.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+  }
+
+  // Close menu when clicking outside
+  document.addEventListener('click', function (e) {
+    if (mobileToggle && mobileMenu) {
+      if (!mobileToggle.contains(e.target) && !mobileMenu.contains(e.target)) {
+        mobileToggle.classList.remove('active');
+        mobileMenu.classList.remove('open');
+        document.body.style.overflow = '';
+      }
     }
   });
 });
 
-// ---- Scroll-reveal entrance animations ----
+// ===== SCROLL-REVEAL ENTRANCE ANIMATIONS =====
 document.addEventListener('DOMContentLoaded', function () {
   var selector = [
     '.why-card', '.service-card', '.country-card', '.blog-card',
@@ -56,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
 
-// ---- Carousel prev/next buttons ----
+// ===== CAROUSEL PREV/NEXT BUTTONS =====
 document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('.carousel').forEach(function (carousel) {
     var track = carousel.querySelector('.carousel-track');
@@ -76,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-// ---- Nav dropdown tap-to-open on mobile ----
+// ===== NAV DROPDOWN TAP-TO-OPEN ON MOBILE (Desktop hover still works via CSS) =====
 document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('.nav-dropdown > a').forEach(function (a) {
     a.addEventListener('click', function (e) {
