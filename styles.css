@@ -723,3 +723,109 @@
   .fact-card--dark{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);}
   .fact-card--dark .fact-label{color:#8FA0C2;}
   .fact-card--dark .fact-value{color:#fff;}
+
+/* =========================================================
+   REVISION 3 — SUCCESS STORIES + BLOG LAYOUT
+   ========================================================= */
+
+/* SUCCESS STORIES — 3 VISIBLE CARDS */
+.carousel-track.stories-carousel{
+  display:flex;
+  gap:20px;
+  overflow-x:auto;
+  scroll-behavior:smooth;
+  scroll-snap-type:x mandatory;
+  padding-bottom:8px;
+}
+
+.carousel-track.stories-carousel .story-card{
+  scroll-snap-align:start;
+  flex:0 0 calc((100% - 40px) / 3);
+  min-width:0;
+}
+
+/* Tablet */
+@media(max-width:900px){
+  .carousel-track.stories-carousel .story-card{
+    flex:0 0 calc((100% - 20px) / 2);
+  }
+}
+
+/* Mobile */
+@media(max-width:600px){
+  .carousel-track.stories-carousel .story-card{
+    flex:0 0 100%;
+  }
+}
+
+
+/* =========================================================
+   BLOG — 5x5 SQUARE IMAGES + 3 VISIBLE CARDS
+   ========================================================= */
+
+.carousel-track.blog-carousel{
+  display:flex;
+  gap:20px;
+  overflow-x:auto;
+  scroll-behavior:smooth;
+  scroll-snap-type:x mandatory;
+  padding-bottom:8px;
+}
+
+.carousel-track.blog-carousel .blog-card{
+  scroll-snap-align:start;
+  flex:0 0 calc((100% - 40px) / 3);
+  min-width:0;
+}
+
+/* BLOG IMAGE — EXACT SQUARE 5x5 */
+.blog-card .blog-image,
+.blog-card .blog-img,
+.blog-card img{
+  width:100%;
+  aspect-ratio:1 / 1;
+  height:auto;
+  object-fit:cover;
+  display:block;
+}
+
+/* Tablet — 2 visible */
+@media(max-width:900px){
+  .carousel-track.blog-carousel .blog-card{
+    flex:0 0 calc((100% - 20px) / 2);
+  }
+}
+
+/* Mobile — 1 visible */
+@media(max-width:600px){
+  .carousel-track.blog-carousel .blog-card{
+    flex:0 0 100%;
+  }
+}
+
+
+/* BLOG CARD IMAGE WRAPPER */
+.blog-card .image-wrapper{
+  width:100%;
+  aspect-ratio:1 / 1;
+  overflow:hidden;
+}
+
+.blog-card .image-wrapper img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform .35s ease;
+}
+
+/* Image hover */
+.blog-card:hover .image-wrapper img{
+  transform:scale(1.05);
+}
+
+
+/* Keep blog content clean */
+.blog-card .content{
+  padding:20px;
+}
