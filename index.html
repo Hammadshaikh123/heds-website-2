@@ -24,7 +24,7 @@
     <nav class="links">
       <div class="nav-dropdown">
         <a href="countries.html">Study Destinations <span class="caret">&#9662;</span></a>
-        <div class="nav-dropdown-menu">
+        <div class="nav-dropdown-menu nav-dropdown-menu--single">
           <a href="country-sweden.html"><img src="https://flagcdn.com/w20/se.png" alt="">Sweden</a>
           <a href="country-finland.html"><img src="https://flagcdn.com/w20/fi.png" alt="">Finland</a>
           <a href="country-uk.html"><img src="https://flagcdn.com/w20/gb.png" alt="">United Kingdom</a>
@@ -48,7 +48,7 @@
 </header>
 
 <section class="hero hero-v2" id="home">
-  <div class="wrap">
+  <div class="wrap hero-layout">
     <div class="hero-text-block">
       <div class="eyebrow">From Here To The World</div>
       <h1>Your Global Education Journey, <span class="accent">Simplified.</span></h1>
@@ -57,19 +57,30 @@
         <a href="contact.html" class="btn btn-primary">Get Free Profile Assessment &rarr;</a>
       </div>
     </div>
-    <div class="hero-banner">
-      <video autoplay muted loop playsinline poster="hero-poster-london.jpg">
-        <source src="WhatsApp%20Video%202026-07-28%20at%202.34.08%20PM.mp4" type="video/mp4">
-      </video>
-      <div class="hero-banner-flags">
-        <div class="flag-bubble"><img src="https://flagcdn.com/w40/se.png" alt="Sweden">Sweden</div>
-        <div class="flag-bubble"><img src="https://flagcdn.com/w40/gb.png" alt="UK">UK</div>
-        <div class="flag-bubble"><img src="https://flagcdn.com/w40/fi.png" alt="Finland">Finland</div>
-        <div class="flag-bubble"><img src="https://flagcdn.com/w40/cn.png" alt="China">China</div>
-        <div class="flag-bubble"><img src="https://flagcdn.com/w40/dk.png" alt="Denmark">Denmark</div>
-        <div class="flag-bubble"><img src="https://flagcdn.com/w40/au.png" alt="Australia">Australia</div>
-        <div class="flag-bubble"><img src="https://flagcdn.com/w40/nz.png" alt="New Zealand">New Zealand</div>
-        <div class="flag-bubble"><img src="https://flagcdn.com/w40/cy.png" alt="Cyprus">Cyprus</div>
+    <div class="hero-banner hero-video-column">
+      <div class="hero-video-wrap">
+        <video autoplay muted loop playsinline poster="hero-poster-london.jpg" aria-label="HEDS International study abroad guidance video">
+          <!-- Keep the supplied vertical video filename here unless the approved final video changes. -->
+          <source src="WhatsApp%20Video%202026-07-28%20at%202.34.08%20PM.mp4" type="video/mp4">
+        </video>
+
+        <div class="hero-support-bubbles" aria-label="HEDS support services">
+          <div class="hero-support-bubble">University Matches</div>
+          <div class="hero-support-bubble">Visa Guidance</div>
+          <div class="hero-support-bubble">Application Support</div>
+          <div class="hero-support-bubble">Departure Support</div>
+        </div>
+
+        <div class="hero-banner-flags">
+          <div class="flag-bubble"><img src="https://flagcdn.com/w40/se.png" alt="Sweden">Sweden</div>
+          <div class="flag-bubble"><img src="https://flagcdn.com/w40/gb.png" alt="UK">UK</div>
+          <div class="flag-bubble"><img src="https://flagcdn.com/w40/fi.png" alt="Finland">Finland</div>
+          <div class="flag-bubble"><img src="https://flagcdn.com/w40/cn.png" alt="China">China</div>
+          <div class="flag-bubble"><img src="https://flagcdn.com/w40/dk.png" alt="Denmark">Denmark</div>
+          <div class="flag-bubble"><img src="https://flagcdn.com/w40/au.png" alt="Australia">Australia</div>
+          <div class="flag-bubble"><img src="https://flagcdn.com/w40/nz.png" alt="New Zealand">New Zealand</div>
+          <div class="flag-bubble"><img src="https://flagcdn.com/w40/cy.png" alt="Cyprus">Cyprus</div>
+        </div>
       </div>
     </div>
   </div>
@@ -117,6 +128,7 @@
     <div class="section-head">
       <div class="eyebrow">Process</div>
       <h2>Your Study Abroad Journey With HEDS</h2>
+      <p><strong>HEDS</strong> guides you from profile assessment to university selection, application, visa preparation and departure support.</p>
     </div>
     <div class="steps">
       <div class="step"><div class="num">01</div><h4>Free Profile Assessment</h4><p>We review your qualification, CGPA, budget, English test status and preferred intake.</p></div>
@@ -133,19 +145,20 @@
       <div>
         <div class="eyebrow" style="color:#8FB4FF;">Virtual Counselling</div>
         <h2>Talk to a Counsellor From Anywhere &mdash; Live on Zoom</h2>
-        <p>Can't make it to Lahore or Peshawar? Book a live video session with a HEDS counsellor. Sessions run weekly with limited slots to keep each call focused and personal.</p>
+        <p>Book a focused one-to-one session with a HEDS counsellor directly through the embedded Calendly scheduler.</p>
         <ul class="vc-facts">
-          <li>3 days a week, 11:00 AM &ndash; 6:00 PM</li>
-          <li>20-minute one-to-one sessions</li>
-          <li>Maximum 5 sessions per day, per counsellor</li>
-          <li>Hosted on Zoom, booked instantly via Calendly</li>
+          <li>Tuesday &ndash; Friday, 12:00 PM &ndash; 6:00 PM</li>
+          <li>Maximum 30-minute one-to-one session</li>
+          <li>Maximum 6 sessions per day</li>
+          <li>Book directly through Calendly</li>
         </ul>
-        <a href="virtual-counselling.html" class="btn btn-accent">Book Your Virtual Session &rarr;</a>
       </div>
-      <div class="vc-card">
-        <h4>Pick a time that works for you</h4>
-        <p class="small">Book a live Zoom session directly through our scheduler &mdash; takes less than a minute.</p>
-        <a href="virtual-counselling.html" class="btn btn-primary" style="width:100%;justify-content:center;">Open Scheduler &rarr;</a>
+      <div class="vc-card vc-card--calendly">
+        <h4>Book Your Virtual Counselling Session</h4>
+        <p class="small">Select an available Tuesday&ndash;Friday slot below.</p>
+        <!-- Replace YOUR_CALENDLY_LINK with the actual HEDS Calendly event URL. -->
+        <div class="calendly-inline-widget" data-url="https://calendly.com/YOUR_CALENDLY_LINK" style="min-width:320px;height:700px;"></div>
+        <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
       </div>
     </div>
   </div>
@@ -156,18 +169,38 @@
     <div class="section-head">
       <div class="eyebrow">Success Stories</div>
       <h2>Real Students. Real Admissions.</h2>
+      <p>Explore student admission success stories through our 9-slide carousel.</p>
     </div>
-    <div class="carousel">
+    <div class="carousel stories-carousel-wrap">
       <button class="carousel-btn carousel-prev" aria-label="Previous">&#10094;</button>
       <div class="carousel-track stories-grid stories-carousel">
-        <div class="success-img-card success-img-card--home" onclick="window.location.href='success-stories.html'"><img src="story-02.jpg" alt="HEDS International success story 2" loading="lazy"></div>
-      <div class="success-img-card success-img-card--home" onclick="window.location.href='success-stories.html'"><img src="story-03.jpg" alt="HEDS International success story 3" loading="lazy"></div>
-      <div class="success-img-card success-img-card--home" onclick="window.location.href='success-stories.html'"><img src="story-04.jpg" alt="HEDS International success story 4" loading="lazy"></div>
-      <div class="success-img-card success-img-card--home" onclick="window.location.href='success-stories.html'"><img src="story-05.jpg" alt="HEDS International success story 5" loading="lazy"></div>
-      <div class="success-img-card success-img-card--home" onclick="window.location.href='success-stories.html'"><img src="story-06.jpg" alt="HEDS International success story 6" loading="lazy"></div>
-      <div class="success-img-card success-img-card--home" onclick="window.location.href='success-stories.html'"><img src="story-07.jpg" alt="HEDS International success story 7" loading="lazy"></div>
-      <div class="success-img-card success-img-card--home" onclick="window.location.href='success-stories.html'"><img src="story-08.jpg" alt="HEDS International success story 8" loading="lazy"></div>
-      <div class="success-img-card success-img-card--home" onclick="window.location.href='success-stories.html'"><img src="story-09.jpg" alt="HEDS International success story 9" loading="lazy"></div>
+        <div class="success-img-card success-img-card--home" onclick="window.location.href='success-stories.html'">
+          <img src="story-01.jpg" alt="HEDS International success story 1" loading="lazy">
+        </div>
+<div class="success-img-card success-img-card--home" onclick="window.location.href='success-stories.html'">
+          <img src="story-02.jpg" alt="HEDS International success story 2" loading="lazy">
+        </div>
+<div class="success-img-card success-img-card--home" onclick="window.location.href='success-stories.html'">
+          <img src="story-03.jpg" alt="HEDS International success story 3" loading="lazy">
+        </div>
+<div class="success-img-card success-img-card--home" onclick="window.location.href='success-stories.html'">
+          <img src="story-04.jpg" alt="HEDS International success story 4" loading="lazy">
+        </div>
+<div class="success-img-card success-img-card--home" onclick="window.location.href='success-stories.html'">
+          <img src="story-05.jpg" alt="HEDS International success story 5" loading="lazy">
+        </div>
+<div class="success-img-card success-img-card--home" onclick="window.location.href='success-stories.html'">
+          <img src="story-06.jpg" alt="HEDS International success story 6" loading="lazy">
+        </div>
+<div class="success-img-card success-img-card--home" onclick="window.location.href='success-stories.html'">
+          <img src="story-07.jpg" alt="HEDS International success story 7" loading="lazy">
+        </div>
+<div class="success-img-card success-img-card--home" onclick="window.location.href='success-stories.html'">
+          <img src="story-08.jpg" alt="HEDS International success story 8" loading="lazy">
+        </div>
+<div class="success-img-card success-img-card--home" onclick="window.location.href='success-stories.html'">
+          <img src="story-09.jpg" alt="HEDS International success story 9" loading="lazy">
+        </div>
       </div>
       <button class="carousel-btn carousel-next" aria-label="Next">&#10095;</button>
     </div>
@@ -180,16 +213,41 @@
     <div class="section-head">
       <div class="eyebrow">News &amp; Updates</div>
       <h2>Study Abroad Guides for Pakistani Students</h2>
+      <p>Helpful updates, comparisons and visa guidance for students planning their international education journey.</p>
     </div>
-    <div class="carousel">
+    <div class="carousel blog-carousel-wrap">
       <button class="carousel-btn carousel-prev" aria-label="Previous">&#10094;</button>
       <div class="carousel-track blog-grid blog-carousel">
-        <div class="blog-card"><div class="tag-bar"></div><div class="content"><div class="cat">Sweden</div><h4>Sweden Student Visa Requirements for Pakistani Students (2026)</h4><a class="read" href="blog-sweden-visa-2026.html">Read guide &rarr;</a></div></div>
-      <div class="blog-card"><div class="tag-bar"></div><div class="content"><div class="cat">Comparison</div><h4>UK vs Sweden: Which Is Better After Bachelor's?</h4><a class="read" href="blog-uk-vs-sweden.html">Read guide &rarr;</a></div></div>
-      <div class="blog-card"><div class="tag-bar"></div><div class="content"><div class="cat">Scholarships</div><h4>Top Fully Funded Scholarships for Pakistani Students</h4><a class="read" href="blog-scholarships.html">Read guide &rarr;</a></div></div>
-      <div class="blog-card"><div class="tag-bar"></div><div class="content"><div class="cat">IELTS</div><h4>IELTS Requirements for Sweden Universities</h4><a class="read" href="blog-ielts-sweden.html">Read guide &rarr;</a></div></div>
-      <div class="blog-card"><div class="tag-bar"></div><div class="content"><div class="cat">Visa</div><h4>Sweden Study Visa Pakistan: Complete Guide</h4><a class="read" href="blog-sweden-visa-guide.html">Read guide &rarr;</a></div></div>
-      <div class="blog-card"><div class="tag-bar"></div><div class="content"><div class="cat">UK</div><h4>UK Student Visa Consultant in Lahore: What to Know</h4><a class="read" href="blog-uk-consultant-lahore.html">Read guide &rarr;</a></div></div>
+        <div class="blog-card">
+          <a class="blog-card-image" href="blog-sweden-visa-2026.html"><img src="blog-images/sweden-visa-2026.jpg" alt="Sweden Student Visa Requirements for Pakistani Students (2026)" loading="lazy"></a>
+          <div class="tag-bar"></div>
+          <div class="content"><div class="cat">Sweden</div><h4>Sweden Student Visa Requirements for Pakistani Students (2026)</h4><a class="read" href="blog-sweden-visa-2026.html">Read guide &rarr;</a></div>
+        </div>
+<div class="blog-card">
+          <a class="blog-card-image" href="blog-uk-vs-sweden.html"><img src="blog-images/uk-vs-sweden.jpg" alt="UK vs Sweden: Which Is Better After Bachelor's?" loading="lazy"></a>
+          <div class="tag-bar"></div>
+          <div class="content"><div class="cat">Comparison</div><h4>UK vs Sweden: Which Is Better After Bachelor's?</h4><a class="read" href="blog-uk-vs-sweden.html">Read guide &rarr;</a></div>
+        </div>
+<div class="blog-card">
+          <a class="blog-card-image" href="blog-scholarships.html"><img src="blog-images/scholarships.jpg" alt="Top Fully Funded Scholarships for Pakistani Students" loading="lazy"></a>
+          <div class="tag-bar"></div>
+          <div class="content"><div class="cat">Scholarships</div><h4>Top Fully Funded Scholarships for Pakistani Students</h4><a class="read" href="blog-scholarships.html">Read guide &rarr;</a></div>
+        </div>
+<div class="blog-card">
+          <a class="blog-card-image" href="blog-ielts-sweden.html"><img src="blog-images/ielts-sweden.jpg" alt="IELTS Requirements for Sweden Universities" loading="lazy"></a>
+          <div class="tag-bar"></div>
+          <div class="content"><div class="cat">IELTS</div><h4>IELTS Requirements for Sweden Universities</h4><a class="read" href="blog-ielts-sweden.html">Read guide &rarr;</a></div>
+        </div>
+<div class="blog-card">
+          <a class="blog-card-image" href="blog-sweden-visa-guide.html"><img src="blog-images/sweden-visa-guide.jpg" alt="Sweden Study Visa Pakistan: Complete Guide" loading="lazy"></a>
+          <div class="tag-bar"></div>
+          <div class="content"><div class="cat">Visa</div><h4>Sweden Study Visa Pakistan: Complete Guide</h4><a class="read" href="blog-sweden-visa-guide.html">Read guide &rarr;</a></div>
+        </div>
+<div class="blog-card">
+          <a class="blog-card-image" href="blog-uk-consultant-lahore.html"><img src="blog-images/uk-consultant-lahore.jpg" alt="UK Student Visa Consultant in Lahore: What to Know" loading="lazy"></a>
+          <div class="tag-bar"></div>
+          <div class="content"><div class="cat">UK</div><h4>UK Student Visa Consultant in Lahore: What to Know</h4><a class="read" href="blog-uk-consultant-lahore.html">Read guide &rarr;</a></div>
+        </div>
       </div>
       <button class="carousel-btn carousel-next" aria-label="Next">&#10095;</button>
     </div>
@@ -217,97 +275,105 @@
       <h2>What Students Say &mdash; Google &amp; Facebook Reviews</h2>
       <p style="margin:0 auto;">Genuine reviews from our students, shown here as shared &mdash; nothing rewritten.</p>
     </div>
-    <div class="carousel" style="margin-top:36px;">
+    <div class="carousel testimonials-carousel-wrap" style="margin-top:36px;">
       <button class="carousel-btn carousel-prev" aria-label="Previous">&#10094;</button>
       <div class="carousel-track testimonial-carousel">
         <div class="testimonial-card">
-        <div class="testimonial-photo">&#128100;</div>
-        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <div class="testimonial-quote">"[Review text pending &mdash; paste directly from Google.]"</div>
-        <div class="testimonial-name">[Student Name]</div>
-        <div class="testimonial-course">[Course] &mdash; [University]</div>
-        <span class="pending-tag">Pending real content</span>
-      </div>
-      <div class="testimonial-card">
-        <div class="testimonial-photo">&#128100;</div>
-        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <div class="testimonial-quote">"[Review text pending &mdash; paste directly from Facebook.]"</div>
-        <div class="testimonial-name">[Student Name]</div>
-        <div class="testimonial-course">[Course] &mdash; [University]</div>
-        <span class="pending-tag">Pending real content</span>
-      </div>
-      <div class="testimonial-card">
-        <div class="testimonial-photo">&#128100;</div>
-        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <div class="testimonial-quote">"[Review text pending &mdash; paste directly from Google.]"</div>
-        <div class="testimonial-name">[Student Name]</div>
-        <div class="testimonial-course">[Course] &mdash; [University]</div>
-        <span class="pending-tag">Pending real content</span>
-      </div>
-      <div class="testimonial-card">
-        <div class="testimonial-photo">&#128100;</div>
-        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <div class="testimonial-quote">"[Review text pending &mdash; paste directly from Facebook.]"</div>
-        <div class="testimonial-name">[Student Name]</div>
-        <div class="testimonial-course">[Course] &mdash; [University]</div>
-        <span class="pending-tag">Pending real content</span>
-      </div>
-      <div class="testimonial-card">
-        <div class="testimonial-photo">&#128100;</div>
-        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <div class="testimonial-quote">"[Review text pending &mdash; paste directly from Google.]"</div>
-        <div class="testimonial-name">[Student Name]</div>
-        <div class="testimonial-course">[Course] &mdash; [University]</div>
-        <span class="pending-tag">Pending real content</span>
-      </div>
-      <div class="testimonial-card">
-        <div class="testimonial-photo">&#128100;</div>
-        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <div class="testimonial-quote">"[Review text pending &mdash; paste directly from Facebook.]"</div>
-        <div class="testimonial-name">[Student Name]</div>
-        <div class="testimonial-course">[Course] &mdash; [University]</div>
-        <span class="pending-tag">Pending real content</span>
-      </div>
-      <div class="testimonial-card">
-        <div class="testimonial-photo">&#128100;</div>
-        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <div class="testimonial-quote">"[Review text pending &mdash; paste directly from Google.]"</div>
-        <div class="testimonial-name">[Student Name]</div>
-        <div class="testimonial-course">[Course] &mdash; [University]</div>
-        <span class="pending-tag">Pending real content</span>
-      </div>
-      <div class="testimonial-card">
-        <div class="testimonial-photo">&#128100;</div>
-        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <div class="testimonial-quote">"[Review text pending &mdash; paste directly from Facebook.]"</div>
-        <div class="testimonial-name">[Student Name]</div>
-        <div class="testimonial-course">[Course] &mdash; [University]</div>
-        <span class="pending-tag">Pending real content</span>
-      </div>
-      <div class="testimonial-card">
-        <div class="testimonial-photo">&#128100;</div>
-        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <div class="testimonial-quote">"[Review text pending &mdash; paste directly from Google.]"</div>
-        <div class="testimonial-name">[Student Name]</div>
-        <div class="testimonial-course">[Course] &mdash; [University]</div>
-        <span class="pending-tag">Pending real content</span>
-      </div>
-      <div class="testimonial-card">
-        <div class="testimonial-photo">&#128100;</div>
-        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <div class="testimonial-quote">"[Review text pending &mdash; paste directly from Facebook.]"</div>
-        <div class="testimonial-name">[Student Name]</div>
-        <div class="testimonial-course">[Course] &mdash; [University]</div>
-        <span class="pending-tag">Pending real content</span>
-      </div>
-      <div class="testimonial-card">
-        <div class="testimonial-photo">&#128100;</div>
-        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <div class="testimonial-quote">"[Review text pending &mdash; paste directly from Google.]"</div>
-        <div class="testimonial-name">[Student Name]</div>
-        <div class="testimonial-course">[Course] &mdash; [University]</div>
-        <span class="pending-tag">Pending real content</span>
-      </div>
+          <div class="testimonial-photo">&#128100;</div>
+          <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="testimonial-quote">"[Paste Review 1 directly from Google.]"</div>
+          <div class="testimonial-name">[Student Name]</div>
+          <div class="testimonial-course">[Course] &mdash; [University]</div>
+          <span class="pending-tag">Replace with real Google review</span>
+        </div>
+<div class="testimonial-card">
+          <div class="testimonial-photo">&#128100;</div>
+          <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="testimonial-quote">"[Paste Review 2 directly from Facebook.]"</div>
+          <div class="testimonial-name">[Student Name]</div>
+          <div class="testimonial-course">[Course] &mdash; [University]</div>
+          <span class="pending-tag">Replace with real Facebook review</span>
+        </div>
+<div class="testimonial-card">
+          <div class="testimonial-photo">&#128100;</div>
+          <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="testimonial-quote">"[Paste Review 3 directly from Google.]"</div>
+          <div class="testimonial-name">[Student Name]</div>
+          <div class="testimonial-course">[Course] &mdash; [University]</div>
+          <span class="pending-tag">Replace with real Google review</span>
+        </div>
+<div class="testimonial-card">
+          <div class="testimonial-photo">&#128100;</div>
+          <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="testimonial-quote">"[Paste Review 4 directly from Facebook.]"</div>
+          <div class="testimonial-name">[Student Name]</div>
+          <div class="testimonial-course">[Course] &mdash; [University]</div>
+          <span class="pending-tag">Replace with real Facebook review</span>
+        </div>
+<div class="testimonial-card">
+          <div class="testimonial-photo">&#128100;</div>
+          <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="testimonial-quote">"[Paste Review 5 directly from Google.]"</div>
+          <div class="testimonial-name">[Student Name]</div>
+          <div class="testimonial-course">[Course] &mdash; [University]</div>
+          <span class="pending-tag">Replace with real Google review</span>
+        </div>
+<div class="testimonial-card">
+          <div class="testimonial-photo">&#128100;</div>
+          <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="testimonial-quote">"[Paste Review 6 directly from Facebook.]"</div>
+          <div class="testimonial-name">[Student Name]</div>
+          <div class="testimonial-course">[Course] &mdash; [University]</div>
+          <span class="pending-tag">Replace with real Facebook review</span>
+        </div>
+<div class="testimonial-card">
+          <div class="testimonial-photo">&#128100;</div>
+          <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="testimonial-quote">"[Paste Review 7 directly from Google.]"</div>
+          <div class="testimonial-name">[Student Name]</div>
+          <div class="testimonial-course">[Course] &mdash; [University]</div>
+          <span class="pending-tag">Replace with real Google review</span>
+        </div>
+<div class="testimonial-card">
+          <div class="testimonial-photo">&#128100;</div>
+          <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="testimonial-quote">"[Paste Review 8 directly from Facebook.]"</div>
+          <div class="testimonial-name">[Student Name]</div>
+          <div class="testimonial-course">[Course] &mdash; [University]</div>
+          <span class="pending-tag">Replace with real Facebook review</span>
+        </div>
+<div class="testimonial-card">
+          <div class="testimonial-photo">&#128100;</div>
+          <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="testimonial-quote">"[Paste Review 9 directly from Google.]"</div>
+          <div class="testimonial-name">[Student Name]</div>
+          <div class="testimonial-course">[Course] &mdash; [University]</div>
+          <span class="pending-tag">Replace with real Google review</span>
+        </div>
+<div class="testimonial-card">
+          <div class="testimonial-photo">&#128100;</div>
+          <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="testimonial-quote">"[Paste Review 10 directly from Facebook.]"</div>
+          <div class="testimonial-name">[Student Name]</div>
+          <div class="testimonial-course">[Course] &mdash; [University]</div>
+          <span class="pending-tag">Replace with real Facebook review</span>
+        </div>
+<div class="testimonial-card">
+          <div class="testimonial-photo">&#128100;</div>
+          <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="testimonial-quote">"[Paste Review 11 directly from Google.]"</div>
+          <div class="testimonial-name">[Student Name]</div>
+          <div class="testimonial-course">[Course] &mdash; [University]</div>
+          <span class="pending-tag">Replace with real Google review</span>
+        </div>
+<div class="testimonial-card">
+          <div class="testimonial-photo">&#128100;</div>
+          <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="testimonial-quote">"[Paste Review 12 directly from Facebook.]"</div>
+          <div class="testimonial-name">[Student Name]</div>
+          <div class="testimonial-course">[Course] &mdash; [University]</div>
+          <span class="pending-tag">Replace with real Facebook review</span>
+        </div>
       </div>
       <button class="carousel-btn carousel-next" aria-label="Next">&#10095;</button>
     </div>
