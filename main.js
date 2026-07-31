@@ -1,29 +1,33 @@
-document.addEventListener('DOMContentLoaded', function () {
-  var toggle = document.querySelector('.mobile-toggle');
-  if (!toggle) return;
-  toggle.addEventListener('click', function () {
-    var links = document.querySelector('nav.links');
-    if (!links) return;
-    var isOpen = links.style.display === 'flex';
-    if (isOpen) {
-      links.style.display = 'none';
-    } else {
-      links.style.display = 'flex';
-      links.style.flexDirection = 'column';
-      links.style.position = 'absolute';
-      links.style.top = '72px';
-      links.style.left = '0';
-      links.style.right = '0';
-      links.style.background = '#0A1B33';
-      links.style.padding = '20px 28px';
-      links.style.gap = '18px';
-      links.style.zIndex = '99';
-    }
-  });
-});
+// ============================================================
+// COMPLETE main.js
+// ============================================================
 
-// ---- Scroll-reveal entrance animations ----
 document.addEventListener('DOMContentLoaded', function () {
+  // ---- Mobile Toggle ----
+  var toggle = document.querySelector('.mobile-toggle');
+  if (toggle) {
+    toggle.addEventListener('click', function () {
+      var links = document.querySelector('nav.links');
+      if (!links) return;
+      var isOpen = links.style.display === 'flex';
+      if (isOpen) {
+        links.style.display = 'none';
+      } else {
+        links.style.display = 'flex';
+        links.style.flexDirection = 'column';
+        links.style.position = 'absolute';
+        links.style.top = '72px';
+        links.style.left = '0';
+        links.style.right = '0';
+        links.style.background = '#0A1B33';
+        links.style.padding = '20px 28px';
+        links.style.gap = '18px';
+        links.style.zIndex = '99';
+      }
+    });
+  }
+
+  // ---- Scroll-reveal animations ----
   var selector = [
     '.why-card', '.service-card', '.country-card', '.blog-card',
     '.story-card', '.gr-card', '.team-card', '.fact-card', '.assess-card',
@@ -54,10 +58,8 @@ document.addEventListener('DOMContentLoaded', function () {
   } else {
     els.forEach(function (el) { el.classList.add('in-view'); });
   }
-});
 
-// ---- Carousel prev/next buttons ----
-document.addEventListener('DOMContentLoaded', function () {
+  // ---- Carousel prev/next ----
   document.querySelectorAll('.carousel').forEach(function (carousel) {
     var track = carousel.querySelector('.carousel-track');
     var prev = carousel.querySelector('.carousel-prev');
@@ -67,17 +69,19 @@ document.addEventListener('DOMContentLoaded', function () {
       var card = track.querySelector(':scope > *');
       return card ? card.getBoundingClientRect().width + 20 : 300;
     }
-    if (prev) prev.addEventListener('click', function () {
-      track.scrollBy({ left: -scrollAmount(), behavior: 'smooth' });
-    });
-    if (next) next.addEventListener('click', function () {
-      track.scrollBy({ left: scrollAmount(), behavior: 'smooth' });
-    });
+    if (prev) {
+      prev.addEventListener('click', function () {
+        track.scrollBy({ left: -scrollAmount(), behavior: 'smooth' });
+      });
+    }
+    if (next) {
+      next.addEventListener('click', function () {
+        track.scrollBy({ left: scrollAmount(), behavior: 'smooth' });
+      });
+    }
   });
-});
 
-// ---- Nav dropdown tap-to-open on mobile ----
-document.addEventListener('DOMContentLoaded', function () {
+  // ---- Nav dropdown mobile ----
   document.querySelectorAll('.nav-dropdown > a').forEach(function (a) {
     a.addEventListener('click', function (e) {
       if (window.innerWidth <= 1180) {
@@ -111,4 +115,35 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   });
+});
+
+// ---- Lightbox functions (global) ----
+function openLightbox(src) {
+  var overlay = document.getElementById('lightbox-overlay');
+  var img = document.getElementById('lightbox-img');
+  if (!overlay || !img) return;
+  img.src = src;
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  var overlay = document.getElementById('lightbox-overlay');
+  if (!overlay) return;
+  overlay.classList.remove('open');
+  document.body.style.overflow = 'auto';
+}
+
+// Close lightbox on Escape key and overlay click
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape') closeLightbox();
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  var overlay = document.getElementById('lightbox-overlay');
+  if (overlay) {
+    overlay.addEventListener('click', function (e) {
+      if (e.target === this) closeLightbox();
+    });
+  }
 });
