@@ -746,4 +746,8 @@ nav.links a.active::after{width:100%;}
 .why-card:hover,.service-card:hover,.blog-card:hover,.story-card:hover,.gr-card:hover,.team-card:hover,.fact-card:hover,.assess-card:hover{
     transform:translateY(-7px);box-shadow:0 20px 42px rgba(10,27,51,0.14);border-color:#C9D9F5;
 }
-.country-card{transition:transform .3s cubic-bezier(.22,1,.36,
+.country-card{transition:transform .3s cubic-bezier(.22,1,.36,1), box-shadow .3s ease, border-color .3s ease;}
+.country-card:hover{border-color:#C9D9F5;}
+.country-card:hover a{text-decoration:underline;}
+
+.icon-box{transition:
