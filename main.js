@@ -82,36 +82,15 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // ---- Nav dropdown mobile ----
+  // Just toggles the "open" class — all appearance (background, text
+  // color, spacing) is handled by styles.css (.nav-dropdown.open ...),
+  // so it isn't duplicated here.
   document.querySelectorAll('.nav-dropdown > a').forEach(function (a) {
     a.addEventListener('click', function (e) {
       if (window.innerWidth <= 1180) {
         e.preventDefault();
         e.stopPropagation();
-        var menu = a.parentElement.querySelector('.nav-dropdown-menu');
-        if (!menu) return;
-        if (menu.style.display === 'grid') {
-          menu.style.display = 'none';
-        } else {
-          menu.style.display = 'grid';
-          menu.style.position = 'static';
-          menu.style.transform = 'none';
-          menu.style.opacity = '1';
-          menu.style.pointerEvents = 'auto';
-          menu.style.boxShadow = 'none';
-          menu.style.background = '#0A1B33';
-          menu.style.borderRadius = '10px';
-          menu.style.padding = '8px';
-          menu.style.marginTop = '6px';
-          menu.style.minWidth = 'auto';
-          menu.style.gridTemplateColumns = '1fr';
-          menu.style.zIndex = '200';
-          menu.querySelectorAll('a').forEach(function(link) {
-            link.style.color = 'rgba(255,255,255,0.85)';
-            link.style.padding = '11px 14px';
-            link.style.borderRadius = '8px';
-            link.style.fontSize = '14px';
-          });
-        }
+        a.parentElement.classList.toggle('open');
       }
     });
   });
