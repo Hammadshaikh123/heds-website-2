@@ -1,3 +1,4 @@
+/* ===== COMPLETE CSS - ALL PAGES ===== */
 :root{
     --navy:#0A1B33;
     --navy-2:#0E2547;
@@ -736,21 +737,4 @@ nav.links a.active::after{width:100%;}
 .icon-box{transition:transform .3s cubic-bezier(.22,1,.36,1);}
 .why-card:hover .icon-box{transform:scale(1.1) rotate(-4deg);}
 
-.blog-card .tag-bar{transition:height .25s ease;}
-.blog-card:hover .tag-bar{height:9px;}
-
-.step{transition:transform .25s ease;}
-.step:hover{transform:translateY(-4px);}
-.step:hover .num{-webkit-text-stroke-color:var(--navy);}
-
-@keyframes gentleFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
-.hero-banner{animation:gentleFloat 6s ease-in-out 1s infinite;}
-
-/* SUCCESS IMAGE GRID */
-.success-img-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:18px;
-}
-@media(max-width:960px){.success-img-grid{grid-template-columns:repeat(3,1fr);}}
-@media(max-width:640px){.success-img-grid{grid-template-columns:repeat(
+.blog-card .tag-bar{transition:
