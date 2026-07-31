@@ -461,7 +461,7 @@
 
   /* ============ REVISION 2: nav dropdown, new footer, country pages, forms ============ */
 
-  .logo--plain{display:flex;align-items:center;}
+  .logo--plain{display:flex;align-items:center;background:#fff;padding:8px 14px;border-radius:10px;}
   .logo-img-header{height:46px;width:auto;display:block;}
   @media(max-width:1180px){.logo-img-header{height:38px;}}
   .btn-sm{padding:11px 20px;font-size:13.5px;}
@@ -494,6 +494,8 @@
 
   /* Footer v2 */
   .footer-logo-row{text-align:left;margin-bottom:36px;}
+  .footer-logo-row{display:block;}
+  .footer-logo-row .logo-img-footer{background:#fff;padding:10px 16px;border-radius:10px;}
   .logo-img-footer{height:64px;width:auto;margin:0;}
   .footer-grid--4{display:grid;grid-template-columns:1.3fr 1.4fr 1fr 1.3fr;gap:0;text-align:left;}
   @media(max-width:900px){.footer-grid--4{grid-template-columns:1fr 1fr;gap:32px;}}
