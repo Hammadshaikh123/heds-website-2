@@ -53,6 +53,7 @@
     <p class="lead-sm">72 real success stories from HEDS International students &mdash; shared exactly as posted.</p>
   </div>
 </section>
+
 <section class="section">
   <div class="wrap">
     <div class="success-img-grid">
@@ -132,7 +133,7 @@
   </div>
 </section>
 
-<div id="lightbox-overlay" class="lightbox-overlay">
+<div class="lightbox-overlay" id="lightbox-overlay">
   <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
   <img id="lightbox-img" src="" alt="Success story">
 </div>
@@ -192,26 +193,11 @@
     </div>
   </div>
 </footer>
+
 <a class="wa-float" href="https://wa.me/923368676999?text=Hi%20HEDS%2C%20I%20want%20to%20check%20my%20eligibility%20for%20studying%20abroad." target="_blank" rel="noopener">
   &#128172; <span class="label">Chat with Admission Expert</span>
 </a>
+
 <script src="/main.js"></script>
-<script>
-function openLightbox(src){
-  document.getElementById('lightbox-img').src = src;
-  document.getElementById('lightbox-overlay').classList.add('open');
-}
-function closeLightbox(){
-  document.getElementById('lightbox-overlay').classList.remove('open');
-}
-// Close on Escape key
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') closeLightbox();
-});
-// Close on overlay click
-document.getElementById('lightbox-overlay').addEventListener('click', function(e) {
-  if (e.target === this) closeLightbox();
-});
-</script>
 </body>
 </html>
