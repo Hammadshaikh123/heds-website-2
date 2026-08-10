@@ -958,34 +958,68 @@ nav.links a.active{
     }
 }
 
+
+/* ==========================================================================
+   UPDATED: SUCCESS STORIES GRID & CARDS (3 Cards Per Row)
+   ========================================================================== */
+
+/* Success Stories 3-Column Grid Layout */
+.success-stories-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+}
+
 .success-img-card--home{
     scroll-snap-align:start;
-    flex:0 0 200px;
+    width: 100%;
     border-radius:12px;
     overflow:hidden;
     cursor:pointer;
     transition:transform .25s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .success-img-card--home img{
-    width:200px;
-    height:200px;
+    width:100%;
+    height:auto;
+    aspect-ratio: 1 / 1;
     object-fit:cover;
     display:block;
 }
 
+@media(max-width:900px){
+    .success-stories-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width:560px){
+    .success-stories-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* ==========================================================================
+   UPDATED: BLOG & NEWS SECTION (Fixed 3 Cards Calculation - No 2.5 Cutoff)
+   ========================================================================== */
+
 .blog-grid{
     display:flex;
     gap:24px;
+    width: 100%;
 }
 
+/* Card Width: calc((100% - total gap width) / 3) to show exact 3 cards */
 .blog-card{
-    min-width:240px;
+    flex: 0 0 calc((100% - 48px) / 3);
+    min-width: 0;
     background:#fff;
     border-radius:20px;
     overflow:hidden;
     box-shadow:0 4px 12px rgba(0,0,0,0.04);
-    flex:0 0 auto;
 }
 
 .blog-card .tag-bar{
@@ -1017,6 +1051,41 @@ nav.links a.active{
     margin-top:14px;
     display:inline-block;
 }
+
+/* Standalone News & Updates Page Grid Layout */
+.news-page-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+/* News Page Cleanup (Hide slider controls) */
+.news-page .carousel-btn,
+.news-page .load-more-btn,
+.news-page .slider-controls {
+    display: none !important;
+}
+
+@media(max-width:900px){
+    .blog-card {
+        flex: 0 0 calc((100% - 24px) / 2);
+    }
+    .news-page-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width:600px){
+    .blog-card {
+        flex: 0 0 100%;
+    }
+    .news-page-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* TESTIMONIALS */
 
 .testimonial-carousel .testimonial-card{
     scroll-snap-align:start;
@@ -1819,4 +1888,30 @@ footer .wrap{
     color:#8FA0C2;
     margin-top:14px;
     text-align:center;
+}
+
+
+/* ==========================================================================
+   UPDATED: CONTACT / ASSESSMENT PAGE (Google Form Extra Elements Removal)
+   ========================================================================== */
+
+/* Hides extra Google Form redundant elements/buttons */
+.prefer-google-form-block,
+.btn-open-form,
+.google-form-btn-wrapper {
+    display: none !important;
+}
+
+/* Embedded Form Container Layout */
+.google-form-container {
+    width: 100%;
+    margin-top: 24px;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.google-form-container iframe {
+    width: 100%;
+    min-height: 800px;
+    border: none;
 }
