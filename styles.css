@@ -1152,3 +1152,131 @@ nav.links {
         max-height: 52px !important;
     }
 }
+
+
+/* =====================================================
+   FINAL UNIVERSITY LOGO + NAME ALIGNMENT FIX
+   Logo LEFT + University name RIGHT
+   Same horizontal layout for Finland, Sweden & all logos
+   ===================================================== */
+
+.uni-card {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 16px !important;
+}
+
+.uni-card-logo {
+    width: 58px !important;
+    height: 58px !important;
+    min-width: 58px !important;
+    max-width: 58px !important;
+    flex: 0 0 58px !important;
+
+    display: block !important;
+    object-fit: contain !important;
+    object-position: center !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+}
+
+.uni-card-name {
+    display: block !important;
+    flex: 1 1 auto !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--navy);
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Keep special university logos horizontal too */
+.uni-card-logo[src*="LUT"],
+.uni-card-logo[src*="oulu"],
+.uni-card-logo[src*="Oulu"],
+.uni-card-logo[src*="Jyu"] {
+    height: 58px !important;
+    max-height: 58px !important;
+    object-fit: contain !important;
+    flex-shrink: 0 !important;
+}
+
+/* Finland flags/logos must never be stretched */
+.uni-card-logo[src*="finland"],
+.uni-card-logo[src*="Finland"] {
+    object-fit: contain !important;
+    object-position: center !important;
+}
+
+/* Sweden flags/logos must never be stretched */
+.uni-card-logo[src*="sweden"],
+.uni-card-logo[src*="Sweden"] {
+    object-fit: contain !important;
+    object-position: center !important;
+}
+
+/* Extra protection against global image rules */
+.uni-card img {
+    max-width: none !important;
+    margin: 0 !important;
+}
+
+/* Tablet */
+@media(max-width:900px) {
+    .uni-card {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 14px !important;
+    }
+
+    .uni-card-logo {
+        width: 54px !important;
+        height: 54px !important;
+        min-width: 54px !important;
+        max-width: 54px !important;
+        flex: 0 0 54px !important;
+    }
+
+    .uni-card-name {
+        font-size: 13.5px;
+    }
+}
+
+/* Mobile */
+@media(max-width:560px) {
+    .uni-card {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        gap: 12px !important;
+    }
+
+    .uni-card-logo {
+        width: 50px !important;
+        height: 50px !important;
+        min-width: 50px !important;
+        max-width: 50px !important;
+        flex: 0 0 50px !important;
+    }
+
+    .uni-card-name {
+        font-size: 12.5px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
