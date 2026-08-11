@@ -900,3 +900,255 @@
 .hero-banner--v3{animation:none !important;}
 .hero-banner--v3 video{transform:none !important;}
 img{height:auto;}
+
+/* =====================================================
+   FINAL STABILITY + FINLAND / SWEDEN LOGO FIX
+   ===================================================== */
+
+/* Header: keep logo/nav/buttons aligned on all screens */
+header {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    overflow: visible;
+}
+
+.nav {
+    width: 100%;
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.logo,
+.logo--img,
+.logo--plain {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.logo-img-header {
+    height: 42px;
+    width: auto;
+    max-width: 190px;
+    object-fit: contain !important;
+    object-position: center;
+    display: block;
+}
+
+nav.links {
+    min-width: 0;
+}
+
+.nav-right {
+    flex-shrink: 0;
+}
+
+/* Hero video: prevent stretched/cropped broken rendering */
+.hero-banner--v3 {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    background: #000;
+}
+
+.hero-banner--v3 video,
+.hero-banner video {
+    width: 100% !important;
+    height: 100% !important;
+    display: block !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+    transform: none !important;
+    margin: 0 !important;
+}
+
+.hero-banner--v3::before,
+.hero-banner--v3::after {
+    pointer-events: none;
+}
+
+.hero-banner--v3 .hero-banner-flags {
+    position: absolute;
+    z-index: 10;
+}
+
+/* University sliders - support both class versions */
+.uni-card,
+.uni-slide {
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.uni-card-logo,
+.uni-slide-badge img,
+.uni-slide img {
+    display: block !important;
+    flex-shrink: 0 !important;
+    object-fit: contain !important;
+    object-position: center center !important;
+    background: transparent !important;
+}
+
+/* Main university-card logo: never stretch or crop */
+.uni-card-logo {
+    width: 58px !important;
+    height: 58px !important;
+    min-width: 58px !important;
+    max-width: 58px !important;
+    min-height: 58px !important;
+    max-height: 58px !important;
+}
+
+/* Finland / Sweden university logos: give them enough breathing room.
+   These rules intentionally use contain so the complete logo remains visible. */
+.uni-card-logo[src*="finland" i],
+.uni-card-logo[src*="Finnish" i],
+.uni-card-logo[src*="helsinki" i],
+.uni-card-logo[src*="aalto" i],
+.uni-card-logo[src*="tampere" i],
+.uni-card-logo[src*="turku" i],
+.uni-card-logo[src*="oulu" i],
+.uni-card-logo[src*="lut" i],
+.uni-card-logo[src*="sweden" i],
+.uni-card-logo[src*="Swedish" i],
+.uni-card-logo[src*="lund" i],
+.uni-card-logo[src*="uppsala" i],
+.uni-card-logo[src*="kth" i],
+.uni-card-logo[src*="stockholm" i],
+.uni-card-logo[src*="gothenburg" i] {
+    width: 70px !important;
+    height: 60px !important;
+    min-width: 70px !important;
+    max-width: 70px !important;
+    min-height: 60px !important;
+    max-height: 60px !important;
+    object-fit: contain !important;
+}
+
+/* Existing wide-logo exceptions remain proportional */
+.uni-card-logo[src*="LUT" i] {
+    width: 76px !important;
+    min-width: 76px !important;
+    max-width: 76px !important;
+}
+
+.uni-card-logo[src*="oulu" i] {
+    width: 78px !important;
+    min-width: 78px !important;
+    max-width: 78px !important;
+}
+
+.uni-card-logo[src*="Jyu" i],
+.uni-card-logo[src*="Jyvaskyla" i],
+.uni-card-logo[src*="Jyväskylä" i] {
+    width: 68px !important;
+    min-width: 68px !important;
+    max-width: 68px !important;
+}
+
+/* Alternative slider markup */
+.uni-slide-badge {
+    width: 78px !important;
+    height: 62px !important;
+    min-width: 78px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: hidden;
+    flex-shrink: 0 !important;
+}
+
+.uni-slide-badge img,
+.uni-slide > img {
+    width: auto !important;
+    height: auto !important;
+    max-width: 72px !important;
+    max-height: 56px !important;
+}
+
+/* Flags: preserve the actual flag image instead of cropping it */
+.flag-bubble img,
+.country-flag img,
+.country-list-nav img,
+.nav-dropdown-menu a img {
+    display: block !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    flex-shrink: 0;
+}
+
+.flag-bubble img {
+    width: 18px !important;
+    height: 12px !important;
+}
+
+.country-flag img {
+    width: 40px !important;
+    height: 27px !important;
+}
+
+.country-list-nav img {
+    width: 28px !important;
+    height: 19px !important;
+}
+
+.nav-dropdown-menu a img {
+    width: 18px !important;
+    height: 12px !important;
+}
+
+/* Mobile */
+@media (max-width: 1180px) {
+    .nav {
+        min-height: 62px;
+        padding: 12px 18px;
+    }
+
+    .logo-img-header {
+        height: 36px;
+        max-width: 170px;
+    }
+}
+
+@media (max-width: 560px) {
+    .logo-img-header {
+        height: 32px;
+        max-width: 145px;
+    }
+
+    .uni-card-logo {
+        width: 54px !important;
+        height: 54px !important;
+        min-width: 54px !important;
+        max-width: 54px !important;
+        min-height: 54px !important;
+        max-height: 54px !important;
+    }
+
+    .uni-card-logo[src*="finland" i],
+    .uni-card-logo[src*="Finnish" i],
+    .uni-card-logo[src*="helsinki" i],
+    .uni-card-logo[src*="aalto" i],
+    .uni-card-logo[src*="tampere" i],
+    .uni-card-logo[src*="turku" i],
+    .uni-card-logo[src*="oulu" i],
+    .uni-card-logo[src*="sweden" i],
+    .uni-card-logo[src*="Swedish" i],
+    .uni-card-logo[src*="lund" i],
+    .uni-card-logo[src*="uppsala" i],
+    .uni-card-logo[src*="kth" i],
+    .uni-card-logo[src*="stockholm" i],
+    .uni-card-logo[src*="gothenburg" i] {
+        width: 62px !important;
+        height: 52px !important;
+        min-width: 62px !important;
+        max-width: 62px !important;
+        min-height: 52px !important;
+        max-height: 52px !important;
+    }
+}
