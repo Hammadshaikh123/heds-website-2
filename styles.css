@@ -581,6 +581,7 @@
   .scholarship-card ul{margin:0;padding-left:18px;}
   .scholarship-card li{font-size:13.5px;color:var(--gray);margin-bottom:5px;}
 
+  /* UNIVERSITY SLIDER - UPDATED FOR LOGOS */
   .uni-slider{overflow:hidden;margin-top:32px;position:relative;}
   .uni-slider::before,.uni-slider::after{
     content:"";position:absolute;top:0;bottom:0;width:60px;z-index:2;
@@ -591,11 +592,42 @@
   .uni-slider:hover .uni-slider-track{animation-play-state:paused;}
   @keyframes uniScroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
   .uni-slide{
-    background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 22px;
-    display:flex;align-items:center;gap:10px;white-space:nowrap;box-shadow:var(--shadow);
+    background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 20px;
+    display:flex;align-items:center;gap:12px;white-space:nowrap;box-shadow:var(--shadow);
+    min-width:200px;
   }
-  .uni-slide-badge img{width:22px;height:16px;object-fit:cover;border-radius:2px;}
-  .uni-slide-name{font-size:13.5px;font-weight:700;color:var(--navy);}
+  .uni-slide-badge{
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;
+    width:70px;height:50px;
+  }
+  .uni-slide-badge img{
+    max-width:70px;
+    max-height:50px;
+    width:auto;
+    height:auto;
+    object-fit:contain;
+  }
+  .uni-slide-name{font-size:13.5px;font-weight:700;color:var(--navy);line-height:1.3;}
+
+  @media(max-width:768px){
+    .uni-slide{
+      min-width:160px;
+      padding:12px 14px;
+      gap:10px;
+    }
+    .uni-slide-badge{
+      width:50px;
+      height:40px;
+    }
+    .uni-slide-badge img{
+      max-width:50px;
+      max-height:40px;
+    }
+    .uni-slide-name{
+      font-size:12px;
+    }
+  }
 
   .country-form-section{background:var(--navy);}
   .country-form-card{
