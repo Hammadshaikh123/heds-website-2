@@ -841,9 +841,9 @@
 
   /* Success stories: real image gallery + lightbox */
   .success-img-grid{
-    display:grid;grid-template-columns:repeat(4,1fr);gap:18px;
+    display:grid;grid-template-columns:repeat(3,1fr);gap:18px;
   }
-  @media(max-width:960px){.success-img-grid{grid-template-columns:repeat(3,1fr);}}
+  @media(max-width:960px){.success-img-grid{grid-template-columns:repeat(2,1fr);}}
   @media(max-width:640px){.success-img-grid{grid-template-columns:repeat(2,1fr);}}
   .success-img-card{
     border-radius:12px;overflow:hidden;cursor:pointer;box-shadow:var(--shadow);
