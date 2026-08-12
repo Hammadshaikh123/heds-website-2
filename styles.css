@@ -73,98 +73,47 @@ header {
   gap: 20px;
 }
 
-/* LOGO CONTAINER FIX */
-.logo {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
+/* WHITE ROUNDED LOGO BADGE (NO TEXT) */
+.logo,
+.logo--plain,
+.logo--img {
+  background: #fff !important;
+  padding: 8px 16px !important;
+  border-radius: 12px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: auto !important;
+  max-width: fit-content !important;
   flex-shrink: 0;
   transition: transform .2s ease;
-  width: auto;
-  max-width: fit-content;
   text-decoration: none;
+  line-height: 1;
 }
 
 .logo:hover {
   transform: scale(1.03);
 }
 
-/* White background badge shape */
-.logo--plain,
-.logo--img {
-  background: #fff;
-  padding: 8px 16px;
-  border-radius: 10px;
-  line-height: 1;
-}
-
-.logo-box {
-  width: 48px;
-  height: 48px;
-  background: var(--white);
-  border-radius: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.logo-box img {
-  width: 32px;
-  height: 32px;
-  object-fit: contain;
-}
-
-.logo-word, 
+/* HIDE ALL TEXT & EXTRA BOXES */
+.logo-text,
+.logo-name,
+.logo-tagline,
+.logo-word,
 .logo-word span,
-.logo-word--lg, 
-.logo-word--lg span {
+.logo-word--lg,
+.logo-word--lg span,
+.logo-box {
   display: none !important;
 }
 
-/* LOGO TEXT COLOR FIX (Invisible Text Problem Solved) */
-.logo-text {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-/* White background par text ko visible dark color diya hai */
-.logo-text span {
-  font-family: 'Inter', sans-serif;
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--navy, #0f172a) !important; 
-  letter-spacing: 0.02em;
-  white-space: nowrap;
-}
-
-.logo-name {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 700;
-  font-size: 16px;
-  color: var(--navy, #0f172a) !important;
-  line-height: 1.1;
-  letter-spacing: -0.01em;
-}
-
-.logo-tagline {
-  font-family: 'Inter', sans-serif;
-  font-weight: 500;
-  font-size: 10.5px;
-  color: #475569 !important;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
+/* ONLY LOGO IMAGE FIT */
 .logo-img-header {
-  height: 40px;
-  width: auto;
-  max-width: 180px;
-  display: block;
-  flex-shrink: 0;
-  object-fit: contain;
-  object-position: left center;
+  height: 40px !important;
+  width: auto !important;
+  max-width: 180px !important;
+  display: block !important;
+  object-fit: contain !important;
 }
 
 .logo-img-footer {
