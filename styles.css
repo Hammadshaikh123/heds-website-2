@@ -911,24 +911,33 @@ header {
   .uni-slider-track{display:flex;gap:20px;width:max-content;animation:uniScroll 26s linear infinite;}
   .uni-slider:hover .uni-slider-track{animation-play-state:paused;}
   @keyframes uniScroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
-  .uni-slide{
-    background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 20px;
-    display:flex;align-items:center;gap:14px;white-space:nowrap;box-shadow:var(--shadow);
-    min-width:220px;
-  }
-  .uni-slide-badge{
-    display:flex;align-items:center;justify-content:center;
-    flex-shrink:0;
-    width:58px;height:58px;
-    background:#fff;border-radius:8px;padding:4px;
-  }
-  .uni-slide-badge img{
-    max-width:54px;
-    max-height:54px;
-    width:auto;
-    height:auto;
-    object-fit:contain;
-  }
+  /* Slider Cards Fix */
+.uni-slide {
+  width: auto !important; /* Fixed wide width hatane ke liye */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 15px; /* Compact padding */
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Light shadow */
+  margin: 0 10px; /* Slides ke beech space */
+}
+
+/* Badge Container Fix */
+.uni-slide-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Logo Sizing Fix */
+.uni-slide-badge img {
+  max-height: 45px; /* Compact height */
+  width: auto;
+  max-width: 120px; /* Logo ki max width limit */
+  object-fit: contain;
+}
   .uni-slide-name{font-size:14px;font-weight:700;color:var(--navy);line-height:1.3;}
 
   @media(max-width:768px){
