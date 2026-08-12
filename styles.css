@@ -217,26 +217,24 @@
   text-align: left;
 }
 
-/* Right Side Vertical Video Container Fix */
+/* Clean Right Side Video Card */
 .hero-media,
 .hero-banner-vertical {
   position: relative;
-  flex: 0 0 380px !important;
-  width: 380px !important;
-  max-width: 100%;
-  align-self: stretch; /* Height mismatch fix karne ke liye */
-  display: flex;
+  width: 320px !important;
+  height: 500px !important;
+  flex: 0 0 320px !important;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 .video-wrapper {
   position: relative !important;
   width: 100%;
-  min-height: 520px; /* Properly expands vertical banner */
   height: 100%;
   border-radius: 24px;
   overflow: hidden;
-  box-shadow: 0 20px 40px rgba(10, 27, 51, 0.15);
-  background: #0E2547;
 }
 
 .video-wrapper video,
@@ -246,6 +244,7 @@
   object-fit: cover;
   display: block;
 }
+
 
 .yt-embed-wrap {
   position: relative;
@@ -279,41 +278,42 @@
   z-index: 2;
 }
 
-/* Flags Overlay Floating inside Video Bottom */
+
+
+/* Exact Floating Flag Badges Overlay */
 .flags-row,
 .hero-banner-flags {
   position: absolute !important;
-  bottom: 16px;
-  left: 10px;
-  right: 10px;
+  bottom: 20px;
+  left: 12px;
+  right: 12px;
   display: flex !important;
-  gap: 6px;
   flex-wrap: wrap;
   justify-content: center;
+  gap: 6px 8px;
   z-index: 10;
-  margin-top: 0;
+  margin: 0;
 }
 
 .flag-chip,
 .flag-bubble {
-  background: rgba(255, 255, 255, 0.92) !important;
-  backdrop-filter: blur(6px);
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.95) !important;
   border-radius: 20px;
-  padding: 5px 10px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
+  padding: 4px 10px;
   font-size: 11px;
   font-weight: 700;
-  color: #0b132b;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+  color: #1e293b;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  border: none;
 }
 
 .flag-chip img,
 .flag-bubble img {
-  width: 16px;
-  height: 12px;
+  width: 15px;
+  height: 11px;
   object-fit: cover;
   border-radius: 2px;
 }
