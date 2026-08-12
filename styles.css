@@ -31,7 +31,7 @@
   }
   a{text-decoration:none;color:inherit;}
   ul{margin:0;padding:0;list-style:none;}
-  img{max-width:100%;display:block;}
+  img{max-width:100%;display:block;height:auto;}
   .wrap{max-width:1200px;margin:0 auto;padding:0 28px;}
   .section{padding:88px 0;}
   .eyebrow{
@@ -44,42 +44,38 @@
     display:inline-flex;align-items:center;gap:10px;
     padding:14px 26px;border-radius:100px;font-weight:600;font-size:15px;
     font-family:'Inter',sans-serif;cursor:pointer;border:2px solid transparent;
-    transition:transform .15s ease, box-shadow .15s ease;
+    transition:transform .2s cubic-bezier(.22,1,.36,1), box-shadow .2s ease, background-color .2s ease, color .2s ease;
   }
-  .btn:hover{transform:translateY(-1px);}
+  .btn:hover{transform:translateY(-3px) scale(1.02);}
+  .btn:active{transform:translateY(-1px) scale(0.99);}
   .btn-primary{background:var(--navy);color:#fff;}
-  .btn-primary:hover{box-shadow:0 10px 24px rgba(10,27,51,0.28);}
+  .btn-primary:hover{box-shadow:0 16px 32px rgba(10,27,51,0.32);}
   .btn-outline{background:transparent;border-color:var(--navy);color:var(--navy);}
-  .btn-outline:hover{background:var(--navy);color:#fff;}
+  .btn-outline:hover{background:var(--navy);color:#fff;box-shadow:0 12px 26px rgba(10,27,51,0.12);}
   .btn-accent{background:var(--blue);color:#fff;}
-  .btn-accent:hover{box-shadow:0 10px 24px rgba(47,111,237,0.35);}
+  .btn-accent:hover{box-shadow:0 16px 32px rgba(47,111,237,0.4);}
 
   /* HEADER */
   header{
-    background:var(--navy);position:sticky;top:0;z-index:100;
+    background:var(--navy);position:sticky;top:0;z-index:1000;
     border-bottom:1px solid rgba(255,255,255,0.08);
+    width:100%;overflow:visible;
   }
   .nav{
-    display:flex;align-items:center;justify-content:space-between;
+    display:flex;align-items:center;justify-space-between;
     padding:16px 32px;max-width:1360px;margin:0 auto;gap:20px;
+    width:100%;min-height:70px;
   }
-  .logo{display:flex;align-items:center;gap:14px;flex-shrink:0;transition:transform .2s ease;}
+  .logo, .logo--img, .logo--plain{display:flex;align-items:center;gap:14px;flex-shrink:0;transition:transform .2s ease;}
   .logo:hover{transform:scale(1.03);}
   .logo-box{
     width:48px;height:48px;background:var(--white);
-    border-radius:0;
-    display:flex;align-items:center;justify-content:center;
-    flex-shrink:0;
+    border-radius:0;display:flex;align-items:center;justify-content:center;flex-shrink:0;
   }
   .logo-box img{width:32px;height:32px;object-fit:contain;}
-  .logo-word{display:none;}
-  .logo-word span{display:none;}
+  .logo-word, .logo-word span, .logo-word--lg, .logo-word--lg span{display:none;}
   .logo--text{gap:0;}
-  .logo-word--lg{display:none;}
-  .logo-word--lg span{display:none;}
-  .logo-text{
-    display:flex;flex-direction:column;gap:2px;
-  }
+  .logo-text{display:flex;flex-direction:column;gap:2px;}
   .logo-name{
     font-family:'Poppins',sans-serif;font-weight:700;font-size:18px;
     color:#fff;line-height:1.1;letter-spacing:-0.01em;
@@ -92,57 +88,87 @@
     background:#fff;padding:10px 16px;border-radius:0;line-height:0;
     display:inline-flex;align-items:center;gap:14px;
   }
-  .logo-img-header{height:42px;width:auto;max-width:190px;display:block;flex-shrink:0;object-fit:contain;object-position:center;}
+  .logo--plain{background:#fff;padding:8px 14px;border-radius:10px;}
+  .logo-img-header{
+    height:42px;width:auto;max-width:190px;display:block;flex-shrink:0;
+    object-fit:contain !important;object-position:center;
+  }
   .logo-img-footer{height:56px;width:auto;display:block;}
 
-  nav.links{display:flex;align-items:center;gap:28px;flex:1;justify-content:center;}
+  nav.links{display:flex;align-items:center;gap:28px;flex:1;justify-content:center;min-width:0;}
   nav.links a{
     color:#fff;font-size:14px;font-weight:500;opacity:0.85;
-    white-space:nowrap;padding:6px 0;
-    border-bottom:2px solid transparent;
+    white-space:nowrap;padding:6px 0;border-bottom:2px solid transparent;
     transition:opacity .15s ease, border-color .15s ease;
-    position:relative;
+    position:relative;flex-shrink:0;
   }
   nav.links a:hover{opacity:1;}
   nav.links a::after{
     content:"";position:absolute;left:0;bottom:-2px;width:0;height:2px;
     background:var(--blue);transition:width .25s cubic-bezier(.22,1,.36,1);
   }
-  nav.links a:hover::after{width:100%;}
+  nav.links a:hover::after, nav.links a.active::after{width:100%;}
   nav.links a.active{opacity:1;border-bottom-color:var(--blue);}
-  nav.links a.active::after{width:100%;}
 
-  .nav-right{display:flex;align-items:center;gap:12px;flex-shrink:0;}
+  .nav-right{display:flex;align-items:center;gap:12px;flex-shrink:0;margin-left:auto;}
   .btn-ghost-light{
-    color:#fff;border:1.5px solid rgba(255,255,255,0.5);
-    background:transparent;
+    color:#fff;border:1.5px solid rgba(255,255,255,0.5);background:transparent;
     padding:10px 18px;border-radius:100px;font-size:13px;font-weight:600;white-space:nowrap;
     transition:background .2s ease, border-color .2s ease;
   }
   .btn-ghost-light:hover{background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.7);}
-  .nav-right .btn-accent{
-    white-space:nowrap;padding:12px 22px;font-size:14px;
-  }
+  .nav-right .btn-accent{white-space:nowrap;padding:12px 22px;font-size:14px;}
+  .btn-sm{padding:11px 20px;font-size:13.5px;}
   .mobile-toggle{display:none;background:none;border:none;color:#fff;font-size:28px;cursor:pointer;flex-shrink:0;padding:4px;line-height:1;}
+
+  /* Nav dropdown */
+  .nav-dropdown{position:relative;}
+  .nav-dropdown > a .caret{font-size:10px;margin-left:4px;opacity:0.8;}
+  .nav-dropdown-menu{
+    position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(8px);
+    background:#fff;border-radius:12px;box-shadow:0 20px 45px rgba(10,27,51,0.22);
+    padding:10px;display:grid;grid-template-columns:1fr;gap:2px;
+    min-width:220px;opacity:0;pointer-events:none;transition:opacity .2s ease, transform .2s ease;
+    z-index:150;
+  }
+  .nav-dropdown:hover .nav-dropdown-menu{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(4px);}
+  .nav-dropdown-menu a{
+    color:var(--navy) !important;font-size:13.5px;font-weight:600;padding:9px 12px;border-radius:8px;
+    display:flex;align-items:center;gap:8px;opacity:1 !important;border-bottom:none !important;
+  }
+  .nav-dropdown-menu a::after{display:none;}
+  .nav-dropdown-menu a:hover{background:var(--ice);}
 
   @media(max-width:1180px){
     nav.links{display:none;}
     .mobile-toggle{display:block;}
     .nav-right .btn-ghost-light{display:none;}
-    .nav{padding:14px 20px;gap:14px;}
+    .nav{padding:12px 18px;gap:14px;min-height:62px;}
     .nav-right{gap:10px;}
     .nav-right .btn-accent{padding:10px 18px;font-size:13px;}
-    .logo-img-header{height:38px;}
+    .logo-img-header{height:36px;max-width:170px;}
     .logo-name{font-size:16px;}
     .logo-tagline{font-size:10px;}
     .logo-box{width:42px;height:42px;}
+
+    .nav-dropdown-menu{position:static;transform:none;opacity:1;pointer-events:auto;box-shadow:none;display:none;grid-template-columns:1fr;margin-top:6px;background:transparent;padding:0 0 0 8px;}
+    .nav-dropdown:hover .nav-dropdown-menu{display:none;}
+    .nav-dropdown.open .nav-dropdown-menu{display:grid;}
+    .nav-dropdown-menu a{color:#fff !important;padding:8px 6px;}
+    .nav-dropdown-menu a:hover{background:rgba(255,255,255,0.08);}
   }
   @media(max-width:768px){
     .nav{padding:12px 16px;}
     .logo--img{padding:8px 12px;gap:10px;}
   }
+  @media(max-width:560px){
+    .logo-img-header{height:32px;max-width:145px;}
+  }
   @media(max-width:480px){
     .logo-text{display:none;}
+    .logo--img{padding:6px 9px;}
+    .nav{padding:10px 12px;gap:8px;}
+    .nav-right{gap:6px;}
     .nav-right .btn-accent{padding:10px 16px;font-size:12px;}
   }
 
@@ -154,10 +180,12 @@
   }
   .hero-grid{display:grid;grid-template-columns:1.05fr 0.95fr;gap:48px;align-items:center;}
   @media(max-width:960px){.hero-grid{grid-template-columns:1fr;}}
-  .hero h1{font-size:52px;line-height:1.08;font-weight:800;}
+  .hero h1{font-size:52px;line-height:1.08;font-weight:800;animation:fadeUp .75s cubic-bezier(.22,1,.36,1) .08s both;}
   .hero h1 .accent{color:var(--blue);}
-  .hero p.lead{font-size:18px;color:var(--gray);margin-top:20px;max-width:520px;line-height:1.6;}
-  .hero-ctas{display:flex;gap:14px;margin-top:32px;flex-wrap:wrap;}
+  .hero p.lead{font-size:18px;color:var(--gray);margin-top:20px;max-width:520px;line-height:1.6;animation:fadeUp .75s cubic-bezier(.22,1,.36,1) .16s both;}
+  .hero .eyebrow{animation:fadeUp .7s cubic-bezier(.22,1,.36,1) both;}
+  .hero-ctas{display:flex;gap:14px;margin-top:32px;flex-wrap:wrap;animation:fadeUp .75s cubic-bezier(.22,1,.36,1) .24s both;}
+
   .hero-media{
     position:relative;border-radius:20px;overflow:hidden;
     box-shadow:var(--shadow);background:#0E2547;aspect-ratio:4/3.1;
@@ -165,11 +193,8 @@
   .hero-media video{width:100%;height:100%;object-fit:cover;display:block;}
   .yt-embed-wrap{position:relative;width:100%;height:100%;overflow:hidden;background:#0E2547;}
   .yt-embed-wrap iframe{
-    position:absolute;top:50%;left:50%;
-    width:100%;height:100%;
-    min-width:100%;min-height:100%;
-    transform:translate(-50%,-50%);
-    border:0;
+    position:absolute;top:50%;left:50%;width:100%;height:100%;
+    min-width:100%;min-height:100%;transform:translate(-50%,-50%);border:0;
   }
   .hero-media .video-note{
     position:absolute;bottom:12px;left:12px;background:rgba(10,27,51,0.65);
@@ -180,8 +205,96 @@
     background:#fff;border:1px solid var(--line);border-radius:12px;
     padding:8px 14px;display:flex;align-items:center;gap:8px;
     font-size:13px;font-weight:600;color:var(--navy);box-shadow:0 4px 12px rgba(10,27,51,0.05);
+    transition:transform .2s ease, box-shadow .2s ease;
   }
-  .flag-chip img{width:20px;height:14px;object-fit:cover;border-radius:2px;}
+  .flags-row .flag-chip:hover{transform:translateY(-3px);box-shadow:0 10px 22px rgba(10,27,51,0.14);}
+
+  /* HERO V2 & V3 */
+  .hero-v2{padding:56px 0 0;}
+  .hero-text-block{max-width:720px;margin:0 auto;text-align:center;}
+  .hero-text-block .eyebrow{justify-content:center;}
+  .hero-text-block h1{font-size:44px;}
+  .hero-text-block .lead{margin:18px auto 0;}
+  .hero-text-block .hero-ctas{justify-content:center;margin-top:28px;}
+
+  .hero-v3{position:relative;overflow:hidden;padding:56px 0 72px;}
+  .hero-grid-v3{display:grid;grid-template-columns:1.15fr 0.85fr;gap:56px;align-items:center;}
+  @media(max-width:960px){.hero-grid-v3{grid-template-columns:1fr;gap:40px;}}
+  .hero-text-block--left{max-width:none;text-align:left;}
+  .hero-text-block--left .eyebrow{justify-content:flex-start;}
+  .hero-text-block--left h1{font-size:42px;}
+  @media(max-width:960px){
+    .hero-text-block--left{text-align:center;}
+    .hero-text-block--left .eyebrow, .hero-text-block--left .hero-ctas{justify-content:center;}
+  }
+
+  .hero-feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:36px;}
+  @media(max-width:480px){.hero-feature-grid{grid-template-columns:1fr;}}
+  .hero-feature-item{display:flex;gap:12px;align-items:flex-start;text-align:left;}
+  .hero-feature-icon{
+    width:40px;height:40px;flex-shrink:0;border-radius:10px;background:var(--blue-light);
+    display:flex;align-items:center;justify-content:center;font-size:18px;
+  }
+  .hero-feature-item h4{font-size:14.5px;margin:0;color:var(--navy);}
+  .hero-feature-item p{font-size:12.5px;color:var(--gray);margin:3px 0 0;line-height:1.4;}
+
+  .hero-banner{
+    position:relative;width:100%;margin-top:40px;border-radius:0;overflow:hidden;
+    aspect-ratio:21/6;background:#0E2547;
+  }
+  @media(max-width:900px){.hero-banner{aspect-ratio:16/11;}}
+
+  .hero-banner--v3{
+    position:relative;width:100%;height:auto;aspect-ratio:9/14;max-width:360px;
+    min-height:420px;margin:0 auto;overflow:hidden;border-radius:20px;
+    background:#000;box-shadow:0 20px 50px rgba(0,0,0,.42);isolation:isolate;
+    transform:none !important;animation:none !important;
+  }
+  .hero-banner--v3 video, .hero-banner video{
+    position:absolute;inset:0;width:100% !important;height:100% !important;
+    min-width:100%;min-height:100%;max-width:none;object-fit:cover !important;
+    object-position:center center !important;display:block !important;background:#000;
+    transform:none !important;margin:0 !important;
+  }
+  .hero-banner--v3::after{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:linear-gradient(to top,rgba(0,0,0,.28),transparent 35%);z-index:2;
+  }
+
+  .hero-banner-flags{
+    position:absolute;left:0;right:0;bottom:16px;display:flex;gap:10px;justify-content:center;
+    flex-wrap:wrap;padding:0 16px;z-index:10;
+  }
+  .flag-bubble{
+    background:rgba(255,255,255,0.92);backdrop-filter:blur(4px);border-radius:100px;
+    padding:7px 14px;display:flex;align-items:center;gap:7px;font-size:12.5px;font-weight:700;
+    color:var(--navy);box-shadow:0 6px 16px rgba(10,27,51,0.25);transition:transform .2s ease;
+  }
+  .flag-bubble:hover{transform:translateY(-3px);}
+  @media(max-width:640px){
+    .flag-bubble span{display:none;}
+    .hero-banner-flags{bottom:10px;gap:6px;}
+    .flag-bubble{padding:6px 10px;}
+  }
+  .hero-banner--v3 .hero-banner-flags{gap:6px;padding:0 10px;z-index:10;}
+  .hero-banner--v3 .flag-bubble{padding:5px 9px;font-size:10.5px;gap:4px;}
+
+  @media(max-width:960px){.hero-banner--v3{max-width:320px;min-height:390px;}}
+  @media(max-width:560px){.hero-banner--v3{max-width:290px;min-height:0;aspect-ratio:9/14;}}
+
+  /* FLAGS & LOGOS FIX */
+  .flag-chip img, .flag-bubble img, .country-flag img, .story-flag img,
+  .country-list-nav a img, .country-list-nav img, .nav-dropdown-menu a img{
+    display:block !important;object-fit:contain !important;
+    object-position:center !important;background:#fff;flex-shrink:0;
+  }
+  .flag-chip img{width:20px;height:14px;}
+  .flag-bubble img{width:18px !important;height:12px !important;}
+  .hero-banner--v3 .flag-bubble img{width:14px !important;height:10px !important;}
+  .country-flag img{width:40px !important;height:27px !important;}
+  .story-flag img{width:34px;height:24px;}
+  .country-list-nav a img, .country-list-nav img{width:28px !important;height:19px !important;}
+  .nav-dropdown-menu a img{width:18px !important;height:12px !important;}
 
   /* WHY US */
   .why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:44px;}
@@ -193,8 +306,9 @@
   }
   .icon-box{
     width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;
-    font-size:20px;margin-bottom:16px;
+    font-size:20px;margin-bottom:16px;transition:transform .3s cubic-bezier(.22,1,.36,1);
   }
+  .why-card:hover .icon-box{transform:scale(1.1) rotate(-4deg);}
   .why-card h4{font-size:17px;margin-bottom:8px;}
   .why-card p{font-size:14.5px;color:var(--gray);line-height:1.55;margin:0;}
 
@@ -209,11 +323,11 @@
   @media(max-width:560px){.countries-grid{grid-template-columns:1fr;}}
   .country-card{
     background:#fff;border:1px solid var(--line);border-radius:var(--radius);
-    padding:22px;transition:transform .15s ease, box-shadow .15s ease;
+    padding:22px;transition:transform .3s cubic-bezier(.22,1,.36,1), box-shadow .3s ease, border-color .3s ease;
   }
-  .country-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);}
+  .country-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:#C9D9F5;}
+  .country-card:hover a{text-decoration:underline;}
   .country-flag{margin-bottom:10px;}
-  .country-flag img{width:40px;height:28px;object-fit:cover;border-radius:3px;box-shadow:0 2px 6px rgba(10,27,51,0.12);}
   .country-card h4{font-size:16.5px;}
   .country-card p{font-size:13.5px;color:var(--gray);margin:8px 0 14px;line-height:1.5;min-height:60px;}
   .country-card a{font-size:13.5px;font-weight:700;color:var(--blue);}
@@ -222,7 +336,9 @@
   .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:44px;counter-reset:step;}
   @media(max-width:900px){.steps{grid-template-columns:repeat(2,1fr);}}
   @media(max-width:560px){.steps{grid-template-columns:1fr;}}
-  .step{position:relative;padding-top:8px;}
+  .step{position:relative;padding-top:8px;transition:transform .25s ease;}
+  .step:hover{transform:translateY(-4px);}
+  .step:hover .num{-webkit-text-stroke-color:var(--navy);}
   .step .num{
     font-family:'Poppins',sans-serif;font-weight:800;font-size:34px;color:var(--blue-light);
     -webkit-text-stroke:1.4px var(--blue);color:transparent;
@@ -232,11 +348,14 @@
 
   /* SERVICES */
   .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px;}
+  .services-grid--long{grid-template-columns:repeat(2,1fr);}
   @media(max-width:900px){.services-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:800px){.services-grid--long{grid-template-columns:1fr;}}
   @media(max-width:560px){.services-grid{grid-template-columns:1fr;}}
   .service-card{
     background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px;
   }
+  .services-grid--long .service-card p{font-size:14.5px;line-height:1.7;}
   .service-tag{font-size:12px;font-weight:700;color:var(--blue);letter-spacing:0.06em;}
   .service-card h4{font-size:17px;margin:8px 0 10px;}
   .service-card p{font-size:14.5px;color:var(--gray);line-height:1.55;margin:0;}
@@ -270,13 +389,13 @@
     border:1.5px dashed #B9C6DD;border-radius:12px;padding:20px;font-size:13px;color:var(--gray);background:var(--ice);
   }
 
-  /* SUCCESS STORIES */
-  .stories-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px;}
-  @media(max-width:900px){.stories-grid{grid-template-columns:1fr;}}
+  /* SUCCESS STORIES & BLOG */
+  .stories-grid, .blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px;}
+  @media(max-width:900px){.stories-grid{grid-template-columns:1fr;}.blog-grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:560px){.blog-grid{grid-template-columns:1fr;}}
   .story-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow);}
   .story-quote{font-size:15px;color:var(--ink);line-height:1.6;font-style:italic;min-height:100px;}
   .story-meta{display:flex;align-items:center;gap:12px;margin-top:18px;padding-top:16px;border-top:1px solid var(--line);}
-  .story-flag img{width:34px;height:24px;object-fit:cover;border-radius:3px;box-shadow:0 2px 6px rgba(10,27,51,0.12);}
   .story-name{font-size:14.5px;font-weight:700;}
   .story-uni{font-size:12.5px;color:var(--gray);}
   .pending-tag{
@@ -284,18 +403,23 @@
     background:#FEF3E2;padding:4px 10px;border-radius:100px;
   }
 
-  /* BLOG */
-  .blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px;}
-  @media(max-width:900px){.blog-grid{grid-template-columns:1fr 1fr;}}
-  @media(max-width:560px){.blog-grid{grid-template-columns:1fr;}}
   .blog-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);}
-  .blog-card .tag-bar{height:6px;background:var(--blue);}
+  .blog-card .tag-bar{height:6px;background:var(--blue);transition:height .25s ease;}
+  .blog-card:hover .tag-bar{height:9px;}
   .blog-card .content{padding:20px;}
   .blog-card .cat{font-size:11.5px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:0.06em;}
   .blog-card h4{font-size:15.5px;margin:10px 0 0;line-height:1.4;}
   .blog-card a.read{font-size:13px;font-weight:700;color:var(--navy);margin-top:14px;display:inline-block;}
 
-  /* ABOUT / TEAM */
+  /* SHARED CARD HOVER LIFT */
+  .why-card,.service-card,.blog-card,.story-card,.gr-card,.team-card,.fact-card,.assess-card{
+    transition:transform .3s cubic-bezier(.22,1,.36,1), box-shadow .3s ease, border-color .3s ease;
+  }
+  .why-card:hover,.service-card:hover,.blog-card:hover,.story-card:hover,.gr-card:hover,.team-card:hover,.fact-card:hover,.assess-card:hover{
+    transform:translateY(-7px);box-shadow:0 20px 42px rgba(10,27,51,0.14);border-color:#C9D9F5;
+  }
+
+  /* ABOUT / TEAM / CEO */
   .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
   @media(max-width:900px){.about-grid{grid-template-columns:1fr;}}
   .about-copy p{color:var(--gray);font-size:15.5px;line-height:1.7;margin-top:16px;}
@@ -308,6 +432,21 @@
   .team-card h5{font-size:14.5px;margin:0;}
   .team-card span{font-size:12px;color:var(--gray);display:block;margin:3px 0 8px;}
   .team-card a{font-size:12px;font-weight:700;color:var(--blue);}
+
+  .mission-card{
+    background:var(--navy);color:#fff;border-radius:16px;padding:30px;position:relative;overflow:hidden;
+  }
+  .mission-label{font-family:'Poppins',sans-serif;font-weight:700;font-size:18px;color:#F5B301;margin-bottom:14px;}
+  .mission-card p{color:#D7E0F2;font-size:14.5px;line-height:1.7;margin:0;}
+
+  .ceo-section{display:grid;grid-template-columns:220px 1fr;gap:40px;align-items:start;}
+  @media(max-width:700px){.ceo-section{grid-template-columns:1fr;}}
+  .ceo-photo{width:200px;height:200px;border-radius:16px;overflow:hidden;box-shadow:var(--shadow);background:var(--blue-light);}
+  .ceo-photo img{width:100%;height:100%;object-fit:cover;display:block;}
+  .ceo-copy p{color:var(--gray);font-size:15px;line-height:1.75;margin-top:14px;}
+  .ceo-sign{margin-top:20px;}
+  .ceo-sign strong{display:block;font-size:16px;color:var(--navy);}
+  .ceo-sign span{font-size:13px;color:var(--gray);}
 
   /* CTA BAND */
   .cta-band{
@@ -323,18 +462,46 @@
     background:var(--navy);color:#fff;position:relative;overflow:hidden;padding:64px 0 28px;
   }
   footer::before{
-    content:"";position:absolute;inset:0;
-    background-image:url('world-map.png');
+    content:"";position:absolute;inset:0;background-image:url('world-map.png');
     background-repeat:no-repeat;background-position:center;background-size:cover;opacity:0.12;
   }
   footer .wrap{position:relative;z-index:1;}
+  .footer-logo-row{text-align:left;margin-bottom:36px;display:block;}
+  .footer-logo-row .logo-img-footer{background:#fff;padding:10px 16px;border-radius:10px;}
+  .logo-img-footer{height:64px;width:auto;margin:0;}
+
   .footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:36px;}
-  @media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;}}
-  @media(max-width:560px){.footer-grid{grid-template-columns:1fr;}}
-  .footer-grid h5{color:#fff;font-size:14px;margin-bottom:16px;letter-spacing:0.04em;text-transform:uppercase;}
+  .footer-grid--4{display:grid;grid-template-columns:1.3fr 1.4fr 1fr 1.3fr;gap:0;text-align:left;}
+  @media(max-width:900px){.footer-grid, .footer-grid--4{grid-template-columns:1fr 1fr;gap:32px;}}
+  @media(max-width:560px){.footer-grid, .footer-grid--4{grid-template-columns:1fr;}}
+  .footer-col{padding:0 28px;}
+  .footer-divider{border-left:1px solid rgba(255,255,255,0.14);}
+  @media(max-width:900px){.footer-divider{border-left:none;}.footer-col{padding:0;}}
+
+  .footer-grid h5, .footer-col h5{color:#fff;font-size:14px;margin-bottom:16px;letter-spacing:0.04em;text-transform:uppercase;text-align:left;}
+  .footer-grid ul, .footer-col ul{display:block;text-align:left;}
   .footer-grid ul li{margin-bottom:10px;font-size:14px;color:#C7D2E6;}
   .footer-grid ul li a:hover{color:#fff;}
   .footer-brand p{color:#B9C6DD;font-size:14px;line-height:1.6;margin-top:14px;max-width:280px;}
+
+  .footer-contact-list{display:flex;flex-direction:column;gap:14px;text-align:left;}
+  .footer-contact-list li{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:#C7D2E6;}
+  .footer-contact-list .fic{flex-shrink:0;font-size:15px;margin-top:1px;}
+  .bold-address{font-weight:800;color:#fff;}
+  .footer-social-row{display:flex;gap:12px;justify-content:flex-start;margin-top:6px;}
+  .social-icon{
+    width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,0.08);
+    display:flex;align-items:center;justify-content:center;color:#fff;font-size:16px;
+    transition:transform .2s ease, background .2s ease;
+  }
+  .social-icon:hover{background:var(--blue);transform:translateY(-3px);}
+  .social-icon--disabled{opacity:0.4;cursor:not-allowed;}
+  .social-icon--disabled:hover{transform:none;background:rgba(255,255,255,0.08);}
+  .footer-social-note{font-size:12.5px;color:#9FB0CC;margin-top:14px;text-align:left;}
+  .fb-feed-placeholder{border:1.5px dashed rgba(255,255,255,0.25);border-radius:12px;padding:18px;text-align:center;}
+  .fb-feed-row{font-size:13px;color:#E4EAF6;display:flex;align-items:center;justify-content:center;gap:8px;}
+  .fb-dot{width:8px;height:8px;border-radius:50%;background:#4285F4;display:inline-block;}
+
   .footer-bottom{
     border-top:1px solid rgba(255,255,255,0.12);margin-top:48px;padding-top:22px;
     display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:#9FB0CC;
@@ -364,17 +531,15 @@
   .gr-text{font-size:14px;color:var(--ink);line-height:1.6;margin:14px 0;font-style:italic;}
   .gr-author{font-size:12.5px;color:var(--gray);font-weight:600;}
 
-  /* INNER PAGE HEADER / BREADCRUMB */
+  /* INNER PAGE HEADERS & CONTENT */
   .page-header{
-    background:linear-gradient(180deg,#EAF2FF 0%, #FFFFFF 100%);
-    padding:52px 0 40px;
+    background:linear-gradient(180deg,#EAF2FF 0%, #FFFFFF 100%);padding:52px 0 40px;
   }
   .breadcrumb{font-size:13px;color:var(--gray);margin-bottom:14px;}
   .breadcrumb a{color:var(--blue);font-weight:600;}
   .page-header h1{font-size:38px;font-weight:800;}
   .page-header p.lead-sm{color:var(--gray);font-size:16px;margin-top:12px;max-width:640px;line-height:1.6;}
 
-  /* ARTICLE / BLOG POST PAGE */
   .article-wrap{max-width:760px;margin:0 auto;padding:0 28px;}
   .article-body{font-size:16.5px;line-height:1.8;color:#2A3648;}
   .article-body h2{font-size:24px;margin:36px 0 14px;color:var(--navy);}
@@ -388,216 +553,58 @@
   .related-posts{max-width:760px;margin:56px auto 0;padding:0 28px;}
   .related-posts h3{font-size:18px;margin-bottom:18px;}
 
-  /* COUNTRY DETAIL PAGE */
+  /* COUNTRY DETAIL PAGE & DARK HEADER */
+  .page-header--dark{background:var(--navy);padding:52px 0 44px;}
+  .page-header--dark h1{color:#fff;}
+  .page-header--dark p.lead-sm{color:#B9C6DD;}
+  .page-header--dark .breadcrumb{color:#8FA0C2;}
+  .breadcrumb--dark a{color:#F5B301;font-size:12.5px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;}
+
   .country-hero{display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center;}
-  .country-hero-flag img{width:64px;height:44px;object-fit:cover;border-radius:5px;box-shadow:0 4px 10px rgba(10,27,51,0.12);}
+  .country-hero-v2{display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center;margin-top:20px;}
+  @media(max-width:640px){.country-hero-v2{grid-template-columns:1fr;}}
+
+  .country-code-badge{
+    width:72px;height:72px;border-radius:14px;background:#12295630;border:1px solid rgba(255,255,255,0.12);
+    display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Poppins',sans-serif;
+    font-weight:800;font-size:22px;flex-shrink:0;
+  }
+  @media(max-width:640px){.country-code-badge{width:56px;height:56px;}}
+
+  .eyebrow--dark{color:#F5B301;justify-content:flex-start;}
+  .country-hero-title{color:#fff;font-size:36px;font-weight:800;margin-top:8px;font-family:'Poppins',sans-serif;}
+  @media(max-width:640px){.country-hero-title{font-size:26px;line-height:1.25;}}
+
+  .country-hero-sub{color:#B9C6DD;font-size:15.5px;margin-top:12px;max-width:640px;line-height:1.6;}
+  .country-hero-ctas{display:flex;gap:14px;margin-top:24px;flex-wrap:wrap;}
+  .btn-gold{background:#F5B301;color:var(--navy);}
+  .btn-gold:hover{box-shadow:0 14px 30px rgba(245,179,1,0.35);}
+  .btn-ghost-dark{background:rgba(255,255,255,0.06);color:#fff;border:1.5px solid rgba(255,255,255,0.25);}
+  .btn-ghost-dark:hover{background:rgba(255,255,255,0.12);}
+
   .fact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:36px;}
+  .fact-grid--dark{margin-top:32px;}
   @media(max-width:900px){.fact-grid{grid-template-columns:repeat(2,1fr);}}
   .fact-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:20px;text-align:center;}
+  .fact-card--dark{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);}
   .fact-card .fact-label{font-size:12px;color:var(--gray);text-transform:uppercase;letter-spacing:0.05em;font-weight:700;}
+  .fact-card--dark .fact-label{color:#8FA0C2;}
   .fact-card .fact-value{font-family:'Poppins',sans-serif;font-weight:700;font-size:16px;color:var(--navy);margin-top:6px;}
+  .fact-card--dark .fact-value{color:#fff;}
+
   .country-body{max-width:820px;font-size:16px;line-height:1.75;color:#2A3648;}
   .country-body h2{font-size:22px;margin:32px 0 12px;color:var(--navy);}
   .country-body ul{padding-left:20px;margin:0 0 16px;}
   .country-body li{margin-bottom:8px;}
+
   .country-list-nav{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px;}
   .country-list-nav a{
     background:#fff;border:1px solid var(--line);border-radius:100px;padding:8px 16px;font-size:13px;font-weight:600;color:var(--navy);
     display:flex;align-items:center;gap:6px;
   }
-  .country-list-nav a img{width:20px;height:14px;object-fit:cover;border-radius:2px;}
   .country-list-nav a.current{background:var(--navy);color:#fff;border-color:var(--navy);}
 
-  /* WHATSAPP FLOAT */
-  .wa-float{
-    position:fixed;bottom:24px;right:24px;z-index:200;
-    background:#25D366;color:#fff;padding:14px 20px;border-radius:100px;
-    display:flex;align-items:center;gap:10px;font-weight:700;font-size:14px;
-    box-shadow:0 10px 28px rgba(37,211,102,0.4);
-    animation:wa-bob 2.8s ease-in-out infinite, wa-pulse 2.6s ease-out infinite;
-    transition:transform .2s ease;
-  }
-  .wa-float:hover{transform:scale(1.06);animation-play-state:paused;}
-  @keyframes wa-bob{0%,100%{transform:translateY(0);}50%{transform:translateY(-7px);}}
-  @keyframes wa-pulse{
-    0%{box-shadow:0 10px 28px rgba(37,211,102,0.4), 0 0 0 0 rgba(37,211,102,0.55);}
-    70%{box-shadow:0 10px 28px rgba(37,211,102,0.4), 0 0 0 16px rgba(37,211,102,0);}
-    100%{box-shadow:0 10px 28px rgba(37,211,102,0.4), 0 0 0 0 rgba(37,211,102,0);}
-  }
-  @media(max-width:560px){.wa-float span.label{display:none;}}
-
-
-  /* FLAGS / COUNTRY LOGOS FINAL FIX */
-  .flag-chip img,
-  .flag-bubble img,
-  .country-flag img,
-  .story-flag img,
-  .country-list-nav a img,
-  .nav-dropdown-menu a img{
-    object-fit:contain !important;
-    object-position:center;
-    background:#fff;
-    flex-shrink:0;
-  }
-  .flag-chip img{width:20px;height:14px;}
-  .flag-bubble img{width:18px;height:13px;}
-  .country-flag img{width:40px;height:28px;}
-  .story-flag img{width:34px;height:24px;}
-  .country-list-nav a img{width:20px;height:14px;}
-  .nav-dropdown-menu a img{width:18px;height:13px;}
-
-  /* ============ MODERN POLISH: entrance animations + hover effects ============ */
-
-  /* Scroll-reveal entrance animation (driven by main.js) */
-  [data-animate]{opacity:0;transform:translateY(28px);transition:opacity .65s cubic-bezier(.22,1,.36,1), transform .65s cubic-bezier(.22,1,.36,1);}
-  [data-animate].in-view{opacity:1;transform:translateY(0);}
-
-  /* Hero entrance, staggered on page load */
-  @keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
-  .hero .eyebrow{animation:fadeUp .7s cubic-bezier(.22,1,.36,1) both;}
-  .hero h1{animation:fadeUp .75s cubic-bezier(.22,1,.36,1) .08s both;}
-  .hero p.lead{animation:fadeUp .75s cubic-bezier(.22,1,.36,1) .16s both;}
-  .hero .hero-ctas{animation:fadeUp .75s cubic-bezier(.22,1,.36,1) .24s both;}
-  .hero .hero-banner{animation:fadeUp .85s cubic-bezier(.22,1,.36,1) .3s both;}
-  .flags-row .flag-chip{transition:transform .2s ease, box-shadow .2s ease;}
-  .flags-row .flag-chip:hover{transform:translateY(-3px);box-shadow:0 10px 22px rgba(10,27,51,0.14);}
-
-  /* Buttons: lift + shadow + subtle scale on hover, press feedback on click */
-  .btn{transition:transform .2s cubic-bezier(.22,1,.36,1), box-shadow .2s ease, background-color .2s ease, color .2s ease;}
-  .btn:hover{transform:translateY(-3px) scale(1.02);}
-  .btn:active{transform:translateY(-1px) scale(0.99);}
-  .btn-primary:hover{box-shadow:0 16px 32px rgba(10,27,51,0.32);}
-  .btn-accent:hover{box-shadow:0 16px 32px rgba(47,111,237,0.4);}
-  .btn-outline:hover{box-shadow:0 12px 26px rgba(10,27,51,0.12);}
-
-  /* Nav link underline sweep */
-  nav.links a{position:relative;}
-  nav.links a::after{
-    content:"";position:absolute;left:0;bottom:-2px;width:0;height:2px;
-    background:var(--blue);transition:width .25s cubic-bezier(.22,1,.36,1);
-  }
-  nav.links a:hover::after{width:100%;}
-  nav.links a.active::after{width:100%;}
-
-  /* Card hover lift, shared across all card types */
-  .why-card,.service-card,.blog-card,.story-card,.gr-card,.team-card,.fact-card,.assess-card{
-    transition:transform .3s cubic-bezier(.22,1,.36,1), box-shadow .3s ease, border-color .3s ease;
-  }
-  .why-card:hover,.service-card:hover,.blog-card:hover,.story-card:hover,.gr-card:hover,.team-card:hover,.fact-card:hover,.assess-card:hover{
-    transform:translateY(-7px);box-shadow:0 20px 42px rgba(10,27,51,0.14);border-color:#C9D9F5;
-  }
-  .country-card{transition:transform .3s cubic-bezier(.22,1,.36,1), box-shadow .3s ease, border-color .3s ease;}
-  .country-card:hover{border-color:#C9D9F5;}
-  .country-card:hover a{text-decoration:underline;}
-
-  /* Icon boxes: subtle pop on parent hover */
-  .icon-box{transition:transform .3s cubic-bezier(.22,1,.36,1);}
-  .why-card:hover .icon-box{transform:scale(1.1) rotate(-4deg);}
-
-  /* Blog card top bar grows on hover */
-  .blog-card .tag-bar{transition:height .25s ease;}
-  .blog-card:hover .tag-bar{height:9px;}
-
-  /* Step numbers pop in on hover */
-  .step{transition:transform .25s ease;}
-  .step:hover{transform:translateY(-4px);}
-  .step:hover .num{-webkit-text-stroke-color:var(--navy);}
-
-  /* Gentle continuous float on the hero media frame for a modern, alive feel */
-  @keyframes gentleFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
-  .hero-banner{animation:none;}
-
-  @media (prefers-reduced-motion: reduce){
-    .hero .eyebrow,.hero h1,.hero p.lead,.hero .hero-ctas,.hero .hero-banner,.hero-banner,.wa-float{animation:none !important;}
-    [data-animate]{opacity:1 !important;transform:none !important;transition:none !important;}
-  }
-
-  /* ============ REVISION 2: nav dropdown, new footer, country pages, forms ============ */
-
-  .logo--plain{display:flex;align-items:center;background:#fff;padding:8px 14px;border-radius:10px;}
-  .logo-img-header{height:42px;width:auto;max-width:190px;display:block;object-fit:contain;}
-  @media(max-width:1180px){.logo-img-header{height:36px;max-width:170px;}}
-  .btn-sm{padding:11px 20px;font-size:13.5px;}
-
-  /* HEADER FINAL FIX */
-  header{width:100%;overflow:visible;}
-  .nav{min-height:68px;width:100%;}
-  .logo{min-width:0;}
-  .logo--img{flex-shrink:0;}
-  .nav-right{margin-left:auto;}
-  nav.links{min-width:0;}
-  nav.links a{flex-shrink:0;}
-
-  @media(max-width:1180px){
-    .nav{min-height:62px;}
-  }
-  @media(max-width:480px){
-    .logo--img{padding:6px 9px;}
-    .logo-img-header{height:32px;max-width:145px;}
-    .nav{padding:10px 12px;gap:8px;}
-    .nav-right{gap:6px;}
-  }
-
-  /* Nav dropdown */
-  .nav-dropdown{position:relative;}
-  .nav-dropdown > a .caret{font-size:10px;margin-left:4px;opacity:0.8;}
-  .nav-dropdown-menu{
-    position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(8px);
-    background:#fff;border-radius:12px;box-shadow:0 20px 45px rgba(10,27,51,0.22);
-    padding:10px;display:grid;grid-template-columns:1fr;gap:2px;
-    min-width:220px;opacity:0;pointer-events:none;transition:opacity .2s ease, transform .2s ease;
-    z-index:150;
-  }
-  .nav-dropdown:hover .nav-dropdown-menu{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(4px);}
-  .nav-dropdown-menu a{
-    color:var(--navy) !important;font-size:13.5px;font-weight:600;padding:9px 12px;border-radius:8px;
-    display:flex;align-items:center;gap:8px;opacity:1 !important;border-bottom:none !important;
-  }
-  .nav-dropdown-menu a::after{display:none;}
-  .nav-dropdown-menu a:hover{background:var(--ice);}
-  .nav-dropdown-menu a img{width:18px;height:13px;object-fit:cover;border-radius:2px;}
-  @media(max-width:1180px){
-    .nav-dropdown-menu{position:static;transform:none;opacity:1;pointer-events:auto;box-shadow:none;display:none;grid-template-columns:1fr;margin-top:6px;background:transparent;padding:0 0 0 8px;}
-    .nav-dropdown:hover .nav-dropdown-menu{display:none;}
-    .nav-dropdown.open .nav-dropdown-menu{display:grid;}
-    .nav-dropdown-menu a{color:#fff !important;padding:8px 6px;}
-    .nav-dropdown-menu a:hover{background:rgba(255,255,255,0.08);}
-  }
-
-  /* Footer v2 */
-  .footer-logo-row{text-align:left;margin-bottom:36px;}
-  .footer-logo-row{display:block;}
-  .footer-logo-row .logo-img-footer{background:#fff;padding:10px 16px;border-radius:10px;}
-  .logo-img-footer{height:64px;width:auto;margin:0;}
-  .footer-grid--4{display:grid;grid-template-columns:1.3fr 1.4fr 1fr 1.3fr;gap:0;text-align:left;}
-  @media(max-width:900px){.footer-grid--4{grid-template-columns:1fr 1fr;gap:32px;}}
-  @media(max-width:560px){.footer-grid--4{grid-template-columns:1fr;}}
-  .footer-col{padding:0 28px;}
-  .footer-divider{border-left:1px solid rgba(255,255,255,0.14);}
-  @media(max-width:900px){.footer-divider{border-left:none;}}
-  .footer-col h5{text-align:left;}
-  .footer-col ul{display:block;text-align:left;}
-  .footer-contact-list{display:flex;flex-direction:column;gap:14px;text-align:left;}
-  .footer-contact-list li{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:#C7D2E6;}
-  .footer-contact-list .fic{flex-shrink:0;font-size:15px;margin-top:1px;}
-  .bold-address{font-weight:800;color:#fff;}
-  .footer-social-row{display:flex;gap:12px;justify-content:flex-start;margin-top:6px;}
-  .social-icon{
-    width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,0.08);
-    display:flex;align-items:center;justify-content:center;color:#fff;font-size:16px;
-    transition:transform .2s ease, background .2s ease;
-  }
-  .social-icon:hover{background:var(--blue);transform:translateY(-3px);}
-  .social-icon--disabled{opacity:0.4;cursor:not-allowed;}
-  .social-icon--disabled:hover{transform:none;background:rgba(255,255,255,0.08);}
-  .footer-social-note{font-size:12.5px;color:#9FB0CC;margin-top:14px;text-align:left;}
-  .fb-feed-placeholder{
-    border:1.5px dashed rgba(255,255,255,0.25);border-radius:12px;padding:18px;text-align:center;
-  }
-  .fb-feed-row{font-size:13px;color:#E4EAF6;display:flex;align-items:center;justify-content:center;gap:8px;}
-  .fb-dot{width:8px;height:8px;border-radius:50%;background:#4285F4;display:inline-block;}
-
-  /* Country page: requirements, intakes, scholarships, uni slider, form */
+  /* COUNTRY PAGE REQUIREMENTS & INTAKES */
   .req-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:16px;}
   @media(max-width:640px){.req-grid{grid-template-columns:1fr;}}
   .req-card{background:var(--ice);border:1px solid var(--line);border-radius:12px;padding:18px 20px;}
@@ -620,59 +627,8 @@
   .scholarship-card ul{margin:0;padding-left:18px;}
   .scholarship-card li{font-size:13.5px;color:var(--gray);margin-bottom:5px;}
 
-  /* UNIVERSITY SLIDER - UPDATED FOR LOGOS */
-  .uni-slider{overflow:hidden;margin-top:32px;position:relative;}
-  .uni-slider::before,.uni-slider::after{
-    content:"";position:absolute;top:0;bottom:0;width:60px;z-index:2;
-  }
-  .uni-slider::before{left:0;background:linear-gradient(90deg,var(--ice),transparent);}
-  .uni-slider::after{right:0;background:linear-gradient(270deg,var(--ice),transparent);}
-  .uni-slider-track{display:flex;gap:20px;width:max-content;animation:uniScroll 26s linear infinite;}
-  .uni-slider:hover .uni-slider-track{animation-play-state:paused;}
-  @keyframes uniScroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
-  .uni-slide{
-    background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 20px;
-    display:flex;align-items:center;gap:14px;white-space:nowrap;box-shadow:var(--shadow);
-    min-width:220px;
-  }
-  .uni-slide-badge{
-    display:flex;align-items:center;justify-content:center;
-    flex-shrink:0;
-    width:58px;height:58px;
-    background:#fff;border-radius:8px;padding:4px;
-  }
-  .uni-slide-badge img{
-    max-width:54px;
-    max-height:54px;
-    width:auto;
-    height:auto;
-    object-fit:contain;
-  }
-  .uni-slide-name{font-size:14px;font-weight:700;color:var(--navy);line-height:1.3;}
-
-  @media(max-width:768px){
-    .uni-slide{
-      min-width:180px;
-      padding:10px 16px;
-      gap:12px;
-    }
-    .uni-slide-badge{
-      width:50px;
-      height:50px;
-    }
-    .uni-slide-badge img{
-      max-width:46px;
-      max-height:46px;
-    }
-    .uni-slide-name{
-      font-size:13px;
-    }
-  }
-
   .country-form-section{background:var(--navy);}
-  .country-form-card{
-    display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;color:#fff;
-  }
+  .country-form-card{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;color:#fff;}
   @media(max-width:900px){.country-form-card{grid-template-columns:1fr;}}
   .country-form-card h2{color:#fff;font-size:28px;}
   .country-form-card p{color:#C7D2E6;margin-top:14px;line-height:1.6;}
@@ -687,105 +643,58 @@
   .themed-form select option{color:#0F1B2D;}
   .themed-form-note{font-size:11.5px;color:#8FA0C2;margin-top:14px;text-align:center;}
 
-  /* Hero v2: single-column text + narrow banner video with flag bubbles overlaid */
-  .hero-v2{padding:56px 0 0;}
-  .hero-text-block{max-width:720px;margin:0 auto;text-align:center;}
-  .hero-text-block .eyebrow{justify-content:center;}
-  .hero-text-block h1{font-size:44px;}
-  .hero-text-block .lead{margin:18px auto 0;}
-  .hero-text-block .hero-ctas{justify-content:center;margin-top:28px;}
+  /* UNIVERSITY SLIDERS & CARDS ALIGNMENT FIX */
+  .uni-slider{overflow:hidden;margin-top:32px;position:relative;}
+  .uni-slider::before,.uni-slider::after{content:"";position:absolute;top:0;bottom:0;width:60px;z-index:2;}
+  .uni-slider::before{left:0;background:linear-gradient(90deg,var(--ice),transparent);}
+  .uni-slider::after{right:0;background:linear-gradient(270deg,var(--ice),transparent);}
+  .uni-slider-track{display:flex;gap:20px;width:max-content;animation:uniScroll 26s linear infinite;}
+  .uni-slider:hover .uni-slider-track{animation-play-state:paused;}
+  @keyframes uniScroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 
-  /* Hero v3: two-column layout, text+features left, narrow vertical video right */
-  .hero-v3{padding:56px 0 72px;}
-  .hero-grid-v3{display:grid;grid-template-columns:1.15fr 0.85fr;gap:56px;align-items:center;}
-  @media(max-width:960px){.hero-grid-v3{grid-template-columns:1fr;gap:40px;}}
-  .hero-text-block--left{max-width:none;text-align:left;}
-  .hero-text-block--left .eyebrow{justify-content:flex-start;}
-  .hero-text-block--left h1{font-size:42px;}
-  @media(max-width:960px){.hero-text-block--left{text-align:center;}.hero-text-block--left .eyebrow{justify-content:center;}.hero-text-block--left .hero-ctas{justify-content:center;}}
-  .hero-feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:36px;}
-  @media(max-width:480px){.hero-feature-grid{grid-template-columns:1fr;}}
-  .hero-feature-item{display:flex;gap:12px;align-items:flex-start;text-align:left;}
-  .hero-feature-icon{
-    width:40px;height:40px;flex-shrink:0;border-radius:10px;background:var(--blue-light);
-    display:flex;align-items:center;justify-content:center;font-size:18px;
-  }
-  .hero-feature-item h4{font-size:14.5px;margin:0;color:var(--navy);}
-  .hero-feature-item p{font-size:12.5px;color:var(--gray);margin:3px 0 0;line-height:1.4;}
-  .hero-banner--v3{aspect-ratio:9/14;border-radius:20px;max-width:360px;margin:0 auto;}
-  @media(max-width:960px){.hero-banner--v3{max-width:320px;}}
-  .hero-banner{
-    position:relative;width:100%;margin-top:40px;border-radius:0;overflow:hidden;
-    aspect-ratio:21/6;background:#0E2547;
-  }
-  @media(max-width:900px){.hero-banner{aspect-ratio:16/11;}}
-  .hero-banner video{width:100%;height:100%;object-fit:cover;display:block;}
-  .hero-banner-flags{
-    position:absolute;left:0;right:0;bottom:16px;display:flex;gap:10px;justify-content:center;
-    flex-wrap:wrap;padding:0 16px;
-  }
-  .flag-bubble{
-    background:rgba(255,255,255,0.92);backdrop-filter:blur(4px);border-radius:100px;
-    padding:7px 14px;display:flex;align-items:center;gap:7px;font-size:12.5px;font-weight:700;
-    color:var(--navy);box-shadow:0 6px 16px rgba(10,27,51,0.25);transition:transform .2s ease;
-  }
-  .flag-bubble:hover{transform:translateY(-3px);}
-  .flag-bubble img{width:18px;height:13px;object-fit:cover;border-radius:2px;}
-  @media(max-width:640px){.flag-bubble span{display:none;}.hero-banner-flags{bottom:10px;gap:6px;}.flag-bubble{padding:6px 10px;}}
-  .hero-banner--v3 .hero-banner-flags{gap:6px;padding:0 10px;}
-  .hero-banner--v3 .flag-bubble{padding:5px 9px;font-size:10.5px;gap:4px;}
-  .hero-banner--v3 .flag-bubble img{width:14px;height:10px;}
+  .uni-slider img{max-width:none !important;}
 
+  .uni-card, .uni-slide{
+    width:340px;min-width:340px;height:84px;background:#fff !important;
+    border:1px solid var(--line);border-radius:12px;padding:12px 22px !important;
+    display:flex !important;flex-direction:row !important;align-items:center !important;
+    justify-content:flex-start !important;gap:16px !important;
+    box-shadow:0 5px 18px rgba(10,27,51,0.06);overflow:hidden;flex-shrink:0;
+  }
 
-  /* HERO VIDEO FINAL FIX */
-  .hero-v3{position:relative;overflow:hidden;}
-  .hero-banner--v3{
-    position:relative;
-    width:100%;
-    height:auto;
-    aspect-ratio:9/14;
-    max-width:360px;
-    min-height:420px;
-    margin:0 auto;
-    overflow:hidden;
-    border-radius:20px;
-    background:#000;
-    box-shadow:0 20px 50px rgba(0,0,0,.42);
-    isolation:isolate;
-    transform:none !important;
+  .uni-card-logo, .uni-card img.uni-card-logo, .uni-slide-badge img, .uni-slide img{
+    width:58px !important;height:58px !important;min-width:58px !important;max-width:58px !important;
+    min-height:58px !important;max-height:58px !important;flex:0 0 58px !important;
+    display:flex !important;align-items:center !important;justify-content:center !important;
+    object-fit:contain !important;object-position:center !important;background:#fff !important;
+    border-radius:8px !important;padding:4px !important;margin:0 !important;box-sizing:border-box !important;
   }
-  .hero-banner--v3 video,
-  .hero-banner video{
-    position:absolute;
-    inset:0;
-    width:100%;
-    height:100%;
-    min-width:100%;
-    min-height:100%;
-    max-width:none;
-    object-fit:cover;
-    object-position:center center;
-    display:block;
-    background:#000;
+
+  .uni-card-logo[src*="finland" i], .uni-card-logo[src*="Finland" i],
+  .uni-card-logo[src*="sweden" i], .uni-card-logo[src*="Sweden" i]{
+    width:58px !important;height:58px !important;min-width:58px !important;max-width:58px !important;
+    object-fit:contain !important;object-position:center !important;background:#fff !important;padding:3px !important;
   }
-  .hero-banner--v3 .hero-banner-flags{z-index:5;}
-  .hero-banner--v3::after{
-    content:"";
-    position:absolute;
-    inset:0;
-    pointer-events:none;
-    background:linear-gradient(to top,rgba(0,0,0,.28),transparent 35%);
-    z-index:2;
+
+  .uni-card-name, .uni-slide-name{
+    display:block !important;flex:1 1 auto !important;margin:0 !important;padding:0 !important;
+    font-family:'Inter',sans-serif;font-size:14px !important;font-weight:700 !important;
+    line-height:1.3 !important;color:var(--navy) !important;white-space:nowrap !important;
+    overflow:hidden !important;text-overflow:ellipsis !important;
   }
-  .hero-banner--v3 .hero-banner-flags{z-index:4;}
-  @media(max-width:960px){
-    .hero-banner--v3{max-width:320px;min-height:390px;}
+
+  @media(max-width:900px){
+    .uni-card, .uni-slide{width:300px;min-width:300px;height:80px;padding:10px 18px !important;gap:14px !important;}
+    .uni-card-logo, .uni-card img.uni-card-logo{width:54px !important;height:54px !important;min-width:54px !important;max-width:54px !important;flex:0 0 54px !important;padding:3px !important;}
+    .uni-card-name, .uni-slide-name{font-size:13.5px !important;}
   }
   @media(max-width:560px){
-    .hero-banner--v3{max-width:290px;min-height:0;aspect-ratio:9/14;}
+    .uni-card, .uni-slide{width:270px;min-width:270px;height:76px;padding:9px 15px !important;gap:12px !important;}
+    .uni-card-logo, .uni-card img.uni-card-logo{width:50px !important;height:50px !important;min-width:50px !important;max-width:50px !important;flex:0 0 50px !important;padding:3px !important;}
+    .uni-card-name, .uni-slide-name{font-size:12.5px !important;}
   }
 
-  /* Carousel component (success stories, blog, testimonials) */
+  /* CAROUSELS & LIGHTBOX */
   .carousel{position:relative;display:flex;align-items:center;gap:10px;}
   .carousel-track{
     display:flex;gap:20px;overflow-x:auto;scroll-behavior:smooth;scroll-snap-type:x mandatory;
@@ -793,10 +702,8 @@
   }
   .carousel-track::-webkit-scrollbar{height:6px;}
   .carousel-track::-webkit-scrollbar-thumb{background:var(--line);border-radius:10px;}
-  .carousel-track.stories-carousel .story-card,
-  .carousel-track.blog-carousel .blog-card{
-    scroll-snap-align:start;flex:0 0 320px;
-  }
+  .carousel-track.stories-carousel .story-card, .carousel-track.blog-carousel .blog-card{scroll-snap-align:start;flex:0 0 320px;}
+
   .carousel-btn{
     flex-shrink:0;width:42px;height:42px;border-radius:50%;border:1px solid var(--line);
     background:#fff;color:var(--navy);font-size:14px;cursor:pointer;box-shadow:var(--shadow);
@@ -818,31 +725,7 @@
   .testimonial-name{font-size:14px;font-weight:700;margin-top:12px;}
   .testimonial-course{font-size:12px;color:var(--gray);}
 
-  /* About page: mission card, CEO section */
-  .mission-card{
-    background:var(--navy);color:#fff;border-radius:16px;padding:30px;position:relative;overflow:hidden;
-  }
-  .mission-label{font-family:'Poppins',sans-serif;font-weight:700;font-size:18px;color:#F5B301;margin-bottom:14px;}
-  .mission-card p{color:#D7E0F2;font-size:14.5px;line-height:1.7;margin:0;}
-
-  .ceo-section{display:grid;grid-template-columns:220px 1fr;gap:40px;align-items:start;}
-  @media(max-width:700px){.ceo-section{grid-template-columns:1fr;}}
-  .ceo-photo{width:200px;height:200px;border-radius:16px;overflow:hidden;box-shadow:var(--shadow);background:var(--blue-light);}
-  .ceo-photo img{width:100%;height:100%;object-fit:cover;display:block;}
-  .ceo-copy p{color:var(--gray);font-size:15px;line-height:1.75;margin-top:14px;}
-  .ceo-sign{margin-top:20px;}
-  .ceo-sign strong{display:block;font-size:16px;color:var(--navy);}
-  .ceo-sign span{font-size:13px;color:var(--gray);}
-
-  /* Services page: longer-form cards */
-  .services-grid--long{grid-template-columns:repeat(2,1fr);}
-  @media(max-width:800px){.services-grid--long{grid-template-columns:1fr;}}
-  .services-grid--long .service-card p{font-size:14.5px;line-height:1.7;}
-
-  /* Success stories: real image gallery + lightbox */
-  .success-img-grid{
-    display:grid;grid-template-columns:repeat(3,1fr);gap:18px;
-  }
+  .success-img-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
   @media(max-width:960px){.success-img-grid{grid-template-columns:repeat(2,1fr);}}
   @media(max-width:640px){.success-img-grid{grid-template-columns:repeat(2,1fr);}}
   .success-img-card{
@@ -851,9 +734,7 @@
   }
   .success-img-card:hover{transform:translateY(-6px) scale(1.02);box-shadow:0 20px 40px rgba(10,27,51,0.18);}
   .success-img-card img{width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:1/1;}
-
   .success-img-card--home{scroll-snap-align:start;flex:0 0 240px;}
-  .success-img-card--home img{aspect-ratio:1/1;}
 
   .lightbox-overlay{
     display:none;position:fixed;inset:0;background:rgba(10,27,51,0.92);z-index:999;
@@ -861,733 +742,32 @@
   }
   .lightbox-overlay.open{display:flex;}
   .lightbox-overlay img{max-width:100%;max-height:90vh;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,0.5);}
-  .lightbox-close{
-    position:absolute;top:24px;right:32px;color:#fff;font-size:36px;cursor:pointer;line-height:1;
+  .lightbox-close{position:absolute;top:24px;right:32px;color:#fff;font-size:36px;cursor:pointer;line-height:1;}
+
+  /* WHATSAPP FLOAT */
+  .wa-float{
+    position:fixed;bottom:24px;right:24px;z-index:200;
+    background:#25D366;color:#fff;padding:14px 20px;border-radius:100px;
+    display:flex;align-items:center;gap:10px;font-weight:700;font-size:14px;
+    box-shadow:0 10px 28px rgba(37,211,102,0.4);
+    animation:wa-bob 2.8s ease-in-out infinite, wa-pulse 2.6s ease-out infinite;
+    transition:transform .2s ease;
   }
-
-  /* Country page header v2: dark navy pattern matching client reference */
-  .page-header--dark{
-    background:var(--navy);padding:52px 0 44px;
+  .wa-float:hover{transform:scale(1.06);animation-play-state:paused;}
+  @keyframes wa-bob{0%,100%{transform:translateY(0);}50%{transform:translateY(-7px);}}
+  @keyframes wa-pulse{
+    0%{box-shadow:0 10px 28px rgba(37,211,102,0.4), 0 0 0 0 rgba(37,211,102,0.55);}
+    70%{box-shadow:0 10px 28px rgba(37,211,102,0.4), 0 0 0 16px rgba(37,211,102,0);}
+    100%{box-shadow:0 10px 28px rgba(37,211,102,0.4), 0 0 0 0 rgba(37,211,102,0);}
   }
-  .page-header--dark h1{color:#fff;}
-  .page-header--dark p.lead-sm{color:#B9C6DD;}
-  .page-header--dark .breadcrumb{color:#8FA0C2;}
-  .breadcrumb--dark a{
-    color:#F5B301;font-size:12.5px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;
+  @media(max-width:560px){.wa-float span.label{display:none;}}
+
+  /* ANIMATION & ACCESSIBILITY OVERRIDES */
+  [data-animate]{opacity:0;transform:translateY(28px);transition:opacity .65s cubic-bezier(.22,1,.36,1), transform .65s cubic-bezier(.22,1,.36,1);}
+  [data-animate].in-view{opacity:1;transform:translateY(0);}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+
+  @media (prefers-reduced-motion: reduce){
+    .hero .eyebrow,.hero h1,.hero p.lead,.hero .hero-ctas,.hero .hero-banner,.hero-banner,.wa-float{animation:none !important;}
+    [data-animate]{opacity:1 !important;transform:none !important;transition:none !important;}
   }
-  .country-hero-v2{display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center;margin-top:20px;}
-  @media(max-width:640px){.country-hero-v2{grid-template-columns:1fr;}}
-  .country-code-badge{
-    width:72px;height:72px;border-radius:14px;background:#12295630;border:1px solid rgba(255,255,255,0.12);
-    display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Poppins',sans-serif;
-    font-weight:800;font-size:22px;flex-shrink:0;
-  }
-  .eyebrow--dark{color:#F5B301;justify-content:flex-start;}
-  .country-hero-title{color:#fff;font-size:36px;font-weight:800;margin-top:8px;font-family:'Poppins',sans-serif;}
-  @media(max-width:640px){.country-hero-title{font-size:26px;line-height:1.25;}}
-  @media(max-width:640px){.country-code-badge{width:56px;height:56px;}}
-  .country-hero-sub{color:#B9C6DD;font-size:15.5px;margin-top:12px;max-width:640px;line-height:1.6;}
-  .country-hero-ctas{display:flex;gap:14px;margin-top:24px;flex-wrap:wrap;}
-  .btn-gold{background:#F5B301;color:var(--navy);}
-  .btn-gold:hover{box-shadow:0 14px 30px rgba(245,179,1,0.35);}
-  .btn-ghost-dark{background:rgba(255,255,255,0.06);color:#fff;border:1.5px solid rgba(255,255,255,0.25);}
-  .btn-ghost-dark:hover{background:rgba(255,255,255,0.12);}
-  .fact-grid--dark{margin-top:32px;}
-  .fact-card--dark{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.12);}
-  .fact-card--dark .fact-label{color:#8FA0C2;}
-  .fact-card--dark .fact-value{color:#fff;}
-
-/* FINAL OVERRIDES */
-.hero-banner--v3{animation:none !important;}
-.hero-banner--v3 video{transform:none !important;}
-img{height:auto;}
-
-/* =====================================================
-   FINAL STABILITY + FINLAND / SWEDEN LOGO FIX
-   ===================================================== */
-
-/* Header: keep logo/nav/buttons aligned on all screens */
-header {
-    width: 100%;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    overflow: visible;
-}
-
-.nav {
-    width: 100%;
-    min-height: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-}
-
-.logo,
-.logo--img,
-.logo--plain {
-    display: flex;
-    align-items: center;
-    flex-shrink: 0;
-}
-
-.logo-img-header {
-    height: 42px;
-    width: auto;
-    max-width: 190px;
-    object-fit: contain !important;
-    object-position: center;
-    display: block;
-}
-
-nav.links {
-    min-width: 0;
-}
-
-.nav-right {
-    flex-shrink: 0;
-}
-
-/* Hero video: prevent stretched/cropped broken rendering */
-.hero-banner--v3 {
-    position: relative;
-    overflow: hidden;
-    isolation: isolate;
-    background: #000;
-}
-
-.hero-banner--v3 video,
-.hero-banner video {
-    width: 100% !important;
-    height: 100% !important;
-    display: block !important;
-    object-fit: cover !important;
-    object-position: center center !important;
-    transform: none !important;
-    margin: 0 !important;
-}
-
-.hero-banner--v3::before,
-.hero-banner--v3::after {
-    pointer-events: none;
-}
-
-.hero-banner--v3 .hero-banner-flags {
-    position: absolute;
-    z-index: 10;
-}
-
-/* University sliders - support both class versions */
-.uni-card,
-.uni-slide {
-    overflow: hidden;
-    flex-shrink: 0;
-}
-
-.uni-card-logo,
-.uni-slide-badge img,
-.uni-slide img {
-    display: block !important;
-    flex-shrink: 0 !important;
-    object-fit: contain !important;
-    object-position: center center !important;
-    background: transparent !important;
-}
-
-/* Main university-card logo: never stretch or crop */
-.uni-card-logo {
-    width: 58px !important;
-    height: 58px !important;
-    min-width: 58px !important;
-    max-width: 58px !important;
-    min-height: 58px !important;
-    max-height: 58px !important;
-}
-
-/* Finland / Sweden university logos: give them enough breathing room.
-   These rules intentionally use contain so the complete logo remains visible. */
-.uni-card-logo[src*="finland" i],
-.uni-card-logo[src*="Finnish" i],
-.uni-card-logo[src*="helsinki" i],
-.uni-card-logo[src*="aalto" i],
-.uni-card-logo[src*="tampere" i],
-.uni-card-logo[src*="turku" i],
-.uni-card-logo[src*="oulu" i],
-.uni-card-logo[src*="lut" i],
-.uni-card-logo[src*="sweden" i],
-.uni-card-logo[src*="Swedish" i],
-.uni-card-logo[src*="lund" i],
-.uni-card-logo[src*="uppsala" i],
-.uni-card-logo[src*="kth" i],
-.uni-card-logo[src*="stockholm" i],
-.uni-card-logo[src*="gothenburg" i] {
-    width: 70px !important;
-    height: 60px !important;
-    min-width: 70px !important;
-    max-width: 70px !important;
-    min-height: 60px !important;
-    max-height: 60px !important;
-    object-fit: contain !important;
-}
-
-/* Existing wide-logo exceptions remain proportional */
-.uni-card-logo[src*="LUT" i] {
-    width: 76px !important;
-    min-width: 76px !important;
-    max-width: 76px !important;
-}
-
-.uni-card-logo[src*="oulu" i] {
-    width: 78px !important;
-    min-width: 78px !important;
-    max-width: 78px !important;
-}
-
-.uni-card-logo[src*="Jyu" i],
-.uni-card-logo[src*="Jyvaskyla" i],
-.uni-card-logo[src*="Jyväskylä" i] {
-    width: 68px !important;
-    min-width: 68px !important;
-    max-width: 68px !important;
-}
-
-/* Alternative slider markup */
-.uni-slide-badge {
-    width: 78px !important;
-    height: 62px !important;
-    min-width: 78px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    overflow: hidden;
-    flex-shrink: 0 !important;
-}
-
-.uni-slide-badge img,
-.uni-slide > img {
-    width: auto !important;
-    height: auto !important;
-    max-width: 72px !important;
-    max-height: 56px !important;
-}
-
-/* Flags: preserve the actual flag image instead of cropping it */
-.flag-bubble img,
-.country-flag img,
-.country-list-nav img,
-.nav-dropdown-menu a img {
-    display: block !important;
-    object-fit: contain !important;
-    object-position: center !important;
-    flex-shrink: 0;
-}
-
-.flag-bubble img {
-    width: 18px !important;
-    height: 12px !important;
-}
-
-.country-flag img {
-    width: 40px !important;
-    height: 27px !important;
-}
-
-.country-list-nav img {
-    width: 28px !important;
-    height: 19px !important;
-}
-
-.nav-dropdown-menu a img {
-    width: 18px !important;
-    height: 12px !important;
-}
-
-/* Mobile */
-@media (max-width: 1180px) {
-    .nav {
-        min-height: 62px;
-        padding: 12px 18px;
-    }
-
-    .logo-img-header {
-        height: 36px;
-        max-width: 170px;
-    }
-}
-
-@media (max-width: 560px) {
-    .logo-img-header {
-        height: 32px;
-        max-width: 145px;
-    }
-
-    .uni-card-logo {
-        width: 54px !important;
-        height: 54px !important;
-        min-width: 54px !important;
-        max-width: 54px !important;
-        min-height: 54px !important;
-        max-height: 54px !important;
-    }
-
-    .uni-card-logo[src*="finland" i],
-    .uni-card-logo[src*="Finnish" i],
-    .uni-card-logo[src*="helsinki" i],
-    .uni-card-logo[src*="aalto" i],
-    .uni-card-logo[src*="tampere" i],
-    .uni-card-logo[src*="turku" i],
-    .uni-card-logo[src*="oulu" i],
-    .uni-card-logo[src*="sweden" i],
-    .uni-card-logo[src*="Swedish" i],
-    .uni-card-logo[src*="lund" i],
-    .uni-card-logo[src*="uppsala" i],
-    .uni-card-logo[src*="kth" i],
-    .uni-card-logo[src*="stockholm" i],
-    .uni-card-logo[src*="gothenburg" i] {
-        width: 62px !important;
-        height: 52px !important;
-        min-width: 62px !important;
-        max-width: 62px !important;
-        min-height: 52px !important;
-        max-height: 52px !important;
-    }
-}
-
-
-/* =====================================================
-   FINAL UNIVERSITY LOGO + NAME ALIGNMENT FIX
-   Logo LEFT + University name RIGHT
-   Same horizontal layout for Finland, Sweden & all logos
-   ===================================================== */
-
-.uni-card {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    justify-content: flex-start !important;
-    gap: 16px !important;
-}
-
-.uni-card-logo {
-    width: 58px !important;
-    height: 58px !important;
-    min-width: 58px !important;
-    max-width: 58px !important;
-    flex: 0 0 58px !important;
-
-    display: block !important;
-    object-fit: contain !important;
-    object-position: center !important;
-
-    margin: 0 !important;
-    padding: 0 !important;
-    background: transparent !important;
-}
-
-.uni-card-name {
-    display: block !important;
-    flex: 1 1 auto !important;
-
-    margin: 0 !important;
-    padding: 0 !important;
-
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    font-weight: 700;
-    line-height: 1.3;
-    color: var(--navy);
-
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-/* Keep special university logos horizontal too */
-.uni-card-logo[src*="LUT"],
-.uni-card-logo[src*="oulu"],
-.uni-card-logo[src*="Oulu"],
-.uni-card-logo[src*="Jyu"] {
-    height: 58px !important;
-    max-height: 58px !important;
-    object-fit: contain !important;
-    flex-shrink: 0 !important;
-}
-
-/* Finland flags/logos must never be stretched */
-.uni-card-logo[src*="finland"],
-.uni-card-logo[src*="Finland"] {
-    object-fit: contain !important;
-    object-position: center !important;
-}
-
-/* Sweden flags/logos must never be stretched */
-.uni-card-logo[src*="sweden"],
-.uni-card-logo[src*="Sweden"] {
-    object-fit: contain !important;
-    object-position: center !important;
-}
-
-/* Extra protection against global image rules */
-.uni-card img {
-    max-width: none !important;
-    margin: 0 !important;
-}
-
-/* Tablet */
-@media(max-width:900px) {
-    .uni-card {
-        display: flex !important;
-        flex-direction: row !important;
-        align-items: center !important;
-        gap: 14px !important;
-    }
-
-    .uni-card-logo {
-        width: 54px !important;
-        height: 54px !important;
-        min-width: 54px !important;
-        max-width: 54px !important;
-        flex: 0 0 54px !important;
-    }
-
-    .uni-card-name {
-        font-size: 13.5px;
-    }
-}
-
-/* Mobile */
-@media(max-width:560px) {
-    .uni-card {
-        display: flex !important;
-        flex-direction: row !important;
-        align-items: center !important;
-        justify-content: flex-start !important;
-        gap: 12px !important;
-    }
-
-    .uni-card-logo {
-        width: 50px !important;
-        height: 50px !important;
-        min-width: 50px !important;
-        max-width: 50px !important;
-        flex: 0 0 50px !important;
-    }
-
-    .uni-card-name {
-        font-size: 12.5px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-}
-
-
-/* ============================================================
-   FINAL FINLAND + SWEDEN UNIVERSITY CARD MATCH
-   Keep ALL university logos in the same white logo box style.
-   Logo left, name right, identical spacing.
-   ============================================================ */
-
-.uni-card {
-    width: 340px;
-    min-width: 340px;
-    height: 84px;
-
-    background: #fff !important;
-    border: 1px solid var(--line);
-    border-radius: 12px;
-
-    padding: 12px 22px !important;
-
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    justify-content: flex-start !important;
-
-    gap: 16px !important;
-
-    box-shadow: 0 5px 18px rgba(10, 27, 51, 0.06);
-    overflow: hidden;
-    flex-shrink: 0;
-}
-
-/* The logo itself gets the same fixed white box treatment */
-.uni-card-logo,
-.uni-card img.uni-card-logo {
-    width: 58px !important;
-    height: 58px !important;
-    min-width: 58px !important;
-    max-width: 58px !important;
-    min-height: 58px !important;
-    max-height: 58px !important;
-
-    flex: 0 0 58px !important;
-
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-
-    object-fit: contain !important;
-    object-position: center !important;
-
-    background: #fff !important;
-    border-radius: 8px !important;
-
-    padding: 7px !important;
-    margin: 0 !important;
-
-    box-sizing: border-box !important;
-}
-
-/* Finland logo files: same treatment as Sweden */
-.uni-card-logo[src*="finland"],
-.uni-card-logo[src*="Finland"] {
-    width: 58px !important;
-    height: 58px !important;
-    min-width: 58px !important;
-    max-width: 58px !important;
-    object-fit: contain !important;
-    object-position: center !important;
-    background: #fff !important;
-    padding: 7px !important;
-}
-
-/* Sweden logo files: preserve exactly the same dimensions */
-.uni-card-logo[src*="sweden"],
-.uni-card-logo[src*="Sweden"] {
-    width: 58px !important;
-    height: 58px !important;
-    min-width: 58px !important;
-    max-width: 58px !important;
-    object-fit: contain !important;
-    object-position: center !important;
-    background: #fff !important;
-    padding: 7px !important;
-}
-
-/* University name stays on the SAME row */
-.uni-card-name {
-    display: block !important;
-    flex: 1 1 auto !important;
-
-    margin: 0 !important;
-    padding: 0 !important;
-
-    font-family: 'Inter', sans-serif;
-    font-size: 14px !important;
-    font-weight: 700 !important;
-    line-height: 1.3 !important;
-
-    color: var(--navy) !important;
-
-    white-space: nowrap !important;
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
-}
-
-/* Do not let the special logo rules move the logo/name vertically */
-.uni-card-logo[src*="LUT"],
-.uni-card-logo[src*="oulu"],
-.uni-card-logo[src*="Oulu"],
-.uni-card-logo[src*="Jyu"] {
-    width: 58px !important;
-    height: 58px !important;
-    min-width: 58px !important;
-    max-width: 58px !important;
-    padding: 7px !important;
-    object-fit: contain !important;
-    flex: 0 0 58px !important;
-}
-
-/* Prevent global image rules from changing the card logo */
-.uni-slider img {
-    max-width: none !important;
-}
-
-.uni-card img {
-    margin: 0 !important;
-}
-
-/* Tablet — same Sweden-style proportions */
-@media(max-width:900px) {
-    .uni-card {
-        width: 300px;
-        min-width: 300px;
-        height: 80px;
-        padding: 10px 18px !important;
-        gap: 14px !important;
-    }
-
-    .uni-card-logo,
-    .uni-card img.uni-card-logo {
-        width: 54px !important;
-        height: 54px !important;
-        min-width: 54px !important;
-        max-width: 54px !important;
-        flex: 0 0 54px !important;
-        padding: 6px !important;
-    }
-
-    .uni-card-name {
-        font-size: 13.5px !important;
-    }
-}
-
-/* Mobile — still horizontal */
-@media(max-width:560px) {
-    .uni-card {
-        width: 270px;
-        min-width: 270px;
-        height: 76px;
-        padding: 9px 15px !important;
-        gap: 12px !important;
-
-        display: flex !important;
-        flex-direction: row !important;
-        align-items: center !important;
-    }
-
-    .uni-card-logo,
-    .uni-card img.uni-card-logo {
-        width: 50px !important;
-        height: 50px !important;
-        min-width: 50px !important;
-        max-width: 50px !important;
-        flex: 0 0 50px !important;
-        padding: 5px !important;
-    }
-
-    .uni-card-name {
-        font-size: 12.5px !important;
-    }
-}
-
-
-/* ============================================================
-   FINAL LOGO SIZE MATCH
-   Finland logo visual size = Sweden logo visual size
-   Keep the same white box, spacing and horizontal alignment.
-   ============================================================ */
-
-/* Same logo box for every university */
-.uni-card-logo,
-.uni-card img.uni-card-logo {
-    width: 58px !important;
-    height: 58px !important;
-    min-width: 58px !important;
-    max-width: 58px !important;
-    min-height: 58px !important;
-    max-height: 58px !important;
-
-    flex: 0 0 58px !important;
-
-    object-fit: contain !important;
-    object-position: center !important;
-
-    background: #fff !important;
-    border-radius: 8px !important;
-
-    /* Same inner space for Finland + Sweden */
-    padding: 4px !important;
-
-    margin: 0 !important;
-    display: block !important;
-}
-
-/* Finland: increase the actual visible logo area */
-.uni-card-logo[src*="finland"],
-.uni-card-logo[src*="Finland"] {
-    width: 58px !important;
-    height: 58px !important;
-    min-width: 58px !important;
-    max-width: 58px !important;
-
-    object-fit: contain !important;
-    object-position: center !important;
-
-    background: #fff !important;
-    padding: 3px !important;
-}
-
-/* Sweden: use exactly the same visual box */
-.uni-card-logo[src*="sweden"],
-.uni-card-logo[src*="Sweden"] {
-    width: 58px !important;
-    height: 58px !important;
-    min-width: 58px !important;
-    max-width: 58px !important;
-
-    object-fit: contain !important;
-    object-position: center !important;
-
-    background: #fff !important;
-    padding: 3px !important;
-}
-
-/* Keep name and spacing exactly beside the logo */
-.uni-card {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    gap: 16px !important;
-}
-
-.uni-card-name {
-    margin: 0 !important;
-    padding: 0 !important;
-    flex: 1 1 auto !important;
-    line-height: 1.3 !important;
-}
-
-/* Tablet */
-@media(max-width:900px) {
-    .uni-card-logo,
-    .uni-card img.uni-card-logo {
-        width: 54px !important;
-        height: 54px !important;
-        min-width: 54px !important;
-        max-width: 54px !important;
-        flex: 0 0 54px !important;
-        padding: 3px !important;
-    }
-
-    .uni-card-logo[src*="finland"],
-    .uni-card-logo[src*="Finland"],
-    .uni-card-logo[src*="sweden"],
-    .uni-card-logo[src*="Sweden"] {
-        width: 54px !important;
-        height: 54px !important;
-        min-width: 54px !important;
-        max-width: 54px !important;
-        padding: 3px !important;
-    }
-}
-
-/* Mobile */
-@media(max-width:560px) {
-    .uni-card {
-        gap: 12px !important;
-    }
-
-    .uni-card-logo,
-    .uni-card img.uni-card-logo {
-        width: 50px !important;
-        height: 50px !important;
-        min-width: 50px !important;
-        max-width: 50px !important;
-        flex: 0 0 50px !important;
-        padding: 3px !important;
-    }
-
-    .uni-card-logo[src*="finland"],
-    .uni-card-logo[src*="Finland"],
-    .uni-card-logo[src*="sweden"],
-    .uni-card-logo[src*="Sweden"] {
-        width: 50px !important;
-        height: 50px !important;
-        min-width: 50px !important;
-        max-width: 50px !important;
-        padding: 3px !important;
-    }
-}
