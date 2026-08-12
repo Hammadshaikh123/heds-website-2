@@ -13,6 +13,8 @@
 <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
 <link rel="shortcut icon" href="/favicon.ico">
+<!-- Calendly Integration Script -->
+<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </head>
 <body>
 
@@ -22,7 +24,6 @@
       <img src="/logo-nav.png" alt="HEDS International - Foreign Education Consultants" class="logo-img-header">
       <div class="logo-text">
         <span class="logo-word--lg">HEDS International</span>
-        <span>Global Education. Local Guidance.</span>
       </div>
     </a>
     <nav class="links">
@@ -69,8 +70,8 @@
           <div class="hero-feature-item"><span class="hero-feature-icon">&#9992;</span><div><h4>Departure Support</h4><p>Pre-departure &amp; travel assistance</p></div></div>
         </div>
       </div>
-      <div class="hero-banner hero-banner-light">
-        <video autoplay muted loop playsinline poster="/hero-poster.jpg">
+      <div class="hero-banner hero-banner-light hero-banner-vertical">
+        <video autoplay muted loop playsinline poster="/hero-poster.jpg" style="width: 100%; height: auto; max-height: 520px; object-fit: cover; border-radius: 12px;">
           <source src="/WhatsApp%20Video%202026-07-28%20at%202.34.08%20PM.mp4" type="video/mp4">
         </video>
         <div class="hero-banner-flags">
@@ -165,24 +166,8 @@
       <div class="vc-card">
         <h4>Pick a time that works for you</h4>
         <p class="small">Book a live Zoom session directly through our scheduler &mdash; takes less than a minute.</p>
-        <!-- Calendly Embedded (working calendar) -->
-        <div class="calendly-embed-inner">
-          <p>&#128197; Calendly Embedded</p>
-          <p class="cal-sub">Select a slot (Tue–Fri, 12–6 PM)</p>
-          <div class="calendly-slot-grid">
-            <span>12:00</span>
-            <span>12:30</span>
-            <span>01:00</span>
-            <span>01:30</span>
-            <span>02:00</span>
-            <span>02:30</span>
-            <span>03:00</span>
-            <span>03:30</span>
-            <span>04:00</span>
-          </div>
-          <a href="#" class="btn btn-primary" style="width:100%;justify-content:center;padding:10px;">Confirm Slot</a>
-          <p style="font-size:11px;color:#5e7a9a;margin-top:8px;">Live Calendly integration replaces this demo</p>
-        </div>
+        <!-- Fully Working Calendly Widget -->
+        <div class="calendly-inline-widget" data-url="https://calendly.com/hedsinternational" style="min-width:320px;height:450px;"></div>
       </div>
     </div>
   </div>
@@ -354,7 +339,7 @@
   </div>
 </section>
 
-<!-- ========== FOOTER - 4 COLUMNS ========== -->
+<!-- ========== FOOTER ========== -->
 <footer id="footer">
   <div class="wrap">
     <div class="footer-logo-row">
@@ -369,7 +354,7 @@
         </a>
       </div>
     </div>
-    <div class="footer-grid footer-grid--4">
+    <div class="footer-grid footer-grid--3" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px;">
       <div class="footer-col">
         <h5>Quick Links</h5>
         <ul>
@@ -394,14 +379,9 @@
         </ul>
       </div>
       <div class="footer-col footer-divider">
-        <h5>Follow Us</h5>
-        <p class="footer-social-note" style="color:#9FB0CC;font-size:13px;">Follow HEDS International for visa updates, scholarship alerts and student stories.</p>
-      </div>
-      <div class="footer-col footer-divider">
         <h5>Live Feed</h5>
-        <div class="fb-feed-placeholder">
-          <div class="fb-feed-row"><span class="fb-dot"></span>Facebook &amp; Instagram feed embeds here</div>
-          <p style="font-size:12px;color:#9FB0CC;margin-top:8px;">Connect your Facebook Page Plugin or Instagram embed to show live posts.</p>
+        <div class="fb-feed-embed" style="margin-top: 10px;">
+          <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FHedsInternational&tabs=timeline&width=300&height=350&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true" width="300" height="350" style="border:none;overflow:hidden;border-radius:8px;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
         </div>
       </div>
     </div>
