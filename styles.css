@@ -452,7 +452,7 @@ header {
   .service-card h4{font-size:17px;margin:8px 0 10px;}
   .service-card p{font-size:14.5px;color:var(--gray);line-height:1.55;margin:0;}
 
-  /* VIRTUAL COUNSELLING */
+ /* VIRTUAL COUNSELLING */
 .vc-section {
   background: var(--navy);
   color: #fff;
@@ -462,12 +462,17 @@ header {
   grid-template-columns: 1fr 1fr;
   gap: 40px;
   align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden; /* Screen se bahar overflow hone se rokta hai */
 }
 
 .vc-section h2 {
   color: #fff;
   font-size: 30px;
   margin: 0;
+  word-wrap: break-word;
 }
 
 .vc-section p {
@@ -506,6 +511,8 @@ header {
   color: var(--ink);
   box-sizing: border-box;
   width: 100%;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .vc-card h4 {
@@ -517,6 +524,39 @@ header {
   font-size: 13px;
   color: var(--gray);
   margin: 0 0 18px 0;
+}
+
+/* CALENDLY & IFRAME RESPONSIVE FIXES */
+.calendly-placeholder,
+.calendly-inline-widget,
+.vc-card iframe {
+  border: 1.5px dashed #B9C6DD;
+  border-radius: 12px;
+  text-align: center;
+  font-size: 13.5px;
+  color: var(--gray);
+  background: var(--ice);
+  box-sizing: border-box;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+}
+
+/* RESPONSIVE MOBILE MEDIA QUERY */
+@media (max-width: 900px) {
+  .vc-section {
+    grid-template-columns: 1fr;
+    padding: 24px 16px; /* Horizontal space reduce ki taake mobile screen par fitting sahi aye */
+    gap: 24px;
+  }
+
+  .vc-section h2 {
+    font-size: 22px;
+  }
+
+  .vc-card {
+    padding: 16px; /* Card ki inner padding mobile view ke liye optimize ki */
+  }
 }
 
 .calendly-placeholder {
