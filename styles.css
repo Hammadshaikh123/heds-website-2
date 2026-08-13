@@ -54,7 +54,11 @@
   .btn-accent{background:var(--blue);color:#fff;}
   .btn-accent:hover{box-shadow:0 10px 24px rgba(47,111,237,0.35);}
 
-/* HEADER UPDATED WITH MOBILE HAMBURGER & DROPDOWN MENU FIX */
+/* ============================================================
+   COMPLETE HEADER & MOBILE NAV CSS (MERGED & FIXED)
+   ============================================================ */
+
+/* HEADER CONTAINER */
 header {
   background: var(--navy);
   position: sticky;
@@ -79,7 +83,7 @@ header {
 .logo--plain,
 .logo--img {
   background: #fff !important;
-  padding: 6px 14px !important; /* Height balance karne ke liye vertical padding kam ki */
+  padding: 6px 14px !important;
   border-radius: 12px !important;
   display: inline-flex !important;
   align-items: center !important;
@@ -90,14 +94,14 @@ header {
   transition: transform .2s ease;
   text-decoration: none;
   line-height: 1;
-  overflow: visible !important; /* Visual cutoff prevent karne ke liye */
+  overflow: visible !important;
 }
 
 .logo:hover {
   transform: scale(1.03);
 }
 
-/* HIDE ALL TEXT & EXTRA BOXES */
+/* HIDE ALL EXTRA TEXT & BOXES */
 .logo-text,
 .logo-name,
 .logo-tagline,
@@ -109,11 +113,10 @@ header {
   display: none !important;
 }
 
-/* ONLY LOGO IMAGE FIT - UNTRIMMED SUBTEXT */
 .logo-img-header {
-  height: 52px !important; /* Height increase ki hai taake bottom text clearly visible ho */
+  height: 52px !important;
   width: auto !important;
-  max-width: 220px !important; /* Wide logos ke liye space di hai */
+  max-width: 220px !important;
   display: block !important;
   object-fit: contain !important;
 }
@@ -124,128 +127,205 @@ header {
   display: block;
 }
 
-/* MOBILE HAMBURGER & MENU DROPDOWN FIX */
-@media (max-width: 991px) {
+/* DESKTOP NAVIGATION LINKS */
+nav.links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  flex: 1;
+  justify-content: center;
+}
+
+nav.links a {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  opacity: 0.85;
+  white-space: nowrap;
+  padding: 6px 0;
+  border-bottom: 2px solid transparent;
+  transition: opacity .15s ease, border-color .15s ease;
+  position: relative;
+  text-decoration: none;
+}
+
+nav.links a:hover {
+  opacity: 1;
+}
+
+nav.links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background: var(--blue, #3B82F6);
+  transition: width .25s cubic-bezier(.22, 1, .36, 1);
+}
+
+nav.links a:hover::after {
+  width: 100%;
+}
+
+nav.links a.active {
+  opacity: 1;
+  border-bottom-color: var(--blue, #3B82F6);
+}
+
+nav.links a.active::after {
+  width: 100%;
+}
+
+/* NAV RIGHT BUTTONS */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.btn-ghost-light {
+  color: #fff;
+  border: 1.5px solid rgba(255,255,255,0.5);
+  background: transparent;
+  padding: 10px 18px;
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: background .2s ease, border-color .2s ease;
+  text-decoration: none;
+}
+
+.btn-ghost-light:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.7);
+}
+
+.nav-right .btn-accent {
+  white-space: nowrap;
+  padding: 12px 22px;
+  font-size: 14px;
+}
+
+/* HAMBURGER BUTTON DEFAULT STATE */
+.mobile-toggle,
+.hamburger,
+.nav-toggle,
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 28px;
+  cursor: pointer;
+  flex-shrink: 0;
+  padding: 4px;
+  line-height: 1;
+  z-index: 101;
+}
+
+/* ============================================================
+   RESPONSIVE STYLES (TABLET & MOBILE)
+   ============================================================ */
+
+@media (max-width: 1180px) {
+  .nav {
+    padding: 14px 20px;
+    gap: 14px;
+  }
+
+  .nav-right {
+    gap: 10px;
+  }
+
+  .nav-right .btn-ghost-light {
+    display: none;
+  }
+
+  .nav-right .btn-accent {
+    padding: 10px 18px;
+    font-size: 13px;
+  }
+
+  .logo-img-header {
+    height: 42px !important;
+  }
+
+  /* SHOW HAMBURGER BUTTON */
+  .mobile-toggle,
+  .hamburger,
+  .nav-toggle,
+  .menu-toggle {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* MOBILE NAVIGATION DROPDOWN CONTAINER */
+  nav.links,
+  .nav-links,
+  .nav-menu,
+  .mobile-menu {
+    display: none; /* Hidden by default */
+    position: absolute !important;
+    top: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    background: #0A1B33 !important;
+    flex-direction: column !important;
+    padding: 20px 24px !important;
+    gap: 14px !important;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    z-index: 9999 !important;
+  }
+
+  /* SHOW DROPDOWN WHEN ACTIVE CLASS IS TOGGLED VIA JS */
+  nav.links.active,
+  .nav-links.active,
+  .nav-menu.active {
+    display: flex !important;
+  }
+
+  nav.links a,
+  .nav-links a,
+  .nav-menu a {
+    color: #ffffff !important;
+    font-size: 15px;
+    padding: 10px 0;
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    display: block;
+  }
+
+  nav.links a::after {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
   .nav {
     padding: 12px 16px;
   }
 
-  /* Hamburger Toggle Button Force Show */
-  .hamburger,
-  .nav-toggle,
-  .menu-toggle,
-  .mobile-menu-btn,
-  button[aria-label="Toggle navigation"] {
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    cursor: pointer !important;
-    background: transparent;
-    border: none;
-    outline: none;
-    z-index: 101;
-    padding: 6px;
-  }
-
-  .logo-img-header {
-    height: 42px !important; /* Mobile sizing balance */
-  }
-
-  /* MOBILE MENU LINKS DROPDOWN CONTAINER */
-  .nav-links,
-  .nav-menu,
-  .mobile-menu,
-  .nav ul {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: var(--navy, #0B132B);
-    flex-direction: column;
-    padding: 20px;
-    gap: 16px;
-    display: none; /* Default Hidden */
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-    z-index: 100;
-  }
-
-  /* TOGGLE ACTIVE STATE - WHEN HAMBURGER IS CLICKED */
-  .nav-links.active,
-  .nav-menu.active,
-  .mobile-menu.active,
-  .nav ul.active,
-  .nav-links.open,
-  .nav-menu.open {
-    display: flex !important;
-  }
-
-  /* MOBILE NAVIGATION LINKS STYLING */
-  .nav-links a,
-  .nav-menu a,
-  .mobile-menu a,
-  .nav ul li a {
-    color: #ffffff !important;
-    font-size: 16px;
-    font-weight: 500;
-    text-decoration: none;
-    padding: 10px 0;
-    width: 100%;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    display: block;
+  .logo--img {
+    padding: 6px 10px !important;
   }
 }
 
-  nav.links{display:flex;align-items:center;gap:28px;flex:1;justify-content:center;}
-  nav.links a{
-    color:#fff;font-size:14px;font-weight:500;opacity:0.85;
-    white-space:nowrap;padding:6px 0;
-    border-bottom:2px solid transparent;
-    transition:opacity .15s ease, border-color .15s ease;
-    position:relative;
+@media (max-width: 480px) {
+  .nav-right .btn-accent {
+    padding: 8px 14px;
+    font-size: 12px;
   }
-  nav.links a:hover{opacity:1;}
-  nav.links a::after{
-    content:"";position:absolute;left:0;bottom:-2px;width:0;height:2px;
-    background:var(--blue);transition:width .25s cubic-bezier(.22,1,.36,1);
-  }
-  nav.links a:hover::after{width:100%;}
-  nav.links a.active{opacity:1;border-bottom-color:var(--blue);}
-  nav.links a.active::after{width:100%;}
 
-  .nav-right{display:flex;align-items:center;gap:12px;flex-shrink:0;}
-  .btn-ghost-light{
-    color:#fff;border:1.5px solid rgba(255,255,255,0.5);
-    background:transparent;
-    padding:10px 18px;border-radius:100px;font-size:13px;font-weight:600;white-space:nowrap;
-    transition:background .2s ease, border-color .2s ease;
+  .logo-img-header {
+    height: 36px !important;
   }
-  .btn-ghost-light:hover{background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.7);}
-  .nav-right .btn-accent{
-    white-space:nowrap;padding:12px 22px;font-size:14px;
-  }
-  .mobile-toggle{display:none;background:none;border:none;color:#fff;font-size:28px;cursor:pointer;flex-shrink:0;padding:4px;line-height:1;}
-
-  @media(max-width:1180px){
-    nav.links{display:none;}
-    .mobile-toggle{display:block;}
-    .nav-right .btn-ghost-light{display:none;}
-    .nav{padding:14px 20px;gap:14px;}
-    .nav-right{gap:10px;}
-    .nav-right .btn-accent{padding:10px 18px;font-size:13px;}
-    .logo-img-header{height:38px;}
-    .logo-name{font-size:16px;}
-    .logo-tagline{font-size:10px;}
-    .logo-box{width:42px;height:42px;}
-  }
-  @media(max-width:768px){
-    .nav{padding:12px 16px;}
-    .logo--img{padding:8px 12px;gap:10px;}
-  }
-  @media(max-width:480px){
-    .logo-text{display:none;}
-    .nav-right .btn-accent{padding:10px 16px;font-size:12px;}
-  }
+}
 
   /* HERO */
  .hero,
