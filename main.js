@@ -1,28 +1,40 @@
 // ============================================================
-// COMPLETE main.js
+// COMPLETE main.js (UPDATED & FIXED)
 // ============================================================
 
 document.addEventListener('DOMContentLoaded', function () {
-  // ---- Mobile Toggle ----
-  var toggle = document.querySelector('.mobile-toggle');
+  // ---- Mobile Toggle (FIXED) ----
+  var toggle = document.querySelector('.mobile-toggle, .hamburger, .nav-toggle, .menu-toggle');
+  
   if (toggle) {
-    toggle.addEventListener('click', function () {
-      var links = document.querySelector('nav.links');
+    toggle.addEventListener('click', function (e) {
+      e.preventDefault();
+      
+      // Multi-selector check taake HTML tag mismatch se script na ruke
+      var links = document.querySelector('nav.links, .nav-links, .links, .nav-menu, .nav ul');
       if (!links) return;
-      var isOpen = links.style.display === 'flex';
-      if (isOpen) {
-        links.style.display = 'none';
-      } else {
-        links.style.display = 'flex';
+
+      // Class toggle for CSS styling
+      links.classList.toggle('active');
+      toggle.classList.toggle('active');
+
+      // Computed Display check taake style conflict na ho
+      var currentDisplay = window.getComputedStyle(links).display;
+
+      if (currentDisplay === 'none') {
+        links.style.setProperty('display', 'flex', 'important');
         links.style.flexDirection = 'column';
         links.style.position = 'absolute';
-        links.style.top = '72px';
+        links.style.top = '100%';
         links.style.left = '0';
         links.style.right = '0';
         links.style.background = '#0A1B33';
         links.style.padding = '20px 28px';
         links.style.gap = '18px';
-        links.style.zIndex = '99';
+        links.style.zIndex = '999';
+        links.style.boxShadow = '0 10px 25px rgba(0,0,0,0.4)';
+      } else {
+        links.style.setProperty('display', 'none', 'important');
       }
     });
   }
@@ -82,9 +94,6 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // ---- Nav dropdown mobile ----
-  // Just toggles the "open" class — all appearance (background, text
-  // color, spacing) is handled by styles.css (.nav-dropdown.open ...),
-  // so it isn't duplicated here.
   document.querySelectorAll('.nav-dropdown > a').forEach(function (a) {
     a.addEventListener('click', function (e) {
       if (window.innerWidth <= 1180) {
