@@ -1428,7 +1428,10 @@ footer .logo-img-footer {
   .scholarship-card ul{margin:0;padding-left:18px;}
   .scholarship-card li{font-size:13.5px;color:var(--gray);margin-bottom:5px;}
 
-/* UNIVERSITY SLIDER - UPDATED FOR LOGOS */
+/* ============================================================
+   UNIVERSITY SLIDER - UPDATED FOR LARGER & CLEARER LOGOS
+   ============================================================ */
+
 .uni-slider {
   overflow: hidden;
   margin-top: 32px;
@@ -1474,17 +1477,17 @@ footer .logo-img-footer {
   to { transform: translateX(-50%); }
 }
 
-/* Slider Cards Fix */
+/* Slider Cards Fix - Height & Padding Increased for Bigger Logos */
 .uni-slide {
   width: auto !important;
-  height: 70px !important;
+  height: 90px !important;            /* Increased height (70px -> 90px) */
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  padding: 8px 22px !important;
+  padding: 12px 28px !important;       /* Increased padding for breathable look */
   background: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  border-radius: 14px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.07);
   margin: 0 10px;
   flex-shrink: 0 !important;
   box-sizing: border-box !important;
@@ -1502,21 +1505,21 @@ footer .logo-img-footer {
   overflow: visible !important;
 }
 
-/* Logo Sizing Fix - Natural Aspect Ratio Preserved */
+/* Logo Sizing Fix - Increased Max Height for Maximum Visibility */
 .uni-slide-badge img {
   height: 100% !important;
-  max-height: 48px !important;
+  max-height: 68px !important;        /* Increased logo height (48px -> 68px) */
   width: auto !important;
-  max-width: none !important;
+  max-width: 180px !important;        /* Prevents horizontal distortion */
   min-width: 0 !important;
-  object-fit: contain !important;
+  object-fit: contain !important;     /* Keeps logos sharp & crisp without stretching */
   object-position: center !important;
   display: block !important;
   flex-shrink: 0 !important;
 }
 
 .uni-slide-name {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 700;
   color: var(--navy);
   line-height: 1.3;
@@ -1526,13 +1529,14 @@ footer .logo-img-footer {
 /* RESPONSIVE MOBILE FIXES */
 @media (max-width: 768px) {
   .uni-slide {
-    height: 60px !important;
-    padding: 6px 14px !important;
+    height: 72px !important;          /* Increased mobile height (60px -> 72px) */
+    padding: 8px 18px !important;
     margin: 0 6px;
   }
 
   .uni-slide-badge img {
-    max-height: 38px !important;
+    max-height: 52px !important;      /* Increased mobile logo height (38px -> 52px) */
+    max-width: 140px !important;
   }
 
   .uni-slide-name {
