@@ -1,5 +1,5 @@
 // ============================================================
-// COMPLETE main.js (OPTIMIZED & BULLETPROOF)
+// COMPLETE main.js (CLEANED & FIXED)
 // ============================================================
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -13,24 +13,17 @@ document.addEventListener('DOMContentLoaded', function () {
       e.preventDefault();
       e.stopPropagation();
 
-      const isActive = navLinks.classList.toggle('active');
+      // Simple CSS Class Toggle (CSS handles display flex automatically)
+      navLinks.classList.toggle('active');
       toggleBtn.classList.toggle('active');
-
-      // Direct inline css force overrides
-      if (isActive) {
-        navLinks.style.cssText = "display: flex !important; flex-direction: column !important; position: absolute !important; top: 100% !important; left: 0 !important; right: 0 !important; width: 100% !important; background: #0A1B33 !important; padding: 20px 24px !important; gap: 16px !important; z-index: 99999 !important; box-shadow: 0 15px 35px rgba(0,0,0,0.6) !important;";
-      } else {
-        navLinks.style.cssText = "";
-      }
     });
 
-    // Outside click par menu auto-close karne ka logic
+    // Outside click auto-close logic
     document.addEventListener('click', function (e) {
       if (navLinks.classList.contains('active')) {
         if (!navLinks.contains(e.target) && !toggleBtn.contains(e.target)) {
           navLinks.classList.remove('active');
           toggleBtn.classList.remove('active');
-          navLinks.style.cssText = "";
         }
       }
     });
@@ -42,19 +35,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const trigger = dropdown.querySelector(':scope > a');
     if (trigger) {
       trigger.addEventListener('click', function (e) {
+        // Sirf mobile/tablet break-point par default navigation rokna hai
         if (window.innerWidth <= 1180) {
           e.preventDefault();
           e.stopPropagation();
           dropdown.classList.toggle('open');
-
-          const subMenu = dropdown.querySelector('.nav-dropdown-menu');
-          if (subMenu) {
-            if (dropdown.classList.contains('open')) {
-              subMenu.style.cssText = "display: flex !important; flex-direction: column !important; position: static !important; background: rgba(255,255,255,0.05) !important; padding: 12px 16px !important; margin-top: 10px !important; border-radius: 8px !important; gap: 10px !important;";
-            } else {
-              subMenu.style.cssText = "";
-            }
-          }
         }
       });
     }
@@ -65,15 +50,12 @@ document.addEventListener('DOMContentLoaded', function () {
     if (window.innerWidth > 1180) {
       if (navLinks) {
         navLinks.classList.remove('active');
-        navLinks.style.cssText = "";
       }
       if (toggleBtn) {
         toggleBtn.classList.remove('active');
       }
       dropdowns.forEach(function (dropdown) {
         dropdown.classList.remove('open');
-        const subMenu = dropdown.querySelector('.nav-dropdown-menu');
-        if (subMenu) subMenu.style.cssText = "";
       });
     }
   });
