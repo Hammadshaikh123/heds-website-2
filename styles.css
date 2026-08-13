@@ -713,27 +713,124 @@ header {
   .cta-band p{color:#C7D2E6;margin:14px 0 28px;font-size:16px;}
   .cta-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
 
-  /* FOOTER */
-  footer{
-    background:var(--navy);color:#fff;position:relative;overflow:hidden;padding:64px 0 28px;
+  /* FOOTER UPDATED */
+footer {
+  background: var(--navy);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  padding: 64px 0 28px;
+}
+
+footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('world-map.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  opacity: 0.12;
+}
+
+footer .wrap {
+  position: relative;
+  z-index: 1;
+}
+
+/* Updated Logo Row Styling */
+.footer-logo-row {
+  margin-bottom: 24px;
+}
+
+.logo-img-footer {
+  height: 75px !important; /* Enlarged logo size */
+  width: auto !important;
+  display: block;
+  object-fit: contain;
+}
+
+.footer-social-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.social-icon {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 8px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
+
+.social-icon:hover {
+  background: var(--accent, #3B82F6);
+}
+
+/* Updated Layout Grid (Rebalanced after removing Quick Links) */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr; /* Contact & Live feed layout balance */
+  gap: 40px;
+}
+
+@media(max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr; /* Mobile view single column */
+    gap: 30px;
   }
-  footer::before{
-    content:"";position:absolute;inset:0;
-    background-image:url('world-map.png');
-    background-repeat:no-repeat;background-position:center;background-size:cover;opacity:0.12;
-  }
-  footer .wrap{position:relative;z-index:1;}
-  .footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:36px;}
-  @media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;}}
-  @media(max-width:560px){.footer-grid{grid-template-columns:1fr;}}
-  .footer-grid h5{color:#fff;font-size:14px;margin-bottom:16px;letter-spacing:0.04em;text-transform:uppercase;}
-  .footer-grid ul li{margin-bottom:10px;font-size:14px;color:#C7D2E6;}
-  .footer-grid ul li a:hover{color:#fff;}
-  .footer-brand p{color:#B9C6DD;font-size:14px;line-height:1.6;margin-top:14px;max-width:280px;}
-  .footer-bottom{
-    border-top:1px solid rgba(255,255,255,0.12);margin-top:48px;padding-top:22px;
-    display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:#9FB0CC;
-  }
+}
+
+.footer-grid h5 {
+  color: #fff;
+  font-size: 14px;
+  margin-bottom: 16px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.footer-grid ul li {
+  margin-bottom: 12px;
+  font-size: 14px;
+  color: #C7D2E6;
+  line-height: 1.5;
+}
+
+.footer-contact-list li {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.footer-contact-list .fic {
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.footer-brand p {
+  color: #B9C6DD;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-top: 14px;
+  max-width: 320px;
+}
+
+/* Bottom Bar */
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  margin-top: 48px;
+  padding-top: 22px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 13px;
+  color: #9FB0CC;
+}
 
   /* GOOGLE REVIEWS */
   .gr-rating-summary{display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
