@@ -1014,27 +1014,62 @@ header {
   .scholarship-card ul{margin:0;padding-left:18px;}
   .scholarship-card li{font-size:13.5px;color:var(--gray);margin-bottom:5px;}
 
-  /* UNIVERSITY SLIDER - UPDATED FOR LOGOS */
-  .uni-slider{overflow:hidden;margin-top:32px;position:relative;}
-  .uni-slider::before,.uni-slider::after{
-    content:"";position:absolute;top:0;bottom:0;width:60px;z-index:2;
-  }
-  .uni-slider::before{left:0;background:linear-gradient(90deg,var(--ice),transparent);}
-  .uni-slider::after{right:0;background:linear-gradient(270deg,var(--ice),transparent);}
-  .uni-slider-track{display:flex;gap:20px;width:max-content;animation:uniScroll 26s linear infinite;}
-  .uni-slider:hover .uni-slider-track{animation-play-state:paused;}
-  @keyframes uniScroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
-  /* Slider Cards Fix */
+ /* UNIVERSITY SLIDER - UPDATED FOR LOGOS */
+.uni-slider {
+  overflow: hidden;
+  margin-top: 32px;
+  position: relative;
+}
+
+.uni-slider::before,
+.uni-slider::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 60px;
+  z-index: 2;
+  pointer-events: none; /* Interactive issue na aaye */
+}
+
+.uni-slider::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--ice), transparent);
+}
+
+.uni-slider::after {
+  right: 0;
+  background: linear-gradient(270deg, var(--ice), transparent);
+}
+
+.uni-slider-track {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  animation: uniScroll 26s linear infinite;
+}
+
+.uni-slider:hover .uni-slider-track {
+  animation-play-state: paused;
+}
+
+@keyframes uniScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Slider Cards Fix */
 .uni-slide {
-  width: auto !important; /* Fixed wide width hatane ke liye */
+  width: auto !important;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 15px; /* Compact padding */
+  padding: 10px 18px;
   background: #ffffff;
   border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Light shadow */
-  margin: 0 10px; /* Slides ke beech space */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  margin: 0 10px;
+  flex-shrink: 0; /* Slide shrink na ho */
 }
 
 /* Badge Container Fix */
@@ -1042,36 +1077,51 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: auto; /* Fixed width/height hataye hain taake wide logos cut na hon */
+  height: auto;
 }
 
 /* Logo Sizing Fix */
 .uni-slide-badge img {
-  max-height: 45px; /* Compact height */
+  height: 45px;
   width: auto;
-  max-width: 120px; /* Logo ki max width limit */
-  object-fit: contain;
+  max-width: 140px;
+  object-fit: contain !important;
+  display: block;
 }
-  .uni-slide-name{font-size:14px;font-weight:700;color:var(--navy);line-height:1.3;}
 
-  @media(max-width:768px){
-    .uni-slide{
-      min-width:180px;
-      padding:10px 16px;
-      gap:12px;
-    }
-    .uni-slide-badge{
-      width:50px;
-      height:50px;
-    }
-    .uni-slide-badge img{
-      max-width:46px;
-      max-height:46px;
-    }
-    .uni-slide-name{
-      font-size:13px;
-    }
+.uni-slide-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.3;
+}
+
+/* RESPONSIVE MOBILE FIXES */
+@media (max-width: 768px) {
+  .uni-slide {
+    min-width: auto; /* Forced width hata di */
+    padding: 8px 14px;
+    gap: 10px;
   }
 
+  .uni-slide-badge {
+    width: auto; /* Fixed 50px dimension reset kar di */
+    height: auto;
+  }
+
+  .uni-slide-badge img {
+    height: 36px; /* Aspect ratio maintain rakhte hue flexible height */
+    width: auto;
+    max-width: 110px; /* Wide logos bhi easily fit honge */
+    object-fit: contain !important;
+  }
+
+  .uni-slide-name {
+    font-size: 13px;
+    white-space: nowrap; /* Text wrapped ho kar layout break na kare */
+  }
+}
   .country-form-section{background:var(--navy);}
   .country-form-card{
     display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;color:#fff;
