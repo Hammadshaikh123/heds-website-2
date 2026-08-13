@@ -1,31 +1,50 @@
 // ============================================================
-// COMPLETE main.js
+// COMPLETE main.js (UPDATED & FIXED)
 // ============================================================
 
 document.addEventListener('DOMContentLoaded', function () {
-  // ---- Mobile Toggle ----
-  var toggle = document.querySelector('.mobile-toggle');
-  if (toggle) {
-    toggle.addEventListener('click', function () {
-      var links = document.querySelector('nav.links');
-      if (!links) return;
-      var isOpen = links.style.display === 'flex';
-      if (isOpen) {
-        links.style.display = 'none';
-      } else {
-        links.style.display = 'flex';
-        links.style.flexDirection = 'column';
-        links.style.position = 'absolute';
-        links.style.top = '72px';
-        links.style.left = '0';
-        links.style.right = '0';
-        links.style.background = '#0A1B33';
-        links.style.padding = '20px 28px';
-        links.style.gap = '18px';
-        links.style.zIndex = '99';
-      }
+  
+  // ---- Mobile Toggle (Clean CSS Class Toggle) ----
+  var toggle = document.querySelector('.mobile-toggle, .hamburger, .nav-toggle');
+  var links = document.querySelector('nav.links, .nav-links');
+
+  if (toggle && links) {
+    toggle.addEventListener('click', function (e) {
+      e.stopPropagation();
+      // Class toggle karein taakay CSS overrides kaam karein aur inline styles mess na karein
+      links.classList.toggle('active');
     });
   }
+
+  // ---- Nav dropdown mobile (Accordion Fix) ----
+  document.querySelectorAll('.nav-dropdown > a').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      if (window.innerWidth <= 1180) {
+        e.preventDefault(); // Navigation/Refresh ko rokta hai
+        e.stopPropagation(); // Event bubble hokar menu close nahi hone deta
+        
+        var parentDropdown = a.parentElement;
+        
+        // (Optional) Dusre sub-menus ko band karke sirf click waale ko open rakhta hai
+        document.querySelectorAll('.nav-dropdown').forEach(function(item) {
+          if (item !== parentDropdown) {
+            item.classList.remove('open');
+          }
+        });
+
+        parentDropdown.classList.toggle('open');
+      }
+    });
+  });
+
+  // ---- Close mobile menu when clicking outside ----
+  document.addEventListener('click', function (e) {
+    if (window.innerWidth <= 1180 && links && links.classList.contains('active')) {
+      if (!links.contains(e.target) && !toggle.contains(e.target)) {
+        links.classList.remove('active');
+      }
+    }
+  });
 
   // ---- Scroll-reveal animations ----
   var selector = [
@@ -81,19 +100,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // ---- Nav dropdown mobile ----
-  // Just toggles the "open" class — all appearance (background, text
-  // color, spacing) is handled by styles.css (.nav-dropdown.open ...),
-  // so it isn't duplicated here.
-  document.querySelectorAll('.nav-dropdown > a').forEach(function (a) {
-    a.addEventListener('click', function (e) {
-      if (window.innerWidth <= 1180) {
-        e.preventDefault();
-        e.stopPropagation();
-        a.parentElement.classList.toggle('open');
-      }
-    });
-  });
 });
 
 // ---- Lightbox functions (global) ----
