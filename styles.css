@@ -291,6 +291,7 @@ nav.links a.active {
     left: 0;
     right: 0;
     width: 100%;
+    box-sizing: border-box !important;
     background-color: #0A1B33 !important;
     background: #0A1B33 !important;
     flex-direction: column;
@@ -330,17 +331,23 @@ nav.links a.active {
     position: relative !important;
   }
 
+  /* SUB-MENU BOX FIX (REMOVES LEFT OFF-SCREEN OVERFLOW) */
   .nav-dropdown-menu,
   .dropdown-menu,
   ul.dropdown {
     display: none !important;
-    position: static !important; /* Prevents floating off-screen horizontal overflow */
+    position: relative !important; /* Static/Relative keeps box inside mobile flow */
+    top: 0 !important;
+    left: 0 !important;             /* Cancels desktop horizontal offsets */
+    right: 0 !important;
+    transform: none !important;     /* Stops translateX pushing box off screen */
     width: 100% !important;
     max-width: 100% !important;
     box-sizing: border-box !important;
     background: #0f223f !important;
     padding: 12px 14px !important;
-    margin-top: 8px !important;
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
     border-radius: 8px !important;
     border: 1px solid rgba(255, 255, 255, 0.15) !important;
     box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2) !important;
@@ -423,7 +430,6 @@ nav.links a.active {
     height: 36px !important;
   }
 }
-
   /* HERO */
  .hero,
 .hero-light {
