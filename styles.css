@@ -54,7 +54,7 @@
   .btn-accent{background:var(--blue);color:#fff;}
   .btn-accent:hover{box-shadow:0 10px 24px rgba(47,111,237,0.35);}
 
-  /* HEADER UPDATED */
+/* HEADER UPDATED */
 header {
   background: var(--navy);
   position: sticky;
@@ -78,7 +78,7 @@ header {
 .logo--plain,
 .logo--img {
   background: #fff !important;
-  padding: 8px 16px !important;
+  padding: 6px 14px !important; /* Height balance karne ke liye vertical padding kam ki */
   border-radius: 12px !important;
   display: inline-flex !important;
   align-items: center !important;
@@ -89,6 +89,7 @@ header {
   transition: transform .2s ease;
   text-decoration: none;
   line-height: 1;
+  overflow: visible !important; /* Visual cutoff prevent karne ke liye */
 }
 
 .logo:hover {
@@ -107,11 +108,11 @@ header {
   display: none !important;
 }
 
-/* ONLY LOGO IMAGE FIT */
+/* ONLY LOGO IMAGE FIT - UNTRIMMED SUBTEXT */
 .logo-img-header {
-  height: 40px !important;
+  height: 52px !important; /* Height increase ki hai taake bottom text clearly visible ho */
   width: auto !important;
-  max-width: 180px !important;
+  max-width: 220px !important; /* Wide logos ke liye space di hai */
   display: block !important;
   object-fit: contain !important;
 }
