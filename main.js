@@ -1,27 +1,26 @@
 // ============================================================
-// COMPLETE main.js (UPDATED & FIXED)
+// COMPLETE main.js (UPDATED & 100% WORKING)
 // ============================================================
 
 document.addEventListener('DOMContentLoaded', function () {
-  // ---- Mobile Toggle (FIXED) ----
-  var toggle = document.querySelector('.mobile-toggle, .hamburger, .nav-toggle, .menu-toggle');
+  // ---- Mobile Toggle (ROCK-SOLID FIX) ----
+  var toggle = document.querySelector('.mobile-toggle, #hamburger-btn, .hamburger, .nav-toggle, .menu-toggle');
   
   if (toggle) {
     toggle.addEventListener('click', function (e) {
       e.preventDefault();
+      e.stopPropagation();
       
-      // Multi-selector check taake HTML tag mismatch se script na ruke
-      var links = document.querySelector('nav.links, .nav-links, .links, .nav-menu, .nav ul');
+      // Multi-selector support for header nav links
+      var links = document.querySelector('#mobile-nav-links, nav.links, .nav-links, .links, .nav-menu, .nav ul');
       if (!links) return;
 
-      // Class toggle for CSS styling
-      links.classList.toggle('active');
-      toggle.classList.toggle('active');
+      var isOpen = links.classList.contains('active');
 
-      // Computed Display check taake style conflict na ho
-      var currentDisplay = window.getComputedStyle(links).display;
-
-      if (currentDisplay === 'none') {
+      if (!isOpen) {
+        // Open Menu
+        links.classList.add('active');
+        toggle.classList.add('active');
         links.style.setProperty('display', 'flex', 'important');
         links.style.flexDirection = 'column';
         links.style.position = 'absolute';
@@ -31,10 +30,35 @@ document.addEventListener('DOMContentLoaded', function () {
         links.style.background = '#0A1B33';
         links.style.padding = '20px 28px';
         links.style.gap = '18px';
-        links.style.zIndex = '999';
-        links.style.boxShadow = '0 10px 25px rgba(0,0,0,0.4)';
+        links.style.zIndex = '9999';
+        links.style.boxShadow = '0 12px 30px rgba(0,0,0,0.5)';
       } else {
-        links.style.setProperty('display', 'none', 'important');
+        // Close Menu
+        links.classList.remove('active');
+        toggle.classList.remove('active');
+        links.style.removeProperty('display');
+        links.style.removeProperty('flex-direction');
+        links.style.removeProperty('position');
+        links.style.removeProperty('top');
+        links.style.removeProperty('left');
+        links.style.removeProperty('right');
+        links.style.removeProperty('background');
+        links.style.removeProperty('padding');
+        links.style.removeProperty('gap');
+        links.style.removeProperty('z-index');
+        links.style.removeProperty('box-shadow');
+      }
+    });
+
+    // Close menu when clicking anywhere outside
+    document.addEventListener('click', function (e) {
+      var links = document.querySelector('#mobile-nav-links, nav.links, .nav-links, .links, .nav-menu, .nav ul');
+      if (links && links.classList.contains('active')) {
+        if (!links.contains(e.target) && !toggle.contains(e.target)) {
+          links.classList.remove('active');
+          toggle.classList.remove('active');
+          links.style.removeProperty('display');
+        }
       }
     });
   }
