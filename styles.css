@@ -62,7 +62,10 @@
    HEADER & MOBILE NAVIGATION CSS (UPDATED & FULLY SYNCED)
    ============================================================ */
 
-/* HEADER CONTAINER */
+/* ============================================================
+   HEADER & NAVIGATION BASE STYLES
+   ============================================================ */
+
 header {
   background: var(--navy, #0A1B33);
   position: sticky;
@@ -95,17 +98,18 @@ header {
   width: auto !important;
   max-width: fit-content !important;
   flex-shrink: 0;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
   text-decoration: none;
   line-height: 1;
   overflow: visible !important;
 }
 
 .logo:hover {
-  transform: scale(1.03);
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* HIDE EXTRA LOGO TEXT & CONTAINERS */
+/* HIDE EXTRA LOGO TEXT & UNWANTED CONTAINERS */
 .logo-text,
 .logo-name,
 .logo-tagline,
@@ -148,13 +152,14 @@ nav.links a {
   white-space: nowrap;
   padding: 6px 0;
   border-bottom: 2px solid transparent;
-  transition: opacity 0.15s ease, border-color 0.15s ease;
+  transition: opacity 0.2s ease, border-color 0.2s ease, color 0.2s ease;
   position: relative;
   text-decoration: none;
 }
 
 nav.links a:hover {
   opacity: 1;
+  color: #ffffff;
 }
 
 nav.links a::after {
@@ -195,13 +200,14 @@ nav.links a.active {
   font-size: 13px;
   font-weight: 600;
   white-space: nowrap;
-  transition: background 0.2s ease, border-color 0.2s ease;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
   text-decoration: none;
 }
 
 .btn-ghost-light:hover {
   background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.7);
+  border-color: rgba(255, 255, 255, 0.8);
+  transform: translateY(-1px);
 }
 
 .nav-right .btn-accent {
@@ -225,6 +231,14 @@ nav.links a.active {
   padding: 4px;
   line-height: 1;
   z-index: 1001;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.mobile-toggle:hover,
+.hamburger:hover,
+.nav-toggle:hover,
+.menu-toggle:hover {
+  opacity: 0.8;
 }
 
 /* ============================================================
@@ -284,7 +298,7 @@ nav.links a.active {
     z-index: 9999;
   }
 
-  /* ACTIVE STATE WHEN CLICKED */
+  /* ACTIVE STATE WHEN CLICKED (JS TOGGLE) */
   nav.links.active,
   .nav-links.active,
   .nav-menu.active {
@@ -304,7 +318,7 @@ nav.links a.active {
   }
 
   nav.links a::after {
-    display: none;
+    display: none !important;
   }
 
   /* NESTED SUB-DROPDOWN (STUDY DESTINATIONS ACCORDION) */
@@ -318,6 +332,7 @@ nav.links a.active {
     padding: 10px 16px;
     border-radius: 8px;
     margin-top: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
   }
 
   .nav-dropdown.open .nav-dropdown-menu {
@@ -332,6 +347,11 @@ nav.links a.active {
     padding: 6px 0 !important;
     opacity: 0.9;
   }
+
+  .nav-dropdown-menu a:hover {
+    opacity: 1;
+    padding-left: 4px !important; /* Touch feedback effect */
+  }
 }
 
 @media (max-width: 768px) {
@@ -339,6 +359,7 @@ nav.links a.active {
     padding: 12px 16px;
   }
 
+  .logo,
   .logo--img {
     padding: 6px 10px !important;
   }
