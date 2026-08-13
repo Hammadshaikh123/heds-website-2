@@ -57,7 +57,7 @@
 
 
 /* ============================================================
-   COMPLETE HEADER & NAVIGATION STYLES (UPDATED & MERGED)
+   COMPLETE HEADER & NAVIGATION STYLES (UPDATED & FLICKER FIXED)
    ============================================================ */
 
 /* ============================================================
@@ -154,7 +154,7 @@ nav.links a {
   white-space: nowrap;
   padding: 6px 0;
   border-bottom: 2px solid transparent;
-  transition: opacity 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  transition: opacity 0.2s ease, color 0.2s ease;
   position: relative;
   text-decoration: none;
 }
@@ -164,6 +164,7 @@ nav.links a:hover {
   color: #ffffff;
 }
 
+/* Underline Indicator Base */
 nav.links a::after {
   content: "";
   position: absolute;
@@ -172,17 +173,26 @@ nav.links a::after {
   width: 0;
   height: 2px;
   background: var(--blue, #3B82F6);
-  transition: width 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+  opacity: 0;
+  transition: opacity 0.15s ease, width 0.2s ease-in-out;
 }
 
-nav.links a:hover::after,
-nav.links a.active::after {
+/* Hover State Underline Animation */
+nav.links a:hover::after {
   width: 100%;
+  opacity: 1;
+}
+
+/* Active State Underline - INSTANT LOCK (Prevents Home Flicker/Lag) */
+nav.links a.active::after {
+  width: 100% !important;
+  opacity: 1 !important;
+  transition: none !important; /* Stops transition animation lag on page switch */
 }
 
 nav.links a.active {
-  opacity: 1;
-  border-bottom-color: var(--blue, #3B82F6);
+  opacity: 1 !important;
+  border-bottom-color: transparent !important;
 }
 
 /* NAV RIGHT BUTTONS */
