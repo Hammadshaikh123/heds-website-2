@@ -713,13 +713,13 @@ header {
   .cta-band p{color:#C7D2E6;margin:14px 0 28px;font-size:16px;}
   .cta-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
 
-  /* FOOTER UPDATED */
+ /* FOOTER UPDATED - EQUAL 3 COLUMNS */
 footer {
   background: var(--navy);
   color: #fff;
   position: relative;
   overflow: hidden;
-  padding: 64px 0 28px;
+  padding: 50px 0 24px;
 }
 
 footer::before {
@@ -738,16 +738,29 @@ footer .wrap {
   z-index: 1;
 }
 
-/* Updated Logo Row Styling */
-.footer-logo-row {
-  margin-bottom: 24px;
+/* 3 Equal Columns Layout */
+.footer-main-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 1fr; /* Logo, Contact, and Live Feed side-by-side */
+  gap: 40px;
+  align-items: start;
 }
 
+/* Enlarged Logo Fix */
 .logo-img-footer {
-  height: 75px !important; /* Enlarged logo size */
+  height: 70px !important; /* Size increase kar diya hai */
   width: auto !important;
   display: block;
   object-fit: contain;
+  margin-bottom: 12px;
+}
+
+.footer-desc {
+  color: #B9C6DD;
+  font-size: 13.5px;
+  line-height: 1.6;
+  margin-bottom: 16px;
+  max-width: 320px;
 }
 
 .footer-social-row {
@@ -771,21 +784,7 @@ footer .wrap {
   background: var(--accent, #3B82F6);
 }
 
-/* Updated Layout Grid (Rebalanced after removing Quick Links) */
-.footer-grid {
-  display: grid;
-  grid-template-columns: 1.4fr 1fr; /* Contact & Live feed layout balance */
-  gap: 40px;
-}
-
-@media(max-width: 768px) {
-  .footer-grid {
-    grid-template-columns: 1fr; /* Mobile view single column */
-    gap: 30px;
-  }
-}
-
-.footer-grid h5 {
+.footer-col h5 {
   color: #fff;
   font-size: 14px;
   margin-bottom: 16px;
@@ -793,37 +792,51 @@ footer .wrap {
   text-transform: uppercase;
 }
 
-.footer-grid ul li {
-  margin-bottom: 12px;
-  font-size: 14px;
-  color: #C7D2E6;
-  line-height: 1.5;
+.footer-contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .footer-contact-list li {
   display: flex;
   gap: 10px;
   align-items: flex-start;
+  margin-bottom: 12px;
+  font-size: 13.5px;
+  color: #C7D2E6;
+  line-height: 1.4;
 }
 
 .footer-contact-list .fic {
-  font-size: 16px;
+  font-size: 15px;
   flex-shrink: 0;
 }
 
-.footer-brand p {
-  color: #B9C6DD;
-  font-size: 14px;
-  line-height: 1.6;
-  margin-top: 14px;
+.fb-feed-embed {
+  width: 100%;
   max-width: 320px;
+}
+
+/* Responsive Tablet & Mobile */
+@media (max-width: 992px) {
+  .footer-main-grid {
+    grid-template-columns: 1fr 1fr; /* 2 columns on tablet */
+  }
+}
+
+@media (max-width: 650px) {
+  .footer-main-grid {
+    grid-template-columns: 1fr; /* Stack on mobile */
+    gap: 30px;
+  }
 }
 
 /* Bottom Bar */
 .footer-bottom {
   border-top: 1px solid rgba(255, 255, 255, 0.12);
-  margin-top: 48px;
-  padding-top: 22px;
+  margin-top: 40px;
+  padding-top: 20px;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
