@@ -713,8 +713,9 @@ header {
   .cta-band p{color:#C7D2E6;margin:14px 0 28px;font-size:16px;}
   .cta-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
 
-/* FOOTER FIX WITH WHITE LOGO BADGE & 3 EQUAL COLUMNS */
-footer {
+/* FOOTER COMPLETE FIX - WHITE LOGO BADGE & 3 EQUAL COLUMNS */
+footer, 
+#footer {
   background: var(--navy);
   color: #fff;
   position: relative;
@@ -722,7 +723,8 @@ footer {
   padding: 50px 0 24px;
 }
 
-footer::before {
+footer::before,
+#footer::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -733,7 +735,8 @@ footer::before {
   opacity: 0.12;
 }
 
-footer .wrap {
+footer .wrap,
+#footer .wrap {
   position: relative;
   z-index: 1;
 }
@@ -741,30 +744,35 @@ footer .wrap {
 /* Equal 3-Column Grid Layout */
 .footer-main-grid {
   display: grid;
-  grid-template-columns: 1fr 1.2fr 1fr; /* Barabar 3 columns layout */
+  grid-template-columns: 1fr 1fr 1fr; /* Exact 3 equal columns */
   gap: 36px;
   align-items: start;
 }
 
-/* WHITE ROUNDED LOGO BADGE FIX */
-.footer-logo-badge {
+/* WHITE ROUNDED LOGO BADGE FIX (HIGH SPECIFICITY) */
+#footer .footer-logo-badge,
+footer .footer-logo-badge {
   background: #ffffff !important;
-  padding: 10px 18px !important;
+  background-color: #ffffff !important;
+  padding: 12px 20px !important;
   border-radius: 12px !important;
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
   width: auto !important;
   max-width: fit-content !important;
-  margin-bottom: 16px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  margin-bottom: 16px !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
 }
 
-.logo-img-footer {
-  height: 64px !important; /* Larger clear logo size */
+#footer .logo-img-footer,
+footer .logo-img-footer {
+  height: 68px !important;
   width: auto !important;
   display: block !important;
   object-fit: contain !important;
+  background: transparent !important;
+  margin: 0 !important;
 }
 
 .footer-desc {
@@ -790,6 +798,7 @@ footer .wrap {
   align-items: center;
   justify-content: center;
   transition: background 0.3s ease;
+  text-decoration: none;
 }
 
 .social-icon:hover {
