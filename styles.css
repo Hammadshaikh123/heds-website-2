@@ -1014,7 +1014,7 @@ header {
   .scholarship-card ul{margin:0;padding-left:18px;}
   .scholarship-card li{font-size:13.5px;color:var(--gray);margin-bottom:5px;}
 
- /* UNIVERSITY SLIDER - UPDATED FOR LOGOS */
+/* UNIVERSITY SLIDER - UPDATED FOR LOGOS */
 .uni-slider {
   overflow: hidden;
   margin-top: 32px;
@@ -1063,37 +1063,42 @@ header {
 /* Slider Cards Fix */
 .uni-slide {
   width: auto !important;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 12px 22px;
+  height: 70px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 8px 22px !important;
   background: #ffffff;
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
   margin: 0 10px;
-  flex-shrink: 0;
-  box-sizing: border-box;
+  flex-shrink: 0 !important;
+  box-sizing: border-box !important;
+  overflow: visible !important;
 }
 
 /* Badge Container Fix */
 .uni-slide-badge {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: auto;
-  height: auto;
-  flex-shrink: 0;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: auto !important;
+  height: 100% !important;
+  flex-shrink: 0 !important;
+  overflow: visible !important;
 }
 
 /* Logo Sizing Fix - Natural Aspect Ratio Preserved */
 .uni-slide-badge img {
-  height: 48px;
+  height: 100% !important;
+  max-height: 48px !important;
   width: auto !important;
   max-width: none !important;
   min-width: 0 !important;
   object-fit: contain !important;
-  display: block;
-  flex-shrink: 0;
+  object-position: center !important;
+  display: block !important;
+  flex-shrink: 0 !important;
 }
 
 .uni-slide-name {
@@ -1107,39 +1112,13 @@ header {
 /* RESPONSIVE MOBILE FIXES */
 @media (max-width: 768px) {
   .uni-slide {
-    padding: 10px 16px;
+    height: 60px !important;
+    padding: 6px 14px !important;
     margin: 0 6px;
   }
 
   .uni-slide-badge img {
-    height: 38px;
-    width: auto !important;
-    max-width: none !important;
-  }
-
-  .uni-slide-name {
-    font-size: 13px;
-  }
-}
-
-/* RESPONSIVE MOBILE FIXES */
-@media (max-width: 768px) {
-  .uni-slide {
-    min-width: auto;
-    padding: 10px 14px;
-    gap: 10px;
-  }
-
-  .uni-slide-badge {
-    width: auto;
-    height: auto;
-  }
-
-  .uni-slide-badge img {
-    height: 38px; /* Height thodi adjust ki, width khud auto calculate ho jayegi */
-    width: auto !important;
-    max-width: none !important; /* Mobile par bhi crop nahi hoga */
-    object-fit: contain !important;
+    max-height: 38px !important;
   }
 
   .uni-slide-name {
