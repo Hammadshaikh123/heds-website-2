@@ -54,7 +54,7 @@
   .btn-accent{background:var(--blue);color:#fff;}
   .btn-accent:hover{box-shadow:0 10px 24px rgba(47,111,237,0.35);}
 
-/* HEADER UPDATED */
+/* HEADER UPDATED WITH MOBILE HAMBURGER FIX */
 header {
   background: var(--navy);
   position: sticky;
@@ -121,6 +121,34 @@ header {
   height: 56px;
   width: auto;
   display: block;
+}
+
+/* MOBILE HAMBURGER MENU VISIBILITY FIX */
+@media (max-width: 991px) {
+  .nav {
+    padding: 12px 16px;
+  }
+
+  /* Hamburger Toggle Button Force Show */
+  .hamburger,
+  .nav-toggle,
+  .menu-toggle,
+  .mobile-menu-btn,
+  button[aria-label="Toggle navigation"] {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    background: transparent;
+    border: none;
+    outline: none;
+    z-index: 101;
+    padding: 6px;
+  }
+
+  .logo-img-header {
+    height: 42px !important; /* Mobile sizing balance */
+  }
 }
 
   nav.links{display:flex;align-items:center;gap:28px;flex:1;justify-content:center;}
