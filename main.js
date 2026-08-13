@@ -1,9 +1,26 @@
 // ============================================================
-// COMPLETE main.js (UPDATED & FIXED)
+// COMPLETE main.js (UPDATED WITH AUTO-ACTIVE NAV LINK)
 // ============================================================
 
 document.addEventListener('DOMContentLoaded', function () {
   
+  // ---- Auto Highlight Active Nav Link Based on Current URL ----
+  var currentPath = window.location.pathname.split('/').pop() || 'index.html';
+  
+  document.querySelectorAll('nav.links a').forEach(function (link) {
+    // Pahle sabhi links se active class hatao
+    link.classList.remove('active');
+    
+    var href = link.getAttribute('href');
+    if (href) {
+      var linkPage = href.split('/').pop();
+      // Agar current URL page match kare toh active underline yahan lagao
+      if (currentPath === linkPage || (currentPath === '' && linkPage === 'index.html')) {
+        link.classList.add('active');
+      }
+    }
+  });
+
   // ---- Mobile Toggle (Clean CSS Class Toggle) ----
   var toggle = document.querySelector('.mobile-toggle, .hamburger, .nav-toggle');
   var links = document.querySelector('nav.links, .nav-links');
@@ -11,7 +28,6 @@ document.addEventListener('DOMContentLoaded', function () {
   if (toggle && links) {
     toggle.addEventListener('click', function (e) {
       e.stopPropagation();
-      // Class toggle karein taakay CSS overrides kaam karein aur inline styles mess na karein
       links.classList.toggle('active');
     });
   }
@@ -25,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function () {
         
         var parentDropdown = a.parentElement;
         
-        // (Optional) Dusre sub-menus ko band karke sirf click waale ko open rakhta hai
+        // Dusre sub-menus ko band karke sirf click waale ko open rakhta hai
         document.querySelectorAll('.nav-dropdown').forEach(function(item) {
           if (item !== parentDropdown) {
             item.classList.remove('open');
