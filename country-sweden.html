@@ -18,24 +18,26 @@
 
 <header>
   <div class="nav">
+    <!-- Complete Logo Fix -->
     <a href="index.html" class="logo logo--plain">
-      <img src="/logo-nav.png" alt="HEDS International - Foreign Education Consultants" class="logo-img-header">
-      <div class="logo-text">
-        <span class="logo-name">HEDS International</span>
-      </div>
+      <img src="logo-footer.png" alt="HEDS International - Foreign Education Consultants" class="logo-img-header">
     </a>
-    <nav class="links">
+
+    <!-- Navigation Links Container -->
+    <nav class="links" id="mobile-nav-links">
+      <!-- Added Home Button -->
+      <a href="index.html" class="nav-link active">Home</a>
+
       <div class="nav-dropdown">
-        <a href="countries.html" class="active">Study Destinations <span class="caret">&#9662;</span></a>
+        <a href="countries.html">Study Destinations <span class="caret">&#9662;</span></a>
         <div class="nav-dropdown-menu">
-          <a href="country-sweden.html"><img src="https://flagcdn.com/w20/se.png" alt="">Sweden</a>
-          <a href="country-finland.html"><img src="https://flagcdn.com/w20/fi.png" alt="">Finland</a>
-          <a href="country-uk.html"><img src="https://flagcdn.com/w20/gb.png" alt="">United Kingdom</a>
-          <a href="country-china.html"><img src="https://flagcdn.com/w20/cn.png" alt="">China</a>
-          <a href="country-denmark.html"><img src="https://flagcdn.com/w20/dk.png" alt="">Denmark</a>
-          <a href="country-australia.html"><img src="https://flagcdn.com/w20/au.png" alt="">Australia</a>
-          <a href="country-newzealand.html"><img src="https://flagcdn.com/w20/nz.png" alt="">New Zealand</a>
-          <a href="country-cyprus.html"><img src="https://flagcdn.com/w20/cy.png" alt="">Cyprus</a>
+          <a href="country-sweden.html"><img src="https://flagcdn.com/w20/se.png" alt="Sweden">Sweden</a>
+          <a href="country-finland.html"><img src="https://flagcdn.com/w20/fi.png" alt="Finland">Finland</a>
+          <a href="country-uk.html"><img src="https://flagcdn.com/w20/gb.png" alt="UK">United Kingdom</a>
+          <a href="country-denmark.html"><img src="https://flagcdn.com/w20/dk.png" alt="Denmark">Denmark</a>
+          <a href="country-australia.html"><img src="https://flagcdn.com/w20/au.png" alt="Australia">Australia</a>
+          <a href="country-newzealand.html"><img src="https://flagcdn.com/w20/nz.png" alt="New Zealand">New Zealand</a>
+          <a href="country-cyprus.html"><img src="https://flagcdn.com/w20/cy.png" alt="Cyprus">Cyprus</a>
         </div>
       </div>
       <a href="services.html">Services</a>
@@ -43,10 +45,13 @@
       <a href="success-stories.html">Success Stories</a>
       <a href="blog.html">News & Updates</a>
     </nav>
+
     <div class="nav-right">
       <a href="virtual-counselling.html" class="btn btn-accent btn-sm">Virtual Counselling</a>
     </div>
-    <button class="mobile-toggle" aria-label="Menu">&#9776;</button>
+
+    <!-- Mobile Hamburger Button -->
+    <button class="mobile-toggle" id="hamburger-btn" type="button" aria-label="Menu">&#9776;</button>
   </div>
 </header>
 
