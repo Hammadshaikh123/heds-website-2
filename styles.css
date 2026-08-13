@@ -54,7 +54,7 @@
   .btn-accent{background:var(--blue);color:#fff;}
   .btn-accent:hover{box-shadow:0 10px 24px rgba(47,111,237,0.35);}
 
-/* HEADER UPDATED WITH MOBILE HAMBURGER FIX */
+/* HEADER UPDATED WITH MOBILE HAMBURGER & DROPDOWN MENU FIX */
 header {
   background: var(--navy);
   position: sticky;
@@ -71,6 +71,7 @@ header {
   max-width: 1360px;
   margin: 0 auto;
   gap: 20px;
+  position: relative;
 }
 
 /* WHITE ROUNDED LOGO BADGE (NO TEXT) */
@@ -123,7 +124,7 @@ header {
   display: block;
 }
 
-/* MOBILE HAMBURGER MENU VISIBILITY FIX */
+/* MOBILE HAMBURGER & MENU DROPDOWN FIX */
 @media (max-width: 991px) {
   .nav {
     padding: 12px 16px;
@@ -148,6 +149,50 @@ header {
 
   .logo-img-header {
     height: 42px !important; /* Mobile sizing balance */
+  }
+
+  /* MOBILE MENU LINKS DROPDOWN CONTAINER */
+  .nav-links,
+  .nav-menu,
+  .mobile-menu,
+  .nav ul {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--navy, #0B132B);
+    flex-direction: column;
+    padding: 20px;
+    gap: 16px;
+    display: none; /* Default Hidden */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    z-index: 100;
+  }
+
+  /* TOGGLE ACTIVE STATE - WHEN HAMBURGER IS CLICKED */
+  .nav-links.active,
+  .nav-menu.active,
+  .mobile-menu.active,
+  .nav ul.active,
+  .nav-links.open,
+  .nav-menu.open {
+    display: flex !important;
+  }
+
+  /* MOBILE NAVIGATION LINKS STYLING */
+  .nav-links a,
+  .nav-menu a,
+  .mobile-menu a,
+  .nav ul li a {
+    color: #ffffff !important;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 10px 0;
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    display: block;
   }
 }
 
